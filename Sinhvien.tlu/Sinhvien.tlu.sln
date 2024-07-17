@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinhvien.tlu", "Sinhvien.tlu.csproj", "{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.All|Any CPU.Build.0 = Release|Any CPU
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F662F07-E231-49C4-B29C-199DCBEFCCB1}
+	EndGlobalSection
+EndGlobal

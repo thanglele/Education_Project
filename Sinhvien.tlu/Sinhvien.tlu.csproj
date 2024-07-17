@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <RootNamespace>Sinhvien.tlu</RootNamespace>
+    <AssemblyName>Sinhvien.tlu</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo-thuyloi.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\Bunifu - laptrinhlibrary\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Login_form\Login_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_form\Login_form.Designer.cs">
+      <DependentUpon>Login_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mainboard\Mainboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainboard\Mainboard.Designer.cs">
+      <DependentUpon>Mainboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Semester_Infor\semester_infor.cs" />
+    <Compile Include="Subject_Information\Subject_Infor.cs" />
+    <Compile Include="Test\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Service\Update.cs" />
+    <EmbeddedResource Include="Login_form\Login_form.resx">
+      <DependentUpon>Login_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainboard\Mainboard.resx">
+      <DependentUpon>Mainboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Test\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Fonts\SVN-Avo bold italic.ttf" />
+    <None Include="Fonts\SVN-Avo bold.ttf" />
+    <None Include="Fonts\SVN-Avo italic.ttf" />
+    <None Include="Fonts\SVN-Avo.ttf" />
+    <None Include="obj\project.assets.json" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Release\Sinhvien.tlu.csproj.AssemblyReference.cache" />
+    <None Include="obj\Sinhvien.tlu.csproj.nuget.dgspec.json" />
+    <None Include="obj\Sinhvien.tlu.csproj.nuget.g.props" />
+    <None Include="obj\Sinhvien.tlu.csproj.nuget.g.targets" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\back_login.png" />
+    <Content Include="img\Button_login.png" />
+    <Content Include="img\login-side-back2.png" />
+    <Content Include="img\login-side-front.png" />
+    <Content Include="img\logo-thuyloi.ico" />
+    <Content Include="img\logo-thuyloi.png" />
+    <None Include="Resources\57546.png" />
+    <None Include="Resources\57545.png" />
+    <None Include="Resources\57544.png" />
+    <None Include="Resources\57543.png" />
+    <None Include="Resources\57542.png" />
+    <None Include="Resources\57541.png" />
+    <None Include="Resources\57540.png" />
+    <None Include="Resources\57539.png" />
+    <None Include="Resources\57538.png" />
+    <None Include="Resources\57537.png" />
+    <None Include="Resources\57536.png" />
+    <None Include="Resources\57535.png" />
+    <None Include="Resources\57534.png" />
+    <None Include="Resources\57533.png" />
+    <None Include="Resources\57532.png" />
+    <None Include="Resources\57531.png" />
+    <None Include="Resources\57530.png" />
+    <None Include="Resources\57529.png" />
+    <None Include="Resources\57528.png" />
+    <None Include="Resources\57527.png" />
+    <None Include="Resources\57526.png" />
+    <None Include="Resources\57525.png" />
+    <None Include="Resources\57524.png" />
+    <None Include="Resources\57523.png" />
+    <None Include="Resources\57522.png" />
+    <None Include="Resources\57521.png" />
+    <None Include="Resources\57520.png" />
+    <None Include="Resources\57519.png" />
+    <None Include="Resources\57518.png" />
+    <None Include="Resources\57517.png" />
+    <None Include="Resources\57516.png" />
+    <None Include="Resources\57515.png" />
+    <None Include="Resources\57514.png" />
+    <None Include="Resources\57513.png" />
+    <None Include="Resources\57512.png" />
+    <None Include="Resources\57511.png" />
+    <None Include="Resources\57510.png" />
+    <None Include="Resources\57509.png" />
+    <None Include="Resources\57508.png" />
+    <None Include="Resources\57507.png" />
+    <None Include="Resources\57506.png" />
+    <None Include="Resources\57505.png" />
+    <None Include="Resources\57504.png" />
+    <None Include="Resources\57503.png" />
+    <None Include="Resources\57502.png" />
+    <None Include="Resources\57501.png" />
+    <None Include="Resources\57500.png" />
+    <None Include="Resources\57499.png" />
+    <None Include="Resources\57498.png" />
+    <None Include="Resources\57497.png" />
+    <None Include="Resources\57496.png" />
+    <None Include="Resources\57495.png" />
+    <None Include="Resources\57494.png" />
+    <None Include="Resources\57493.png" />
+    <None Include="Resources\57492.png" />
+    <None Include="Resources\57491.png" />
+    <None Include="Resources\57490.png" />
+    <None Include="Resources\57489.png" />
+    <None Include="Resources\57488.png" />
+    <None Include="Resources\57487.png" />
+    <None Include="Resources\57486.png" />
+    <None Include="Resources\57485.png" />
+    <None Include="Resources\57484.png" />
+    <None Include="Resources\57483.png" />
+    <None Include="Resources\57482.png" />
+    <None Include="Resources\57481.png" />
+    <None Include="Resources\57480.png" />
+    <None Include="Resources\57479.png" />
+    <None Include="Resources\57478.png" />
+    <None Include="Resources\57477.png" />
+    <None Include="Resources\57476.png" />
+    <None Include="Resources\57475.png" />
+    <None Include="Resources\57474.png" />
+    <None Include="Resources\57473.png" />
+    <None Include="Resources\57472.png" />
+    <None Include="Resources\57471.png" />
+    <None Include="Resources\57470.png" />
+    <None Include="Resources\57469.png" />
+    <None Include="Resources\57468.png" />
+    <None Include="Resources\57467.png" />
+    <None Include="Resources\57466.png" />
+    <None Include="Resources\57465.png" />
+    <None Include="Resources\57464.png" />
+    <None Include="Resources\57463.png" />
+    <None Include="Resources\57462.png" />
+    <None Include="Resources\57461.png" />
+    <None Include="Resources\57460.png" />
+    <None Include="Resources\57459.png" />
+    <None Include="Resources\57458.png" />
+    <None Include="Resources\57457.png" />
+    <None Include="Resources\57456.png" />
+    <None Include="Resources\57455.png" />
+    <None Include="Resources\57454.png" />
+    <None Include="Resources\57453.png" />
+    <None Include="Resources\57452.png" />
+    <None Include="Resources\57451.png" />
+    <None Include="Resources\57450.png" />
+    <None Include="Resources\57449.png" />
+    <None Include="Resources\57448.png" />
+    <None Include="Resources\57447.png" />
+    <None Include="Resources\57446.png" />
+    <None Include="Resources\57445.png" />
+    <None Include="Resources\57444.png" />
+    <None Include="Resources\57443.png" />
+    <None Include="Resources\57442.png" />
+    <None Include="Resources\57441.png" />
+    <None Include="Resources\57440.png" />
+    <None Include="Resources\57439.png" />
+    <None Include="Resources\57438.png" />
+    <None Include="Resources\57437.png" />
+    <None Include="Resources\57436.png" />
+    <None Include="Resources\57435.png" />
+    <None Include="Resources\57434.png" />
+    <None Include="Resources\57433.png" />
+    <None Include="Resources\57432.png" />
+    <None Include="Resources\57431.png" />
+    <None Include="Resources\57430.png" />
+    <None Include="Resources\57429.png" />
+    <None Include="Resources\57428.png" />
+    <None Include="Resources\57427.png" />
+    <None Include="Resources\57426.png" />
+    <None Include="img\Screenshot %281%29.png" />
+    <Content Include="logo-thuyloi.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Core">
+      <Version>1.40.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reactive">
+      <Version>6.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
