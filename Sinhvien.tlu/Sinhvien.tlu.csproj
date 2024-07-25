@@ -83,12 +83,15 @@
     <Compile Include="Login_form\Login_form.Designer.cs">
       <DependentUpon>Login_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mainboard\CurrentUser.cs" />
     <Compile Include="Mainboard\Mainboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mainboard\Mainboard.Designer.cs">
       <DependentUpon>Mainboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mainboard\Schoolyears.cs" />
+    <Compile Include="Mainboard\Studentbylogin.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />

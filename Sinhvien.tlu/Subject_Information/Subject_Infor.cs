@@ -16,41 +16,41 @@ namespace Sinhvien.tlu.Mainboard
         public string createdBy { get; set; }
         public string modifyDate { get; set; }
         public string modifiedBy { get; set; }
-        public int id { get; set; }
-        public bool voided { get; set; }
+        public int? id { get; set; }
+        public bool? voided { get; set; } = false;
         public string code { get; set; }
         public string shortCode { get; set; }
-        public int subjectId { get; set; }
+        public int? subjectId { get; set; }
         public object subjectName { get; set; }
         public object subjectCode { get; set; }
         public object parent { get; set; }
         public object subCourseSubjects { get; set; }
-        public bool isUsingConfig { get; set; }
-        public bool isFullClass { get; set; }
+        public bool? isUsingConfig { get; set; } = false;
+        public bool? isFullClass { get; set; } = false;
         public object courseSubjectConfigs { get; set; }
         public List<Timetable> timetables { get; set; }
         public object semesterSubject { get; set; }
-        public int maxStudent { get; set; }
-        public int minStudent { get; set; }
-        public int numberStudent { get; set; }
+        public int? maxStudent { get; set; }
+        public int? minStudent { get; set; }
+        public int? numberStudent { get; set; }
         public object courseSubjectType { get; set; }
         public object learningSkillId { get; set; }
         public object learningSkillName { get; set; }
         public object learningSkillCode { get; set; }
-        public bool isSelected { get; set; }
+        public bool? isSelected { get; set; } = false;
         public object children { get; set; }
         public Dictionary<string, object> hashCourseSubjects { get; set; }
-        public bool expanded { get; set; }
-        public bool isGrantAll { get; set; }
-        public bool isDeniedAll { get; set; }
+        public bool? expanded { get; set; } = false;
+        public bool? isGrantAll { get; set; } = false;
+        public bool? isDeniedAll { get; set; } = false;
         public object trainingBase { get; set; }
-        public bool isOvelapTime { get; set; }
+        public bool? isOvelapTime { get; set; } = false;
         public List<string> overLapClasses { get; set; }
         public object courseYearId { get; set; }
         public object courseYearCode { get; set; }
         public object courseYearName { get; set; }
         public string displayName { get; set; }
-        public int numberOfCredit { get; set; }
+        public int? numberOfCredit { get; set; }
         public object isFeeByCourseSubject { get; set; }
         public object feePerCredit { get; set; }
         public object tuitionCoefficient { get; set; }
@@ -65,7 +65,7 @@ namespace Sinhvien.tlu.Mainboard
         public object startDate { get; set; }
         public object endDate { get; set; }
         public object learningMethod { get; set; }
-        public int status { get; set; }
+        public int? status { get; set; }
         public object subjectExams { get; set; }
         public object semesterId { get; set; }
         public object semesterCode { get; set; }
@@ -74,9 +74,9 @@ namespace Sinhvien.tlu.Mainboard
         public object username { get; set; }
         public object actionTime { get; set; }
         public object logContent { get; set; }
-        public int numberLearningSkill { get; set; }
-        public int numberSubCourseSubject { get; set; }
-        public bool check { get; set; }
+        public int? numberLearningSkill { get; set; }
+        public int? numberSubCourseSubject { get; set; }
+        public bool? check { get; set; } = false;
     }
     public class Subject_Preview
     {
@@ -95,10 +95,10 @@ namespace Sinhvien.tlu.Mainboard
         public string ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
-        public int StudentId { get; set; }
+        public bool? Voided { get; set; } = false;
+        public int? StudentId { get; set; }
         public int? SemesterId { get; set; }
-        public int PeriodId { get; set; }
+        public int? PeriodId { get; set; }
         public int? ClassId { get; set; }
         //public Student Student { get; set; }
         public CourseRegisterViewObject CourseRegisterViewObject { get; set; }
@@ -151,7 +151,7 @@ namespace Sinhvien.tlu.Mainboard
         public string FatherBirthDateString { get; set; }
         public DateTime? MotherBirthDate { get; set; }
         public string MotherBirthDateString { get; set; }
-        public bool? IsBoarder { get; set; }
+        public bool? IsBoarder { get; set; } = false;
         public Profession FatherProfession { get; set; }
         public Profession MotherProfession { get; set; }
         public string FatherPhoneNumber { get; set; }
@@ -168,10 +168,10 @@ namespace Sinhvien.tlu.Mainboard
         public object User { get; set; }
         public object CandidateProfile { get; set; }
         public object Status { get; set; }
-        public bool UpdateStatus { get; set; }
-        public bool IsStatusStudentExamRoom { get; set; }
-        public bool IsHave { get; set; }
-        public bool IsExempt { get; set; }
+        public bool? UpdateStatus { get; set; } = false;
+        public bool? IsStatusStudentExamRoom { get; set; } = false;
+        public bool? IsHave { get; set; } = false;
+        public bool? IsExempt { get; set; } = false;
         public int? CourseYear { get; set; }
         public string Department { get; set; }
         public string Speciality { get; set; }
@@ -180,8 +180,8 @@ namespace Sinhvien.tlu.Mainboard
         public string SpecialityParentEn { get; set; }
         public string ClassName { get; set; }
         public string ClassCode { get; set; }
-        public bool? IsAbleToGraduate { get; set; }
-        public bool? IsInGraduateList { get; set; }
+        public bool? IsAbleToGraduate { get; set; } = false;
+        public bool? IsInGraduateList { get; set; } = false;
         public object SubjectStatus { get; set; }
         public int? StudentCourseSubjectId { get; set; }
         public object ViewStudentVoucherReceivePayDto { get; set; }
@@ -194,9 +194,9 @@ namespace Sinhvien.tlu.Mainboard
         public string StatusName { get; set; }
         public string StatusSemesterName { get; set; }
         public string Note { get; set; }
-        public int StudentType { get; set; }
+        public int? StudentType { get; set; }
         public decimal? PayedAdmissionFee { get; set; }
-        public bool? UserActive { get; set; }
+        public bool? UserActive { get; set; } = false;
     }
 
     public class address
@@ -206,7 +206,7 @@ namespace Sinhvien.tlu.Mainboard
         public string state { get; set; }
         public string postalCode { get; set; }
         public string country { get; set; }
-        public bool isPrimary { get; set; }
+        public bool? isPrimary { get; set; } = false;
         public string addressType { get; set; } // Residential, Office, etc.
     }
 
@@ -217,13 +217,13 @@ namespace Sinhvien.tlu.Mainboard
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
         public string DupName { get; set; }
         public string DupCode { get; set; }
-        public bool Duplicate { get; set; }
+        public bool? Duplicate { get; set; } = false;
     }
 
     public class EnrollmentClass
@@ -233,24 +233,24 @@ namespace Sinhvien.tlu.Mainboard
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string ClassName { get; set; }
         public string ClassCode { get; set; }
         public string SchoolYear { get; set; }
         public string Department { get; set; }
         public string Speciality { get; set; }
-        public int RetCode { get; set; }
+        public int? RetCode { get; set; }
         public int? CourseYear { get; set; }
         public int? NumberOfStudent { get; set; }
         public int? NumberOfFemale { get; set; }
         public int? NumberOfBoarding { get; set; }
         public object Teacher { get; set; }
         public object TrainingBase { get; set; }
-        public int PageIndex { get; set; }
-        public int PageSize { get; set; }
-        public int NumberOfClasses { get; set; }
+        public int? PageIndex { get; set; }
+        public int? PageSize { get; set; }
+        public int? NumberOfClasses { get; set; }
         public object Program { get; set; }
-        public bool DuplicateCode { get; set; }
+        public bool? DuplicateCode { get; set; } = false;
     }
 
     public class Program
@@ -260,11 +260,11 @@ namespace Sinhvien.tlu.Mainboard
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string ProgramName { get; set; }
         public string ProgramCode { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; } = false;
     }
 
     public class CourseRegisterViewObject
@@ -287,9 +287,9 @@ namespace Sinhvien.tlu.Mainboard
     public class SubjectRegistrationDto
     {
         public string SubjectName { get; set; }
-        //public int RegisterPeriodId { get; set; }
-        //public bool HasParaSubject { get; set; }
-        //public bool IsForcedRegType { get; set; }
+        //public int? RegisterPeriodId { get; set; }
+        //public bool? HasParaSubject { get; set; }
+        //public bool? IsForcedRegType { get; set; }
         //public object ParaSubjects { get; set; }
         //public object DependSubjectNames { get; set; }
         public List<CourseSubjectDto> CourseSubjectDtos { get; set; }
@@ -302,11 +302,11 @@ namespace Sinhvien.tlu.Mainboard
         public string CreatedBy { get; set; }
         public string ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
-        public int Id { get; set; }
-        public bool Voided { get; set; }
+        public int? Id { get; set; }
+        public bool? Voided { get; set; } = false;
         public string Code { get; set; }
         public string ShortCode { get; set; }
-        public int SubjectId { get; set; }
+        public int? SubjectId { get; set; }
         public object SubjectName { get; set; }
         public object SubjectCode { get; set; }
         public object Parent { get; set; }
@@ -316,9 +316,9 @@ namespace Sinhvien.tlu.Mainboard
         public object CourseSubjectConfigs { get; set; }
         public List<Timetable> Timetables { get; set; }
         public object SemesterSubject { get; set; }
-        public int MaxStudent { get; set; }
-        public int MinStudent { get; set; }
-        public int NumberStudent { get; set; }
+        public int? MaxStudent { get; set; }
+        public int? MinStudent { get; set; }
+        public int? NumberStudent { get; set; }
         public object CourseSubjectType { get; set; }
         public object LearningSkillId { get; set; }
         public object LearningSkillName { get; set; }
@@ -326,17 +326,17 @@ namespace Sinhvien.tlu.Mainboard
         public bool IsSelected { get; set; }
         public object Children { get; set; }
         public Dictionary<string, object> HashCourseSubjects { get; set; }
-        public bool Expanded { get; set; }
-        public bool IsGrantAll { get; set; }
-        public bool IsDeniedAll { get; set; }
+        public bool Expanded { get; set; } = false;
+        public bool IsGrantAll { get; set; } = false;
+        public bool IsDeniedAll { get; set; } = false;
         public object TrainingBase { get; set; }
-        public bool IsOvelapTime { get; set; }
+        public bool IsOvelapTime { get; set; } = false;
         public List<string> OverLapClasses { get; set; }
         public object CourseYearId { get; set; }
         public object CourseYearCode { get; set; }
         public object CourseYearName { get; set; }
         public string DisplayName { get; set; }
-        public int NumberOfCredit { get; set; }
+        public int? NumberOfCredit { get; set; }
         public object IsFeeByCourseSubject { get; set; }
         public object FeePerCredit { get; set; }
         public object TuitionCoefficient { get; set; }
@@ -351,7 +351,7 @@ namespace Sinhvien.tlu.Mainboard
         public object StartDate { get; set; }
         public object EndDate { get; set; }
         public object LearningMethod { get; set; }
-        public int Status { get; set; }
+        public int? Status { get; set; }
         public object SubjectExams { get; set; }
         public object SemesterId { get; set; }
         public object SemesterCode { get; set; }
@@ -361,8 +361,8 @@ namespace Sinhvien.tlu.Mainboard
         public object ActionTime { get; set; }
         public object LogContent { get; set; }
         public bool Check { get; set; }
-        public int NumberSubCourseSubject { get; set; }
-        public int NumberLearningSkill { get; set; }
+        public int? NumberSubCourseSubject { get; set; }
+        public int? NumberLearningSkill { get; set; }
     }
 
     public class SubCourseSubjects
@@ -371,41 +371,41 @@ namespace Sinhvien.tlu.Mainboard
         public string CreatedBy { get; set; }
         public string ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
-        public int Id { get; set; }
-        public bool Voided { get; set; }
+        public int? Id { get; set; }
+        public bool? Voided { get; set; } = false;
         public string Code { get; set; }
         public string ShortCode { get; set; }
-        public int SubjectId { get; set; }
+        public int? SubjectId { get; set; }
         public object SubjectName { get; set; }
         public object SubjectCode { get; set; }
         public object Parent { get; set; }
         //public object SubCourseSubjects { get; set; }
-        public bool IsUsingConfig { get; set; }
-        public bool IsFullClass { get; set; }
+        public bool? IsUsingConfig { get; set; } = false;
+        public bool IsFullClass { get; set; } = false;
         public object CourseSubjectConfigs { get; set; }
         public List<Timetable> Timetables { get; set; }
         public object SemesterSubject { get; set; }
-        public int MaxStudent { get; set; }
-        public int MinStudent { get; set; }
-        public int NumberStudent { get; set; }
+        public int? MaxStudent { get; set; }
+        public int? MinStudent { get; set; }
+        public int? NumberStudent { get; set; }
         public object CourseSubjectType { get; set; }
         public object LearningSkillId { get; set; }
         public object LearningSkillName { get; set; }
         public object LearningSkillCode { get; set; }
-        public bool IsSelected { get; set; }
+        public bool IsSelected { get; set; } = false;
         public object Children { get; set; }
         public Dictionary<string, object> HashCourseSubjects { get; set; }
-        public bool Expanded { get; set; }
-        public bool IsGrantAll { get; set; }
-        public bool IsDeniedAll { get; set; }
+        public bool? Expanded { get; set; } = false;
+        public bool IsGrantAll { get; set; } = false;
+        public bool IsDeniedAll { get; set; } = false;
         public object TrainingBase { get; set; }
-        public bool IsOvelapTime { get; set; }
+        public bool IsOvelapTime { get; set; } = false;
         public List<string> OverLapClasses { get; set; }
         public object CourseYearId { get; set; }
         public object CourseYearCode { get; set; }
         public object CourseYearName { get; set; }
         public string DisplayName { get; set; }
-        public int NumberOfCredit { get; set; }
+        public int? NumberOfCredit { get; set; }
         public object IsFeeByCourseSubject { get; set; }
         public object FeePerCredit { get; set; }
         public object TuitionCoefficient { get; set; }
@@ -420,7 +420,7 @@ namespace Sinhvien.tlu.Mainboard
         public object StartDate { get; set; }
         public object EndDate { get; set; }
         public object LearningMethod { get; set; }
-        public int Status { get; set; }
+        public int? Status { get; set; }
         public object SubjectExams { get; set; }
         public object SemesterId { get; set; }
         public object SemesterCode { get; set; }
@@ -429,23 +429,23 @@ namespace Sinhvien.tlu.Mainboard
         public object Username { get; set; }
         public object ActionTime { get; set; }
         public object LogContent { get; set; }
-        public bool Check { get; set; }
-        public int NumberSubCourseSubject { get; set; }
-        public int NumberLearningSkill { get; set; }
+        public bool? Check { get; set; } = false;
+        public int? NumberSubCourseSubject { get; set; }
+        public int? NumberLearningSkill { get; set; }
     }
 
     public class Timetable
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public hour endHour { get; set; }
         public hour startHour { get; set; }
         public Teacher teacher { get; set; }
         public Teacher assistantTeacher { get; set; }
         public room room { get; set; }
-        public int weekIndex { get; set; }
-        public int fromWeek { get; set; }
+        public int? weekIndex { get; set; }
+        public int? fromWeek { get; set; }
         public string FromWeekStr { get; set; }
-        public int toWeek { get; set; }
+        public int? toWeek { get; set; }
         public string ToWeekStr { get; set; }
         public string start { get; set; }
         public string end { get; set; }
@@ -462,18 +462,18 @@ namespace Sinhvien.tlu.Mainboard
         public string subjectName { get; set; }
         public string courseSubjectCode { get; set; }
         public int? courseSubjectId { get; set; }
-        public bool group_by_key { get; set; }
+        public bool? group_by_key { get; set; } = false;
     }
 
     public class hour
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public string name { get; set; }
         public object start { get; set; }
         public string startString { get; set; }
         public long? end { get; set; }
         public string endString { get; set; }
-        public int indexNumber { get; set; }
+        public int? indexNumber { get; set; }
         public object type { get; set; }
     }
 
@@ -483,7 +483,7 @@ namespace Sinhvien.tlu.Mainboard
         public string createdBy { get; set; }
         public DateTime? codifyDate { get; set; }
         public string modifiedBy { get; set; }
-        public int id { get; set; }
+        public int? id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string displayName { get; set; }
@@ -524,7 +524,7 @@ namespace Sinhvien.tlu.Mainboard
 
     public class room
     {
-        public int id { get; set; }
+        public int? id { get; set; }
         public string name { get; set; }
         public string code { get; set; }
         public int? capacity { get; set; }
@@ -532,7 +532,7 @@ namespace Sinhvien.tlu.Mainboard
         public object building { get; set; }
         public string dupName { get; set; }
         public string dupCode { get; set; }
-        public bool duplicate { get; set; }
+        public bool? duplicate { get; set; } = false;
     }
 
     public class position
@@ -542,11 +542,11 @@ namespace Sinhvien.tlu.Mainboard
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string PositionName { get; set; }
         public string PositionCode { get; set; }
         public string Description { get; set; }
-        public bool IsPrimary { get; set; }
+        public bool? IsPrimary { get; set; } = false;
     }
 
     public class agreement
@@ -556,12 +556,12 @@ namespace Sinhvien.tlu.Mainboard
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string AgreementType { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; } = false;
     }
 
 }

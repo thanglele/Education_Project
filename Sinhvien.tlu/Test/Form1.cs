@@ -143,7 +143,7 @@ public class Subject_Preview
     public string IsOvelapTime { get; set; }
     public string Information { get; set; }
     public string numberstudent { get; set; }
-    public bool isSelected { get; set; }
+    public bool? isSelected { get; set; } = false;
 }
 
 public class RegisterPeriod
@@ -153,10 +153,10 @@ public class RegisterPeriod
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
-        public int StudentId { get; set; }
+        public bool? Voided { get; set; } = false;
+        public int? StudentId { get; set; }
         public int? SemesterId { get; set; }
-        public int PeriodId { get; set; }
+        public int? PeriodId { get; set; }
         public int? ClassId { get; set; }
         public Student Student { get; set; }
         public CourseRegisterViewObject CourseRegisterViewObject { get; set; }
@@ -209,7 +209,7 @@ public class Student
         public string FatherBirthDateString { get; set; }
         public DateTime? MotherBirthDate { get; set; }
         public string MotherBirthDateString { get; set; }
-        public bool? IsBoarder { get; set; }
+        public bool? IsBoarder { get; set; } = false;
         public Profession FatherProfession { get; set; }
         public Profession MotherProfession { get; set; }
         public string FatherPhoneNumber { get; set; }
@@ -226,10 +226,10 @@ public class Student
         public object User { get; set; }
         public object CandidateProfile { get; set; }
         public object Status { get; set; }
-        public bool UpdateStatus { get; set; }
-        public bool IsStatusStudentExamRoom { get; set; }
-        public bool IsHave { get; set; }
-        public bool IsExempt { get; set; }
+        public bool? UpdateStatus { get; set; } = false;
+        public bool? IsStatusStudentExamRoom { get; set; } = false;
+        public bool? IsHave { get; set; } = false;
+        public bool? IsExempt { get; set; } = false;
         public int? CourseYear { get; set; }
         public string Department { get; set; }
         public string Speciality { get; set; }
@@ -238,8 +238,8 @@ public class Student
         public string SpecialityParentEn { get; set; }
         public string ClassName { get; set; }
         public string ClassCode { get; set; }
-        public bool? IsAbleToGraduate { get; set; }
-        public bool? IsInGraduateList { get; set; }
+        public bool? IsAbleToGraduate { get; set; } = false;
+        public bool? IsInGraduateList { get; set; } = false;
         public object SubjectStatus { get; set; }
         public int? StudentCourseSubjectId { get; set; }
         public object ViewStudentVoucherReceivePayDto { get; set; }
@@ -252,9 +252,9 @@ public class Student
         public string StatusName { get; set; }
         public string StatusSemesterName { get; set; }
         public string Note { get; set; }
-        public int StudentType { get; set; }
+        public int? StudentType { get; set; }
         public decimal? PayedAdmissionFee { get; set; }
-        public bool? UserActive { get; set; }
+        public bool? UserActive { get; set; } = false;
     }
 
 public class Address
@@ -264,7 +264,7 @@ public class Address
         public string State { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
-        public bool IsPrimary { get; set; }
+        public bool? IsPrimary { get; set; } = false;
         public string AddressType { get; set; } // Residential, Office, etc.
     }
 
@@ -275,13 +275,13 @@ public class Profession
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string Name { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
         public string DupName { get; set; }
         public string DupCode { get; set; }
-        public bool Duplicate { get; set; }
+        public bool? Duplicate { get; set; } = false;
     }
 
 public class EnrollmentClass
@@ -291,24 +291,24 @@ public class EnrollmentClass
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string ClassName { get; set; }
         public string ClassCode { get; set; }
         public string SchoolYear { get; set; }
         public string Department { get; set; }
         public string Speciality { get; set; }
-        public int RetCode { get; set; }
+        public int? RetCode { get; set; }
         public int? CourseYear { get; set; }
         public int? NumberOfStudent { get; set; }
         public int? NumberOfFemale { get; set; }
         public int? NumberOfBoarding { get; set; }
         public object Teacher { get; set; }
         public object TrainingBase { get; set; }
-        public int PageIndex { get; set; }
-        public int PageSize { get; set; }
-        public int NumberOfClasses { get; set; }
+        public int? PageIndex { get; set; }
+        public int? PageSize { get; set; }
+        public int? NumberOfClasses { get; set; }
         public object Program { get; set; }
-        public bool DuplicateCode { get; set; }
+        public bool? DuplicateCode { get; set; } = false;
     }
 
 public class Program
@@ -318,16 +318,16 @@ public class Program
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string ProgramName { get; set; }
         public string ProgramCode { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; } = false;
     }
 
 public class CourseRegisterViewObject
     {
-        public bool IsAllowUnRegister { get; set; }
+        public bool? IsAllowUnRegister { get; set; } = false;
         public long StartDate { get; set; }
         public long EndDate { get; set; }
         public string StartDateString { get; set; }
@@ -342,9 +342,9 @@ public class CourseRegisterViewObject
 public class SubjectRegistrationDto
     {
         public string SubjectName { get; set; }
-        public int RegisterPeriodId { get; set; }
-        public bool HasParaSubject { get; set; }
-        public bool IsForcedRegType { get; set; }
+        public int? RegisterPeriodId { get; set; }
+        public bool? HasParaSubject { get; set; } = false;
+        public bool? IsForcedRegType { get; set; } = false;
         public object ParaSubjects { get; set; }
         public object DependSubjectNames { get; set; }
         public List<CourseSubjectDto> CourseSubjectDtos { get; set; }
@@ -357,33 +357,33 @@ public class CourseSubjectDto
         public string CreatedBy { get; set; }
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
-        public int Id { get; set; }
-        public bool Voided { get; set; }
+        public int? Id { get; set; }
+        public bool? Voided { get; set; } = false;
         public string Code { get; set; }
         public string ShortCode { get; set; }
-        public int SubjectId { get; set; }
+        public int? SubjectId { get; set; }
         public object SubjectName { get; set; }
         public object SubjectCode { get; set; }
         public object Parent { get; set; }
         public List<SubCourseSubjects> SubCourseSubjects { get; set; }
-        public bool IsUsingConfig { get; set; }
+        public bool? IsUsingConfig { get; set; } = false;
         public bool IsFullClass { get; set; }
         public object CourseSubjectConfigs { get; set; }
         public List<Timetable> Timetables { get; set; }
         public object SemesterSubject { get; set; }
-        public int MaxStudent { get; set; }
-        public int MinStudent { get; set; }
-        public int NumberStudent { get; set; }
+        public int? MaxStudent { get; set; }
+        public int? MinStudent { get; set; }
+        public int? NumberStudent { get; set; }
         public object CourseSubjectType { get; set; }
         public object LearningSkillId { get; set; }
         public object LearningSkillName { get; set; }
         public object LearningSkillCode { get; set; }
-        public bool IsSelected { get; set; }
+        public bool? IsSelected { get; set; } = false;
         public object Children { get; set; }
         public Dictionary<string, object> HashCourseSubjects { get; set; }
-        public bool Expanded { get; set; }
-        public bool IsGrantAll { get; set; }
-        public bool IsDeniedAll { get; set; }
+        public bool? Expanded { get; set; } = false;
+        public bool? IsGrantAll { get; set; } = false;
+        public bool? IsDeniedAll { get; set; } = false;
         public object TrainingBase { get; set; }
         public bool IsOvelapTime { get; set; }
         public List<string> OverLapClasses { get; set; }
@@ -391,7 +391,7 @@ public class CourseSubjectDto
         public object CourseYearCode { get; set; }
         public object CourseYearName { get; set; }
         public string DisplayName { get; set; }
-        public int NumberOfCredit { get; set; }
+        public int? NumberOfCredit { get; set; }
         public object IsFeeByCourseSubject { get; set; }
         public object FeePerCredit { get; set; }
         public object TuitionCoefficient { get; set; }
@@ -406,7 +406,7 @@ public class CourseSubjectDto
         public object StartDate { get; set; }
         public object EndDate { get; set; }
         public object LearningMethod { get; set; }
-        public int Status { get; set; }
+        public int? Status { get; set; }
         public object SubjectExams { get; set; }
         public object SemesterId { get; set; }
         public object SemesterCode { get; set; }
@@ -415,9 +415,9 @@ public class CourseSubjectDto
         public object Username { get; set; }
         public object ActionTime { get; set; }
         public object LogContent { get; set; }
-        public bool Check { get; set; }
-        public int NumberSubCourseSubject { get; set; }
-        public int NumberLearningSkill { get; set; }
+        public bool? Check { get; set; } = false;
+        public int? NumberSubCourseSubject { get; set; }
+        public int? NumberLearningSkill { get; set; }
     }
 
 public class SubCourseSubjects
@@ -425,9 +425,9 @@ public class SubCourseSubjects
     public string Code { get; set; }
     public string ShortCode { get; set; }
     public bool IsFullClass { get; set; }
-    public int MaxStudent { get; set; }
-    public int MinStudent { get; set; }
-    public int NumberStudent { get; set; }
+    public int? MaxStudent { get; set; }
+    public int? MinStudent { get; set; }
+    public int? NumberStudent { get; set; }
     public bool IsOvelapTime { get; set; }
     public bool IsSelected { get; set; }
     public string DisplayName { get; set; }
@@ -436,16 +436,16 @@ public class SubCourseSubjects
 
 public class Timetable
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public Hour EndHour { get; set; }
         public Hour StartHour { get; set; }
         public Teacher Teacher { get; set; }
         public Teacher AssistantTeacher { get; set; }
         public Room Room { get; set; }
-        public int WeekIndex { get; set; }
-        public int FromWeek { get; set; }
+        public int? WeekIndex { get; set; }
+        public int? FromWeek { get; set; }
         public string FromWeekStr { get; set; }
-        public int ToWeek { get; set; }
+        public int? ToWeek { get; set; }
         public string ToWeekStr { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
@@ -454,8 +454,8 @@ public class Timetable
         public string RoomCode { get; set; }
         public string StaffCode { get; set; }
         public string AssistantStaffCode { get; set; }
-        public int CourseHourseStartCode { get; set; }
-        public int CourseHourseEndCode { get; set; }
+        public int? CourseHourseStartCode { get; set; }
+        public int? CourseHourseEndCode { get; set; }
         public int? NumberHours { get; set; }
         public long? StartDate { get; set; }
         public long? EndDate { get; set; }
@@ -466,13 +466,13 @@ public class Timetable
 
 public class Hour
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public object Start { get; set; }
         public string StartString { get; set; }
         public long? End { get; set; }
         public string EndString { get; set; }
-        public int IndexNumber { get; set; }
+        public int? IndexNumber { get; set; }
         public object Type { get; set; }
     }
 
@@ -482,7 +482,7 @@ public class Teacher
         public string CreatedBy { get; set; }
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string DisplayName { get; set; }
@@ -523,7 +523,7 @@ public class Teacher
 
 public class Room
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public int? Capacity { get; set; }
@@ -531,7 +531,7 @@ public class Room
         public object Building { get; set; }
         public string DupName { get; set; }
         public string DupCode { get; set; }
-        public bool Duplicate { get; set; }
+        public bool? Duplicate { get; set; } = false;
     }
 
 public class Position
@@ -541,11 +541,11 @@ public class Position
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string PositionName { get; set; }
         public string PositionCode { get; set; }
         public string Description { get; set; }
-        public bool IsPrimary { get; set; }
+        public bool? IsPrimary { get; set; } = false;
     }
 
 public class Agreement
@@ -555,10 +555,10 @@ public class Agreement
         public DateTime? ModifyDate { get; set; }
         public string ModifiedBy { get; set; }
         public int? Id { get; set; }
-        public bool Voided { get; set; }
+        public bool? Voided { get; set; } = false;
         public string AgreementType { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; } = false;
     }

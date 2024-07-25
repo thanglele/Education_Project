@@ -13,15 +13,16 @@ namespace Sinhvien.tlu.Mainboard
 {
     public partial class System_Main : Form
     {
+        HttpClient client = new HttpClient();
+        HttpResponseMessage response;
+
         private bool blockUI = false;
         private dynamic tokenData;
-        private string getCurrentUser_raw, getstudentbylogin_raw;
-        private JObject getCurrentUser, getstudentbylogin, person, address;
-        private string id, personId, username, firstName, lastName, displayName, birthDateString, birthPlace, gender, phoneNumber, idNumber, idNumberIssueBy,
-            idNumberIssueDateString, email, address_mini;
         private string schoolyearsId, SemesterID, registerPeriodId;
-        private RegisterPeriod rootObject;
+        private RegisterPeriod RegisterPeriod;
         private SubjectRegistrationDto selectedSubject;
+        private CurrentUser_Root currentUser;
+        private Studentbylogin_Root studentbylogin;
         private string server, port;
         public string Work_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Education\\";
 
@@ -29,12 +30,12 @@ namespace Sinhvien.tlu.Mainboard
         {
             try
             {
-                rootObject = JsonConvert.DeserializeObject<RegisterPeriod>(jsonContent);
+                RegisterPeriod = JsonConvert.DeserializeObject<RegisterPeriod>(jsonContent);
 
-                StartDate_Reg.Text = "Ngày bắt đầu: " + rootObject.CourseRegisterViewObject.StartDateString;
-                EndDate_Reg.Text = "Ngày kết thúc: " + rootObject.CourseRegisterViewObject.EndDateString;
+                StartDate_Reg.Text = "Ngày bắt đầu: " + RegisterPeriod.CourseRegisterViewObject.StartDateString;
+                EndDate_Reg.Text = "Ngày kết thúc: " + RegisterPeriod.CourseRegisterViewObject.EndDateString;
 
-                List<SubjectRegistrationDto> subjects = rootObject.CourseRegisterViewObject.ListSubjectRegistrationDtos;
+                List<SubjectRegistrationDto> subjects = RegisterPeriod.CourseRegisterViewObject.ListSubjectRegistrationDtos;
                 List_Subject.DataSource = subjects;
 
                 List_Subject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -175,38 +176,14 @@ namespace Sinhvien.tlu.Mainboard
         {
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
-            HttpClient client = new HttpClient();
-            string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/users/getCurrentUser";
-            string bearerToken = tokenData.access_token;
-
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-            HttpResponseMessage response = client.GetAsync(url).Result;
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/users/getCurrentUser").Result;
 
             this.Cursor = System.Windows.Forms.Cursors.Default;
 
             if (response.IsSuccessStatusCode)
             {
-                getCurrentUser_raw = response.Content.ReadAsStringAsync().Result;
-                File.WriteAllText(Work_path + "Account\\getcurrentuser.txt", getCurrentUser_raw);
-
-                getCurrentUser = JObject.Parse(getCurrentUser_raw);
-                person = (JObject)getCurrentUser["person"];
-
-                id = (string)getCurrentUser["id"];
-                personId = (string)person["id"];
-                username = (string)getCurrentUser["username"];
-                firstName = (string)person["firstName"];
-                lastName = (string)person["lastName"];
-                displayName = (string)person["displayName"];
-                birthDateString = (string)person["birthDateString"];
-                birthPlace = (string)person["birthPlace"];
-                gender = (string)person["gender"];
-                phoneNumber = (string)person["phoneNumber"];
-                idNumber = (string)person["idNumber"];
-                idNumberIssueBy = (string)person["idNumberIssueBy"];
-                idNumberIssueDateString = (string)person["idNumberIssueDateString"];
-                email = (string)person["email"];
-                address_mini = (string)person["address_mini"];
+                File.WriteAllText(Work_path + "Account\\getcurrentuser.txt", response.Content.ReadAsStringAsync().Result);
+                currentUser = JsonConvert.DeserializeObject<CurrentUser_Root>(response.Content.ReadAsStringAsync().Result);
             }
             else
             {
@@ -218,23 +195,16 @@ namespace Sinhvien.tlu.Mainboard
         {
             Static_loading.Text = "Đang lấy thông tin tài khoản...";
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-
-            HttpClient client = new HttpClient();
-            string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/student/getstudentbylogin";
-            string bearerToken = tokenData.access_token;
-
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-            HttpResponseMessage response = client.GetAsync(url).Result;
+            
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/student/getstudentbylogin").Result;
 
             Static_loading.Text = "";
             this.Cursor = System.Windows.Forms.Cursors.Default;
 
             if (response.IsSuccessStatusCode)
             {
-                getstudentbylogin_raw = response.Content.ReadAsStringAsync().Result;
-                getstudentbylogin = JObject.Parse(getstudentbylogin_raw);
-                File.WriteAllText(Work_path + "Account\\getstudentbylogin.txt", getstudentbylogin_raw);
-                textBox1.Text = getstudentbylogin_raw;
+                File.WriteAllText(Work_path + "Account\\getstudentbylogin.txt", response.Content.ReadAsStringAsync().Result);
+                studentbylogin = JsonConvert.DeserializeObject<Studentbylogin_Root>(response.Content.ReadAsStringAsync().Result);
             }
             else
             {
@@ -297,19 +267,14 @@ namespace Sinhvien.tlu.Mainboard
         {
             try
             {
-                string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/cs_reg_mongo/add-register/" + personId + "/" + registerPeriodId;
-                string bearerToken = tokenData.access_token;
+                HttpContent content = new StringContent(register, Encoding.UTF8, "application/json");
+                response = client.PostAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                    "/education/api/cs_reg_mongo/add-register/" + currentUser.person.id + "/" + registerPeriodId
+                    , content).Result;
+                JObject respond = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+                Static_loading.Text = (string)respond["message"] + ", Mã trạng thái: " + (string)respond["status"];
 
-                using (HttpClient client = new HttpClient())
-                {
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-
-                    HttpContent content = new StringContent(register, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = client.PostAsync(url, content).Result;
-                    var respond = JObject.Parse(response.Content.ReadAsStringAsync().Result);
-                    get_findByPeriod();
-                    Static_loading.Text = (string)respond["message"] + ", Mã trạng thái: " + (string)respond["status"];
-                }
+                get_findByPeriod();
             }
             catch (Exception)
             {
@@ -322,35 +287,27 @@ namespace Sinhvien.tlu.Mainboard
         {
             try
             {
-                string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/cs_reg_mongo/remove-register/" + personId + "/" + registerPeriodId;
-                string bearerToken = tokenData.access_token;
+                response = client.SendAsync(new HttpRequestMessage {
+                    Method = HttpMethod.Delete,
+                    RequestUri = new Uri("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                    "/education/api/cs_reg_mongo/remove-register/" + currentUser.person.id + "/" + registerPeriodId),
+                    Content = new StringContent(register, Encoding.UTF8, "application/json")
+                }).Result;
 
-                using (HttpClient client = new HttpClient())
+                var respond = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+
+                if ((string)respond["status"] == "0")
                 {
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-
-                    var request = new HttpRequestMessage
-                    {
-                        Method = HttpMethod.Delete,
-                        RequestUri = new Uri(url),
-                        Content = new StringContent(register, Encoding.UTF8, "application/json")
-                    };
-
-                    HttpResponseMessage response = client.SendAsync(request).Result;
-                    var respond = JObject.Parse(response.Content.ReadAsStringAsync().Result);
-                    //MessageBox.Show(Convert.ToString(respond), url);
-                    get_findByPeriod();
-                    if ((string)respond["status"] == "0")
-                    {
-                        Static_loading.Text = "Môn học đã được hủy thành công!";
-                    }
-                    else
-                    {
-                        Static_loading.Text = "Môn học hủy không thành công" + ", Mã trạng thái: " + (string)respond["status"];
-                    }
+                    Static_loading.Text = "Môn học đã được hủy thành công!";
                 }
+                else
+                {
+                    Static_loading.Text = "Môn học hủy không thành công" + ", Mã trạng thái: " + (string)respond["status"];
+                }
+
+                get_findByPeriod();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Static_loading.Text = "Có lỗi xảy ra, hãy thực hiện lại thao tác!";
             }
@@ -360,27 +317,21 @@ namespace Sinhvien.tlu.Mainboard
         private void get_findByPeriod()
         {
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            HttpClient client = new HttpClient();
-            string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/cs_reg_mongo/findByPeriod/" + personId + "/" + registerPeriodId;
-            string bearerToken = tokenData.access_token;
-
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
             try
             {
-                HttpResponseMessage response = client.GetAsync(url).Result;
+                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                    "/education/api/cs_reg_mongo/findByPeriod/" + currentUser.person.id + "/" + registerPeriodId).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string registerPeriodId_raw = response.Content.ReadAsStringAsync().Result;
-
                     if (!Directory.Exists(Work_path + "Semester"))
                     {
                         System.IO.Directory.CreateDirectory(Work_path + "Semester");
                     }
 
-                    File.WriteAllText(Work_path + "Semester\\registerPeriodId.txt", registerPeriodId_raw);
+                    File.WriteAllText(Work_path + "Semester\\registerPeriodId.txt", response.Content.ReadAsStringAsync().Result);
 
-                    LoadJsonAndDisplayData(registerPeriodId_raw);
+                    LoadJsonAndDisplayData(response.Content.ReadAsStringAsync().Result);
                 }
                 else
                 {
@@ -451,7 +402,7 @@ namespace Sinhvien.tlu.Mainboard
                 Subject_Preview selectedSubject1 = (Subject_Preview)List_Subject_Choice.CurrentRow.DataBoundItem;
                 if (selectedSubject1.isSelected != "")
                 {
-                    if (rootObject.CourseRegisterViewObject.allowRegister || rootObject.CourseRegisterViewObject.IsAllowUnRegister)
+                    if (RegisterPeriod.CourseRegisterViewObject.allowRegister || RegisterPeriod.CourseRegisterViewObject.IsAllowUnRegister)
                     {
 
                         //if (selectedSubject1.isFullclass == "Lớp đã đầy" && selectedSubject1.isSelected != "Đã đăng ký")
@@ -709,67 +660,54 @@ namespace Sinhvien.tlu.Mainboard
             this.Cursor = Cursors.WaitCursor;
             if (New_Password.Text == RE_New_Password.Text && RE_New_Password.Text.Length >= 8)
             {
-                string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/users/password/valid";
-                string bearerToken = tokenData.access_token;
-                string jsonContent = "{\"password\":\"" + Old_Password.Text + "\"}";
+                response = client.PostAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/users/password/valid",
+                    new StringContent("{\"password\":\"" + Old_Password.Text + "\"}", Encoding.UTF8, "application/json")).Result;
 
-                using (HttpClient client = new HttpClient())
+                if (response.IsSuccessStatusCode)
                 {
-                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-
-                    HttpContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = client.PostAsync(url, content).Result;
-
-                    if (response.IsSuccessStatusCode)
+                    if (bool.Parse(response.Content.ReadAsStringAsync().Result) == true)
                     {
-                        string responseBody = response.Content.ReadAsStringAsync().Result;
-                        bool isValid = bool.Parse(responseBody);
-                        if (isValid)
+                        using (HttpClient client_Change = new HttpClient())
                         {
-                            url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/users/password/self";
-                            string jsonContent_Change = "{\"id\":" + id + ",\"username\":\"" + username + "\",\"password\":\"" + RE_New_Password.Text + "\"}";
-                            //MessageBox.Show(jsonContent_Change);
+                            client_Change.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                            client_Change.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenData.access_token);
 
-                            using (HttpClient client_Change = new HttpClient())
+                            response = client_Change.PutAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                                "/education/api/users/password/self", 
+                                new StringContent("{\"id\":" + currentUser.id + ",\"username\":\"" + currentUser.username + "\",\"password\":\"" + RE_New_Password.Text + "\"}", 
+                                Encoding.UTF8, "application/json")).Result;
+
+                            if (response.IsSuccessStatusCode)
                             {
-                                client_Change.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                                client_Change.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
+                                //string responseBody_Change = response_Change.Content.ReadAsStringAsync().Result;
+                                //MessageBox.Show(responseBody_Change);
 
-                                HttpContent content_Change = new StringContent(jsonContent_Change, Encoding.UTF8, "application/json");
-                                HttpResponseMessage response_Change = client_Change.PutAsync(url, content_Change).Result;
+                                this.Text = "Education | Đăng xuất";
+                                MessageBox.Show("Đổi mật khẩu thành công, hãy đăng nhập lại!", "Chú ý");
 
-                                if (response.IsSuccessStatusCode)
-                                {
-                                    //string responseBody_Change = response_Change.Content.ReadAsStringAsync().Result;
-                                    //MessageBox.Show(responseBody_Change);
+                                File.Delete(Work_path + "Account\\Login_Infor.txt");
+                                File.Delete(Work_path + "Account\\getstudentbylogin.txt");
+                                File.Delete(Work_path + "Account\\getcurrentuser.txt");
+                                File.Delete(Work_path + "Account\\Token_User.txt");
 
-                                    this.Text = "Education | Đăng xuất";
-                                    MessageBox.Show("Đổi mật khẩu thành công, hãy đăng nhập lại!", "Chú ý");
-
-                                    File.Delete(Work_path + "Account\\Login_Infor.txt");
-                                    File.Delete(Work_path + "Account\\getstudentbylogin.txt");
-                                    File.Delete(Work_path + "Account\\getcurrentuser.txt");
-                                    File.Delete(Work_path + "Account\\Token_User.txt");
-
-                                    Application.Restart();
-                                }
-                                else
-                                {
-                                    //string responseBody_Change = response_Change.Content.ReadAsStringAsync().Result;
-                                    //MessageBox.Show(responseBody_Change);
-                                    MessageBox.Show("Có lỗi xảy ra, vui lòng thử lại sau!", "Chú ý");
-                                }
+                                Application.Restart();
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Mật khẩu cũ nhập vào không hợp lệ!", "Cảnh báo");
+                            else
+                            {
+                                //string responseBody_Change = response_Change.Content.ReadAsStringAsync().Result;
+                                //MessageBox.Show(responseBody_Change);
+                                MessageBox.Show("Có lỗi xảy ra, vui lòng thử lại sau!", "Chú ý");
+                            }
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...");
+                        MessageBox.Show("Mật khẩu cũ nhập vào không hợp lệ!", "Cảnh báo");
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...");
                 }
                 this.Cursor = Cursors.Default;
             }
@@ -777,11 +715,6 @@ namespace Sinhvien.tlu.Mainboard
             {
                 MessageBox.Show("Mật khẩu mới không khớp hoặc nhỏ hơn 8 ký tự!", "Cảnh báo");
             }
-        }
-
-        private void Logo_FCCID_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.tlu.edu.vn/");
         }
 
         private void Ketquadangkyhoc_button_Click(object sender, EventArgs e)
@@ -860,39 +793,29 @@ namespace Sinhvien.tlu.Mainboard
             Main_Dashboard.SelectedIndex = 11;
         }
 
-        private void FCCID_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Thông tin bản dựng";
-            Main_Dashboard.SelectedIndex = 12;
-        }
-
         //Lấy thông tin semesterRegisterPrios từ displayOrder -> get dữ liệu từ pick các loại học kì khác nhau
         //Thông tin lấy offline từ tệp tin có sẵn
         private void get_schoolyears(int displayOrdercode)
         {
-            // Lấy các giá trị id từ content khi current = true
-            JArray contentArray = (JArray)JObject.Parse(File.ReadAllText(Work_path + "Semester\\Schoolyears.txt"))["content"];
-            foreach (JObject contentItem in contentArray)
+            Schoolyears_Root root_schoolyears = JsonConvert.DeserializeObject<Schoolyears_Root>(File.ReadAllText(Work_path + "Semester\\Schoolyears.txt"));
+
+            foreach (Schoolyears_Content content in root_schoolyears.content)
             {
-                if ((bool)contentItem["current"])
+                if (content.current == true)
                 {
-                    schoolyearsId = contentItem["id"].ToString();
+                    schoolyearsId = content.id.ToString();
 
-                    // Lặp qua semesters
-                    JArray semestersArray = (JArray)contentItem["semesters"];
-                    foreach (JObject semesterItem in semestersArray)
+                    foreach (Schoolyears_Semester semesters in content.semesters)
                     {
-                        if ((bool)semesterItem["isCurrent"])
+                        if (semesters.isCurrent == true)
                         {
-                            SemesterID = semesterItem["id"].ToString();
+                            SemesterID = semesters.id.ToString();
 
-                            // Lặp qua semesterRegisterPeriods
-                            JArray semesterRegisterPeriodsArray = (JArray)semesterItem["semesterRegisterPeriods"];
-                            foreach (JObject semesterRegisterPeriodItem in semesterRegisterPeriodsArray)
+                            foreach (Schoolyears_SemesterRegisterPeriod semesterRegisterPeriod in semesters.semesterRegisterPeriods)
                             {
-                                if ((int)semesterRegisterPeriodItem["displayOrder"] == displayOrdercode)
+                                if (semesterRegisterPeriod.displayOrder == displayOrdercode)
                                 {
-                                    registerPeriodId = semesterRegisterPeriodItem["id"].ToString();
+                                    registerPeriodId = semesterRegisterPeriod.id.ToString();
                                 }
                             }
                         }
@@ -907,31 +830,22 @@ namespace Sinhvien.tlu.Mainboard
             Static_loading.Text = "Đang lấy thông tin năm học...";
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
 
-            HttpClient client = new HttpClient();
-            string url = "https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/schoolyear/1/10000";
-            string bearerToken = tokenData.access_token;
-
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
-            HttpResponseMessage response = client.GetAsync(url).Result;
-
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/schoolyear/1/10000").Result;
             if (response.IsSuccessStatusCode)
             {
-                string Schoolyears_raw = response.Content.ReadAsStringAsync().Result;
-                File.WriteAllText(Work_path + "Semester\\Schoolyears.txt", Schoolyears_raw);
+                File.WriteAllText(Work_path + "Semester\\Schoolyears.txt", response.Content.ReadAsStringAsync().Result);
 
                 get_schoolyears(1);
 
-                url = $"https://sinhvien" + server + $".tlu.edu.vn:" + port + "/education/api/student_semester_behavior_mark/student/{schoolyearsId}/{SemesterID}";
-                response = client.GetAsync(url).Result;
+                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port +
+                    "/education/api/student_semester_behavior_mark/student/" + schoolyearsId + "/" + SemesterID).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    File.WriteAllText(Work_path + "Semester\\Student_semester_behavitor.txt", response.Content.ReadAsStringAsync().Result);
+                }
 
                 Static_loading.Text = "";
                 this.Cursor = System.Windows.Forms.Cursors.Default;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string student_semester_behavitor_raw = response.Content.ReadAsStringAsync().Result;
-                    File.WriteAllText(Work_path + "Semester\\Student_semester_behavitor.txt", student_semester_behavitor_raw);
-                }
             }
             else
             {
@@ -947,12 +861,15 @@ namespace Sinhvien.tlu.Mainboard
             }
 
             this.Main_Dashboard.Location = new System.Drawing.Point(-7, -20);
+            
+            //Nhận token từ file khi form đang load và đẩy vào header
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenData.access_token);
 
             try
             {
                 getCurrentUser_Task();
                 getSemester();
-                User_UI.Text = displayName;
+                User_UI.Text = currentUser.person.displayName;
 
                 Static_loading.Text = "Đang lấy thông tin môn học...";
                 displayOrder_Picker.StartIndex = 0;
@@ -974,8 +891,9 @@ namespace Sinhvien.tlu.Mainboard
                 List_Subject_Choice.AllowUserToResizeRows = false;
                 List_Subject_Choice.AllowUserToResizeColumns = false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 MessageBox.Show("Hết hiệu lực phiên đăng nhập, phần mềm sẽ khởi động lại.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Text = "Education | Đăng xuất";
 

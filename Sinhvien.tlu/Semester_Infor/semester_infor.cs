@@ -24,11 +24,11 @@ namespace Sinhvien.tlu.Mainboard
 
     internal class schoolYear
     {
-        public int id { set; get; }
+        public int? id { set; get; }
         public string name { set; get; }
         public string code { set; get; }
-        public int year { set; get; }
-        public bool? current { set; get; }
+        public int? year { set; get; }
+        public bool? current { set; get; } = false;
         public long? startDate { set; get; }
         public long? endDate { set; get; }
         public object children { set; get; }
