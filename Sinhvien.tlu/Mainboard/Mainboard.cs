@@ -23,6 +23,8 @@ namespace Sinhvien.tlu.Mainboard
         private SubjectRegistrationDto selectedSubject;
         private CurrentUser_Root currentUser;
         private Studentbylogin_Root studentbylogin;
+        private List<listStudentmarkBysemesterByloginUser_Root> listStudentmarkBysemesterByloginUser;
+        Root100 myDeserializedClass;
         private string server, port;
         public string Work_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Education\\";
 
@@ -32,17 +34,53 @@ namespace Sinhvien.tlu.Mainboard
             {
                 RegisterPeriod = JsonConvert.DeserializeObject<RegisterPeriod>(jsonContent);
 
-                StartDate_Reg.Text = "Ngày bắt đầu: " + RegisterPeriod.CourseRegisterViewObject.StartDateString;
-                EndDate_Reg.Text = "Ngày kết thúc: " + RegisterPeriod.CourseRegisterViewObject.EndDateString;
+                if (RegisterPeriod == null)
+                {
+                    MessageBox.Show("Dữ liệu kì học hiện đang trống, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    StartDate_Reg.Text = "Ngày bắt đầu: ";
+                    EndDate_Reg.Text = "Ngày kết thúc: ";
+                }
+                else
+                {
+                    try
+                    {
+                        StartDate_Reg.Text = "Ngày bắt đầu: " + RegisterPeriod.CourseRegisterViewObject.StartDateString;
+                        EndDate_Reg.Text = "Ngày kết thúc: " + RegisterPeriod.CourseRegisterViewObject.EndDateString;
 
-                List<SubjectRegistrationDto> subjects = RegisterPeriod.CourseRegisterViewObject.ListSubjectRegistrationDtos;
-                List_Subject.DataSource = subjects;
+                        try
+                        {
+                            List_Subject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                            List_Subject_Choice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                List_Subject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                List_Subject_Choice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                            //List_Subject_Choice.Columns[0].Width = 50;
+                            //List_Subject_Choice.Columns[1].Width = 500;
+                            //List_Subject_Choice.Columns[2].Width = 75;
+                            //List_Subject_Choice.Columns[3].Width = 50;
+                            //List_Subject_Choice.Columns[4].Width = 100;
+                            //List_Subject_Choice.Columns[5].Width = 200;
+                            List_Subject.AllowUserToResizeColumns = false;
+                            List_Subject.AllowUserToResizeRows = false;
+                            List_Subject_Choice.AllowUserToResizeRows = false;
+                            //List_Subject_Choice.AllowUserToResizeColumns = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            //MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Dữ liệu kì học hiện đang trống, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+
+                        List<SubjectRegistrationDto> subjects = RegisterPeriod.CourseRegisterViewObject.ListSubjectRegistrationDtos;
+                        List_Subject.DataSource = subjects;
+                    }
+                    catch (Exception) 
+                    {
+                        MessageBox.Show("Có lỗi trong việc biên dịch dữ liệu, vui lòng cập nhật bản vá lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //MessageBox.Show(ex.ToString());
                 MessageBox.Show("Có lỗi trong việc biên dịch dữ liệu, vui lòng cập nhật bản vá lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -66,48 +104,97 @@ namespace Sinhvien.tlu.Mainboard
 
                 foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
                 {
-                    var Subject_Information = new Subject_Preview();
-                    if (Sub_Course.IsFullClass)
+                    if(Sub_Course.NumberSubCourseSubject != 0)
                     {
-                        Subject_Information.isFullclass = "Lớp đã đầy";
-                    }
-                    Subject_Information.displayName = Sub_Course.DisplayName;
-                    if (Sub_Course.IsOvelapTime)
-                    {
-                        Subject_Information.IsOvelapTime = "Trùng tiết!";
-                    }
-                    if (Sub_Course.IsSelected)
-                    {
-                        Subject_Information.isSelected = "Đã đăng ký";
-                    }
-                    else
-                    {
-                        Subject_Information.isSelected = "Bấm đúp chuột để đăng ký";
-                    }
-                    Subject_Information.numberstudent = "Sĩ số " + Sub_Course.NumberStudent + "/" + Sub_Course.MaxStudent;
-                    subject_preview.Add(Subject_Information);
+                        var Subject_Information = new Subject_Preview();
+                        if (Sub_Course.IsFullClass)
+                        {
+                            Subject_Information.isFullclass = "Lớp đã đầy";
+                        }
+                        Subject_Information.displayName = Sub_Course.DisplayName;
+                        if (Sub_Course.IsOvelapTime)
+                        {
+                            Subject_Information.IsOvelapTime = "Trùng tiết!";
+                        }
+                        //if (Sub_Course.IsSelected)
+                        //{
+                        //    Subject_Information.isSelected = "Đã đăng ký";
+                        //}
+                        //else
+                        //{
+                        //    Subject_Information.isSelected = "Bấm đúp chuột để đăng ký";
+                        //}
+                        Subject_Information.numberstudent = "Sĩ số " + Sub_Course.NumberStudent + "/" + Sub_Course.MaxStudent;
+                        subject_preview.Add(Subject_Information);
 
-                    subject_preview.Add(new Subject_Preview()
-                    {
-                        isFullclass = "",
-                        displayName = "Tuần",
-                        IsOvelapTime = "Thời gian",
-                        Information = "Phòng",
-                        numberstudent = "Giáo viên",
-                        isSelected = ""
-                    });
-
-                    foreach (var timetable in Sub_Course.Timetables)
-                    {
                         subject_preview.Add(new Subject_Preview()
                         {
                             isFullclass = "",
-                            displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
-                            IsOvelapTime = timetable.start + " -> " + timetable.end,
-                            Information = timetable.roomName,
-                            numberstudent = timetable.teacherName,
+                            displayName = "Tuần",
+                            IsOvelapTime = "Thời gian",
+                            Information = "Phòng",
+                            numberstudent = "Giáo viên",
                             isSelected = ""
                         });
+
+                        foreach (var timetable in Sub_Course.Timetables)
+                        {
+                            subject_preview.Add(new Subject_Preview()
+                            {
+                                isFullclass = "",
+                                displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
+                                IsOvelapTime = timetable.start + " -> " + timetable.end,
+                                Information = timetable.roomName,
+                                numberstudent = timetable.teacherName,
+                                isSelected = ""
+                            });
+                        }
+                    }    
+                    else
+                    {
+                        var Subject_Information = new Subject_Preview();
+                        if (Sub_Course.IsFullClass)
+                        {
+                            Subject_Information.isFullclass = "Lớp đã đầy";
+                        }
+                        Subject_Information.displayName = Sub_Course.DisplayName;
+                        if (Sub_Course.IsOvelapTime)
+                        {
+                            Subject_Information.IsOvelapTime = "Trùng tiết!";
+                        }
+                        if (Sub_Course.IsSelected)
+                        {
+                            Subject_Information.isSelected = "Đã đăng ký";
+                        }
+                        else
+                        {
+                            Subject_Information.isSelected = "Bấm đúp chuột để đăng ký";
+                        }
+                        Subject_Information.numberstudent = "Sĩ số " + Sub_Course.NumberStudent + "/" + Sub_Course.MaxStudent;
+                        subject_preview.Add(Subject_Information);
+
+                        subject_preview.Add(new Subject_Preview()
+                        {
+                            isFullclass = "",
+                            displayName = "Tuần",
+                            IsOvelapTime = "Thời gian",
+                            Information = "Phòng",
+                            numberstudent = "Giáo viên",
+                            isSelected = ""
+                        });
+
+                        foreach (var timetable in Sub_Course.Timetables)
+                        {
+                            subject_preview.Add(new Subject_Preview()
+                            {
+                                isFullclass = "",
+                                displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
+                                IsOvelapTime = timetable.start + " -> " + timetable.end,
+                                Information = timetable.roomName,
+                                numberstudent = timetable.teacherName,
+                                isSelected = ""
+                            });
+                        }
                     }
 
                     if (Sub_Course.NumberSubCourseSubject != 0)
@@ -494,95 +581,86 @@ namespace Sinhvien.tlu.Mainboard
                                         break;
                                     }
                                 }
-                                foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
+                            foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
+                            {
+                                if (Sub_Course.NumberSubCourseSubject != 0)
                                 {
-                                    if (Sub_Course.NumberSubCourseSubject != 0)
+                                    foreach (var Course_sub_Course in Sub_Course.SubCourseSubjects)
                                     {
-                                        foreach (var Course_sub_Course in Sub_Course.SubCourseSubjects)
+                                        if (Course_sub_Course.DisplayName == selectedSubject1.displayName)
                                         {
-                                            if (Course_sub_Course.DisplayName == selectedSubject1.displayName)
+                                            foundCourseSubject = new Register_Class
                                             {
-                                                if (Sub_Course.IsSelected)
-                                                {
-                                                    foundCourseSubject = new Register_Class
-                                                    {
-                                                        createDate = Course_sub_Course.CreateDate ?? null,
-                                                        createdBy = Course_sub_Course.CreatedBy ?? null,
-                                                        modifyDate = Course_sub_Course.ModifyDate ?? null,
-                                                        modifiedBy = Course_sub_Course.ModifiedBy ?? null,
-                                                        id = Course_sub_Course.Id,
-                                                        voided = Course_sub_Course.Voided,
-                                                        code = Course_sub_Course.Code ?? null,
-                                                        shortCode = Course_sub_Course.ShortCode ?? null,
-                                                        subjectId = Course_sub_Course.SubjectId,
-                                                        subjectName = Course_sub_Course.SubjectName ?? null,
-                                                        subjectCode = Course_sub_Course.SubjectCode ?? null,
-                                                        parent = Course_sub_Course.Parent ?? null,
-                                                        subCourseSubjects = null,
-                                                        isUsingConfig = Course_sub_Course.IsUsingConfig,
-                                                        isFullClass = Course_sub_Course.IsFullClass,
-                                                        courseSubjectConfigs = Course_sub_Course.CourseSubjectConfigs ?? null,
-                                                        timetables = Course_sub_Course.Timetables ?? null,
-                                                        semesterSubject = Course_sub_Course.SemesterSubject ?? null,
-                                                        maxStudent = Course_sub_Course.MaxStudent,
-                                                        minStudent = Course_sub_Course.MinStudent,
-                                                        numberStudent = Course_sub_Course.NumberStudent,
-                                                        courseSubjectType = Course_sub_Course.CourseSubjectType ?? null,
-                                                        learningSkillId = Course_sub_Course.LearningSkillId ?? null,
-                                                        learningSkillName = Course_sub_Course.LearningSkillName ?? null,
-                                                        learningSkillCode = Course_sub_Course.LearningSkillCode ?? null,
-                                                        isSelected = Course_sub_Course.IsSelected,
-                                                        children = Course_sub_Course.Children ?? null,
-                                                        hashCourseSubjects = Course_sub_Course.HashCourseSubjects,
-                                                        expanded = Course_sub_Course.Expanded,
-                                                        isGrantAll = Course_sub_Course.IsGrantAll,
-                                                        isDeniedAll = Course_sub_Course.IsDeniedAll,
-                                                        trainingBase = Course_sub_Course.TrainingBase ?? null,
-                                                        isOvelapTime = Course_sub_Course.IsOvelapTime,
-                                                        overLapClasses = Course_sub_Course.OverLapClasses,
-                                                        courseYearId = Course_sub_Course.CourseYearId ?? null,
-                                                        courseYearCode = Course_sub_Course.CourseYearCode ?? null,
-                                                        courseYearName = Course_sub_Course.CourseYearName ?? null,
-                                                        displayName = Course_sub_Course.DisplayName ?? null,
-                                                        numberOfCredit = Course_sub_Course.NumberOfCredit,
-                                                        isFeeByCourseSubject = Course_sub_Course.IsFeeByCourseSubject,
-                                                        feePerCredit = Course_sub_Course.FeePerCredit ?? null,
-                                                        tuitionCoefficient = Course_sub_Course.TuitionCoefficient ?? null,
-                                                        totalFee = Course_sub_Course.TotalFee ?? null,
-                                                        feePerStudent = Course_sub_Course.FeePerStudent ?? null,
-                                                        enrollmentClassId = Course_sub_Course.EnrollmentClassId ?? null,
-                                                        enrollmentClassCode = Course_sub_Course.EnrollmentClassCode ?? null,
-                                                        numberHours = Course_sub_Course.NumberHours ?? null,
-                                                        teacher = Course_sub_Course.Teacher ?? null,
-                                                        teacherName = Course_sub_Course.TeacherName ?? null,
-                                                        teacherCode = Course_sub_Course.TeacherCode ?? null,
-                                                        startDate = Course_sub_Course.StartDate ?? null,
-                                                        endDate = Course_sub_Course.EndDate ?? null,
-                                                        learningMethod = Course_sub_Course.LearningMethod ?? null,
-                                                        status = Course_sub_Course.Status,
-                                                        subjectExams = Course_sub_Course.SubjectExams ?? null,
-                                                        semesterId = Course_sub_Course.SemesterId ?? null,
-                                                        semesterCode = Course_sub_Course.SemesterCode ?? null,
-                                                        periodId = Course_sub_Course.PeriodId ?? null,
-                                                        periodName = Course_sub_Course.PeriodName ?? null,
-                                                        username = Course_sub_Course.Username ?? null,
-                                                        actionTime = Course_sub_Course.ActionTime ?? null,
-                                                        logContent = Course_sub_Course.LogContent ?? null,
-                                                        numberLearningSkill = Course_sub_Course.NumberLearningSkill,
-                                                        numberSubCourseSubject = Course_sub_Course.NumberSubCourseSubject,
-                                                        check = Course_sub_Course.Check
-                                                    };
-                                                }
-                                                else
-                                                {
-                                                    MessageBox.Show("Yêu cầu đăng ký lớp chính THÀNH CÔNG để có thể thực hiện thao tác này.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                                                    static_search = true;
-                                                }
-                                                break;
-                                            }
+                                                createDate = Course_sub_Course.CreateDate ?? null,
+                                                createdBy = Course_sub_Course.CreatedBy ?? null,
+                                                modifyDate = Course_sub_Course.ModifyDate ?? null,
+                                                modifiedBy = Course_sub_Course.ModifiedBy ?? null,
+                                                id = Course_sub_Course.Id,
+                                                voided = Course_sub_Course.Voided,
+                                                code = Course_sub_Course.Code ?? null,
+                                                shortCode = Course_sub_Course.ShortCode ?? null,
+                                                subjectId = Course_sub_Course.SubjectId,
+                                                subjectName = Course_sub_Course.SubjectName ?? null,
+                                                subjectCode = Course_sub_Course.SubjectCode ?? null,
+                                                parent = Course_sub_Course.Parent ?? null,
+                                                subCourseSubjects = null,
+                                                isUsingConfig = Course_sub_Course.IsUsingConfig,
+                                                isFullClass = Course_sub_Course.IsFullClass,
+                                                courseSubjectConfigs = Course_sub_Course.CourseSubjectConfigs ?? null,
+                                                timetables = Course_sub_Course.Timetables ?? null,
+                                                semesterSubject = Course_sub_Course.SemesterSubject ?? null,
+                                                maxStudent = Course_sub_Course.MaxStudent,
+                                                minStudent = Course_sub_Course.MinStudent,
+                                                numberStudent = Course_sub_Course.NumberStudent,
+                                                courseSubjectType = Course_sub_Course.CourseSubjectType ?? null,
+                                                learningSkillId = Course_sub_Course.LearningSkillId ?? null,
+                                                learningSkillName = Course_sub_Course.LearningSkillName ?? null,
+                                                learningSkillCode = Course_sub_Course.LearningSkillCode ?? null,
+                                                isSelected = Course_sub_Course.IsSelected,
+                                                children = Course_sub_Course.Children ?? null,
+                                                hashCourseSubjects = Course_sub_Course.HashCourseSubjects,
+                                                expanded = Course_sub_Course.Expanded,
+                                                isGrantAll = Course_sub_Course.IsGrantAll,
+                                                isDeniedAll = Course_sub_Course.IsDeniedAll,
+                                                trainingBase = Course_sub_Course.TrainingBase ?? null,
+                                                isOvelapTime = Course_sub_Course.IsOvelapTime,
+                                                overLapClasses = Course_sub_Course.OverLapClasses,
+                                                courseYearId = Course_sub_Course.CourseYearId ?? null,
+                                                courseYearCode = Course_sub_Course.CourseYearCode ?? null,
+                                                courseYearName = Course_sub_Course.CourseYearName ?? null,
+                                                displayName = Course_sub_Course.DisplayName ?? null,
+                                                numberOfCredit = Course_sub_Course.NumberOfCredit,
+                                                isFeeByCourseSubject = Course_sub_Course.IsFeeByCourseSubject,
+                                                feePerCredit = Course_sub_Course.FeePerCredit ?? null,
+                                                tuitionCoefficient = Course_sub_Course.TuitionCoefficient ?? null,
+                                                totalFee = Course_sub_Course.TotalFee ?? null,
+                                                feePerStudent = Course_sub_Course.FeePerStudent ?? null,
+                                                enrollmentClassId = Course_sub_Course.EnrollmentClassId ?? null,
+                                                enrollmentClassCode = Course_sub_Course.EnrollmentClassCode ?? null,
+                                                numberHours = Course_sub_Course.NumberHours ?? null,
+                                                teacher = Course_sub_Course.Teacher ?? null,
+                                                teacherName = Course_sub_Course.TeacherName ?? null,
+                                                teacherCode = Course_sub_Course.TeacherCode ?? null,
+                                                startDate = Course_sub_Course.StartDate ?? null,
+                                                endDate = Course_sub_Course.EndDate ?? null,
+                                                learningMethod = Course_sub_Course.LearningMethod ?? null,
+                                                status = Course_sub_Course.Status,
+                                                subjectExams = Course_sub_Course.SubjectExams ?? null,
+                                                semesterId = Course_sub_Course.SemesterId ?? null,
+                                                semesterCode = Course_sub_Course.SemesterCode ?? null,
+                                                periodId = Course_sub_Course.PeriodId ?? null,
+                                                periodName = Course_sub_Course.PeriodName ?? null,
+                                                username = Course_sub_Course.Username ?? null,
+                                                actionTime = Course_sub_Course.ActionTime ?? null,
+                                                logContent = Course_sub_Course.LogContent ?? null,
+                                                numberLearningSkill = Course_sub_Course.NumberLearningSkill,
+                                                numberSubCourseSubject = Course_sub_Course.NumberSubCourseSubject,
+                                                check = Course_sub_Course.Check
+                                            };
                                         }
                                     }
                                 }
+                            }
 
                                 if (static_search == false)
                                 {
@@ -639,17 +717,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Text = "Education | Đăng ký học mới | Đăng ký môn";
             Main_Dashboard.SelectedIndex = 1;
             this.WindowState = FormWindowState.Maximized;
-
-            List_Subject_Choice.Columns[0].Width = 50;
-            //List_Subject_Choice.Columns[1].Width = 500;
-            List_Subject_Choice.Columns[2].Width = 75;
-            List_Subject_Choice.Columns[3].Width = 50;
-            List_Subject_Choice.Columns[4].Width = 100;
-            List_Subject_Choice.Columns[5].Width = 200;
-            List_Subject.AllowUserToResizeColumns = false;
-            List_Subject.AllowUserToResizeRows = false;
-            List_Subject_Choice.AllowUserToResizeRows = false;
-            List_Subject_Choice.AllowUserToResizeColumns = false;
         }
 
         private void Change_Password_Button_Click(object sender, EventArgs e)
@@ -721,6 +788,28 @@ namespace Sinhvien.tlu.Mainboard
         {
             this.Text = "Education | Kết quả đăng ký học";
             Main_Dashboard.SelectedIndex = 2;
+
+            SemesterID_picker.Items.Clear();
+
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/schoolyear/1/100").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                File.WriteAllText(Work_path + "Semester\\Schoolyears100.txt", response.Content.ReadAsStringAsync().Result);
+                myDeserializedClass = JsonConvert.DeserializeObject<Root100>(response.Content.ReadAsStringAsync().Result);
+
+                foreach (Content100 content in myDeserializedClass.content)
+                {
+                    foreach (Semester100 semesters in content.semesters)
+                    {
+                        SemesterID_picker.Items.Add(semesters.semesterCode);
+                    }    
+                }
+                SemesterID_picker.StartIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Dangkynguyenvonghoc_button_Click(object sender, EventArgs e)
@@ -732,6 +821,48 @@ namespace Sinhvien.tlu.Mainboard
         private void Tracuudiemtonghop_button_Click(object sender, EventArgs e)
         {
             this.Text = "Education | Tra cứu điểm tổng hợp";
+            this.Cursor= Cursors.WaitCursor;
+
+            response = client.GetAsync("https://sinhvien"+ server +".tlu.edu.vn:" + port + "/education/api/studentsubjectmark/getListStudentMarkBySemesterByLoginUser/0").Result;
+            listStudentmarkBysemesterByloginUser = JsonConvert.DeserializeObject<List<listStudentmarkBysemesterByloginUser_Root>>(response.Content.ReadAsStringAsync().Result);
+
+            List<viewListStudentMark> listsubjectmark = new List<viewListStudentMark>();
+            for(int i = 0; i < listStudentmarkBysemesterByloginUser.Count; i++)
+            {
+                listsubjectmark.Add(new viewListStudentMark()
+                {
+                    STT = i + 1,
+                    mahocphan = listStudentmarkBysemesterByloginUser[i].subject.subjectCode,
+                    tenhocphan = listStudentmarkBysemesterByloginUser[i].subject.subjectName,
+                    sotinchi = listStudentmarkBysemesterByloginUser[i].subject.numberOfCredit,
+                    lanhoc = listStudentmarkBysemesterByloginUser[i].studyTime,
+                    lanthi = listStudentmarkBysemesterByloginUser[i].examRound,
+                    tinhdiem = (listStudentmarkBysemesterByloginUser[i].subject.isCalculateMark == true)? true : false,
+                    danhgia = (listStudentmarkBysemesterByloginUser[i].charMark == "F")? "Không đạt" : "Đạt",
+                    masinhvien = listStudentmarkBysemesterByloginUser[i].student.studentCode,
+                    diemquatrinh = listStudentmarkBysemesterByloginUser[i].markQT,
+                    diemthi = listStudentmarkBysemesterByloginUser[i].markTHI,
+                    tongkethocphan = listStudentmarkBysemesterByloginUser[i].mark,
+                    diemchu = listStudentmarkBysemesterByloginUser[i].charMark
+                });
+            }
+            listStudentmark_table.DataSource = listsubjectmark;
+            listStudentmark_table.Columns[0].HeaderText = "Số thứ tự";
+            listStudentmark_table.Columns[1].HeaderText = "Mã học phần";
+            listStudentmark_table.Columns[2].HeaderText = "Tên học phần";
+            listStudentmark_table.Columns[3].HeaderText = "Số tín chỉ";
+            listStudentmark_table.Columns[4].HeaderText = "Lần học";
+            listStudentmark_table.Columns[5].HeaderText = "Lần thi";
+            listStudentmark_table.Columns[6].HeaderText = "Là môn tính điểm";
+            listStudentmark_table.Columns[7].HeaderText = "Đánh giá";
+            listStudentmark_table.Columns[8].HeaderText = "Mã sinh viên";
+            listStudentmark_table.Columns[9].HeaderText = "Quá trình";
+            listStudentmark_table.Columns[10].HeaderText = "Thi";
+            listStudentmark_table.Columns[11].HeaderText = "Tổng kết";
+            listStudentmark_table.Columns[12].HeaderText = "Điểm chữ";
+            listStudentmark_table.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            this.Cursor = Cursors.Default;
             Main_Dashboard.SelectedIndex = 4;
         }
 
@@ -791,6 +922,31 @@ namespace Sinhvien.tlu.Mainboard
         {
             this.Text = "Education | Nghiên cứu khoa học";
             Main_Dashboard.SelectedIndex = 11;
+        }
+
+        private void SemesterID_picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Content100 content in myDeserializedClass.content)
+            {
+                foreach (Semester100 semesters in content.semesters)
+                {
+                    if(SemesterID_picker.SelectedItem.ToString() == semesters.semesterCode)
+                    {
+                        response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/StudentCourseSubject/studentLoginUser/" + semesters.id).Result;
+
+                        if(response.IsSuccessStatusCode)
+                        {
+                            List<StudentCourseSubject_Root> Root = JsonConvert.DeserializeObject<List<StudentCourseSubject_Root>>(response.Content.ReadAsStringAsync().Result);
+                            File.WriteAllText(Work_path + "Semester\\" + semesters.id + ".txt", response.Content.ReadAsStringAsync().Result);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }    
+                    }    
+                }
+            }
         }
 
         //Lấy thông tin semesterRegisterPrios từ displayOrder -> get dữ liệu từ pick các loại học kì khác nhau
@@ -879,17 +1035,6 @@ namespace Sinhvien.tlu.Mainboard
                 this.Text = "Education | Đăng ký học mới | Đăng ký môn";
                 Main_Dashboard.SelectedIndex = 1;
                 this.WindowState = FormWindowState.Maximized;
-
-                List_Subject_Choice.Columns[0].Width = 50;
-                //List_Subject_Choice.Columns[1].Width = 500;
-                List_Subject_Choice.Columns[2].Width = 75;
-                List_Subject_Choice.Columns[3].Width = 50;
-                List_Subject_Choice.Columns[4].Width = 100;
-                List_Subject_Choice.Columns[5].Width = 200;
-                List_Subject.AllowUserToResizeColumns = false;
-                List_Subject.AllowUserToResizeRows = false;
-                List_Subject_Choice.AllowUserToResizeRows = false;
-                List_Subject_Choice.AllowUserToResizeColumns = false;
             }
             catch (Exception ex)
             {

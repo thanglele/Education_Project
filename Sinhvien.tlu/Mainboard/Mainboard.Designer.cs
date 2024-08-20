@@ -32,11 +32,11 @@ namespace Sinhvien.tlu.Mainboard
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(System_Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.UIPanel = new System.Windows.Forms.Panel();
             this.Top_Panel = new System.Windows.Forms.Panel();
             this.Static_loading = new System.Windows.Forms.Label();
@@ -48,6 +48,52 @@ namespace Sinhvien.tlu.Mainboard
             this.DHTL = new Guna.UI.WinForms.GunaLabel();
             this.Logo_Header = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.Main_Panel = new System.Windows.Forms.Panel();
+            this.Main_Dashboard = new System.Windows.Forms.TabControl();
+            this.TrangChu = new System.Windows.Forms.TabPage();
+            this.Dangkihocmoi = new System.Windows.Forms.TabPage();
+            this.refresh_button = new System.Windows.Forms.Button();
+            this.Panel_New_Reg = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.List_Subject = new System.Windows.Forms.DataGridView();
+            this.List_Subject_Choice = new System.Windows.Forms.DataGridView();
+            this.EndDate_Reg = new Guna.UI.WinForms.GunaLabel();
+            this.StartDate_Reg = new Guna.UI.WinForms.GunaLabel();
+            this.displayOrder_Picker = new Guna.UI.WinForms.GunaComboBox();
+            this.semesterCode_Picker = new Guna.UI.WinForms.GunaComboBox();
+            this.Ketquadangkyhoc = new System.Windows.Forms.TabPage();
+            this.DataLearnTimeTable = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SemesterID_picker = new Guna.UI.WinForms.GunaComboBox();
+            this.Dangkynguyenvonghoc = new System.Windows.Forms.TabPage();
+            this.Tracuudiemtonghop = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listStudentmark_table = new System.Windows.Forms.DataGridView();
+            this.Diemrenluyen = new System.Windows.Forms.TabPage();
+            this.Chuongtrinhdaotao = new System.Windows.Forms.TabPage();
+            this.Xemlichthi = new System.Windows.Forms.TabPage();
+            this.Tracuuhocphi = new System.Windows.Forms.TabPage();
+            this.Khenthuong = new System.Windows.Forms.TabPage();
+            this.Kyluat = new System.Windows.Forms.TabPage();
+            this.Nghiencuukhoahoc = new System.Windows.Forms.TabPage();
+            this.FCCID = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Thongtintaikhoan = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Doimatkhau = new System.Windows.Forms.TabPage();
+            this.panel_changepassword = new System.Windows.Forms.Panel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.New_Password = new Guna.UI.WinForms.GunaLineTextBox();
+            this.Old_Password = new Guna.UI.WinForms.GunaLineTextBox();
+            this.Change_Password_Button = new Guna.UI.WinForms.GunaButton();
+            this.RE_New_Password = new Guna.UI.WinForms.GunaLineTextBox();
+            this.Tracuudiemrenluyen = new System.Windows.Forms.TabPage();
             this.Left_Panel = new System.Windows.Forms.Panel();
             this.Nghiencuukhoahoc_button = new Guna.UI.WinForms.GunaButton();
             this.Kyluat_button = new Guna.UI.WinForms.GunaButton();
@@ -65,64 +111,27 @@ namespace Sinhvien.tlu.Mainboard
             this.Trangchu_button = new Guna.UI.WinForms.GunaButton();
             this.Copyright = new Guna.UI.WinForms.GunaLinkLabel();
             this.Copyright_Panel = new Guna.UI.WinForms.GunaLinePanel();
-            this.Tracuudiemrenluyen = new System.Windows.Forms.TabPage();
-            this.Doimatkhau = new System.Windows.Forms.TabPage();
-            this.panel_changepassword = new System.Windows.Forms.Panel();
-            this.RE_New_Password = new Guna.UI.WinForms.GunaLineTextBox();
-            this.Change_Password_Button = new Guna.UI.WinForms.GunaButton();
-            this.Old_Password = new Guna.UI.WinForms.GunaLineTextBox();
-            this.New_Password = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.Thongtintaikhoan = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Nghiencuukhoahoc = new System.Windows.Forms.TabPage();
-            this.Kyluat = new System.Windows.Forms.TabPage();
-            this.Khenthuong = new System.Windows.Forms.TabPage();
-            this.Tracuuhocphi = new System.Windows.Forms.TabPage();
-            this.Xemlichthi = new System.Windows.Forms.TabPage();
-            this.Chuongtrinhdaotao = new System.Windows.Forms.TabPage();
-            this.Diemrenluyen = new System.Windows.Forms.TabPage();
-            this.Tracuudiemtonghop = new System.Windows.Forms.TabPage();
-            this.Dangkynguyenvonghoc = new System.Windows.Forms.TabPage();
-            this.Ketquadangkyhoc = new System.Windows.Forms.TabPage();
-            this.Dangkihocmoi = new System.Windows.Forms.TabPage();
-            this.semesterCode_Picker = new Guna.UI.WinForms.GunaComboBox();
-            this.displayOrder_Picker = new Guna.UI.WinForms.GunaComboBox();
-            this.StartDate_Reg = new Guna.UI.WinForms.GunaLabel();
-            this.EndDate_Reg = new Guna.UI.WinForms.GunaLabel();
-            this.Panel_New_Reg = new System.Windows.Forms.TableLayoutPanel();
-            this.List_Subject_Choice = new System.Windows.Forms.DataGridView();
-            this.List_Subject = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.refresh_button = new System.Windows.Forms.Button();
-            this.TrangChu = new System.Windows.Forms.TabPage();
-            this.Main_Dashboard = new System.Windows.Forms.TabControl();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.FCCID = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.Top_Panel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Header)).BeginInit();
             this.Main_Panel.SuspendLayout();
+            this.Main_Dashboard.SuspendLayout();
+            this.Dangkihocmoi.SuspendLayout();
+            this.Panel_New_Reg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.List_Subject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.List_Subject_Choice)).BeginInit();
+            this.Ketquadangkyhoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataLearnTimeTable)).BeginInit();
+            this.Tracuudiemtonghop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).BeginInit();
+            this.FCCID.SuspendLayout();
+            this.Thongtintaikhoan.SuspendLayout();
+            this.Doimatkhau.SuspendLayout();
+            this.panel_changepassword.SuspendLayout();
             this.Left_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.Copyright_Panel.SuspendLayout();
-            this.Doimatkhau.SuspendLayout();
-            this.panel_changepassword.SuspendLayout();
-            this.Thongtintaikhoan.SuspendLayout();
-            this.Dangkihocmoi.SuspendLayout();
-            this.Panel_New_Reg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.List_Subject_Choice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.List_Subject)).BeginInit();
-            this.Main_Dashboard.SuspendLayout();
-            this.FCCID.SuspendLayout();
             this.SuspendLayout();
             // 
             // UIPanel
@@ -250,6 +259,682 @@ namespace Sinhvien.tlu.Mainboard
             this.Main_Panel.Name = "Main_Panel";
             this.Main_Panel.Size = new System.Drawing.Size(1120, 655);
             this.Main_Panel.TabIndex = 2;
+            // 
+            // Main_Dashboard
+            // 
+            this.Main_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Main_Dashboard.Controls.Add(this.TrangChu);
+            this.Main_Dashboard.Controls.Add(this.Dangkihocmoi);
+            this.Main_Dashboard.Controls.Add(this.Ketquadangkyhoc);
+            this.Main_Dashboard.Controls.Add(this.Dangkynguyenvonghoc);
+            this.Main_Dashboard.Controls.Add(this.Tracuudiemtonghop);
+            this.Main_Dashboard.Controls.Add(this.Diemrenluyen);
+            this.Main_Dashboard.Controls.Add(this.Chuongtrinhdaotao);
+            this.Main_Dashboard.Controls.Add(this.Xemlichthi);
+            this.Main_Dashboard.Controls.Add(this.Tracuuhocphi);
+            this.Main_Dashboard.Controls.Add(this.Khenthuong);
+            this.Main_Dashboard.Controls.Add(this.Kyluat);
+            this.Main_Dashboard.Controls.Add(this.Nghiencuukhoahoc);
+            this.Main_Dashboard.Controls.Add(this.FCCID);
+            this.Main_Dashboard.Controls.Add(this.Thongtintaikhoan);
+            this.Main_Dashboard.Controls.Add(this.Doimatkhau);
+            this.Main_Dashboard.Controls.Add(this.Tracuudiemrenluyen);
+            this.Main_Dashboard.Location = new System.Drawing.Point(-7, 0);
+            this.Main_Dashboard.Name = "Main_Dashboard";
+            this.Main_Dashboard.SelectedIndex = 0;
+            this.Main_Dashboard.Size = new System.Drawing.Size(1131, 677);
+            this.Main_Dashboard.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.Main_Dashboard.TabIndex = 0;
+            // 
+            // TrangChu
+            // 
+            this.TrangChu.Location = new System.Drawing.Point(4, 22);
+            this.TrangChu.Name = "TrangChu";
+            this.TrangChu.Padding = new System.Windows.Forms.Padding(3);
+            this.TrangChu.Size = new System.Drawing.Size(1123, 651);
+            this.TrangChu.TabIndex = 1;
+            this.TrangChu.Text = "Trang chủ";
+            this.TrangChu.UseVisualStyleBackColor = true;
+            // 
+            // Dangkihocmoi
+            // 
+            this.Dangkihocmoi.Controls.Add(this.refresh_button);
+            this.Dangkihocmoi.Controls.Add(this.Panel_New_Reg);
+            this.Dangkihocmoi.Controls.Add(this.EndDate_Reg);
+            this.Dangkihocmoi.Controls.Add(this.StartDate_Reg);
+            this.Dangkihocmoi.Controls.Add(this.displayOrder_Picker);
+            this.Dangkihocmoi.Controls.Add(this.semesterCode_Picker);
+            this.Dangkihocmoi.Location = new System.Drawing.Point(4, 22);
+            this.Dangkihocmoi.Name = "Dangkihocmoi";
+            this.Dangkihocmoi.Padding = new System.Windows.Forms.Padding(3);
+            this.Dangkihocmoi.Size = new System.Drawing.Size(1123, 651);
+            this.Dangkihocmoi.TabIndex = 2;
+            this.Dangkihocmoi.Text = "Đăng kí học mới";
+            this.Dangkihocmoi.UseVisualStyleBackColor = true;
+            // 
+            // refresh_button
+            // 
+            this.refresh_button.Location = new System.Drawing.Point(661, 23);
+            this.refresh_button.Name = "refresh_button";
+            this.refresh_button.Size = new System.Drawing.Size(75, 23);
+            this.refresh_button.TabIndex = 5;
+            this.refresh_button.Text = "Làm mới";
+            this.refresh_button.UseVisualStyleBackColor = true;
+            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
+            // 
+            // Panel_New_Reg
+            // 
+            this.Panel_New_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel_New_Reg.ColumnCount = 2;
+            this.Panel_New_Reg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.0696F));
+            this.Panel_New_Reg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.9304F));
+            this.Panel_New_Reg.Controls.Add(this.label6, 0, 0);
+            this.Panel_New_Reg.Controls.Add(this.label7, 1, 0);
+            this.Panel_New_Reg.Controls.Add(this.List_Subject, 0, 1);
+            this.Panel_New_Reg.Controls.Add(this.List_Subject_Choice, 1, 1);
+            this.Panel_New_Reg.Location = new System.Drawing.Point(25, 54);
+            this.Panel_New_Reg.Name = "Panel_New_Reg";
+            this.Panel_New_Reg.RowCount = 2;
+            this.Panel_New_Reg.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.024096F));
+            this.Panel_New_Reg.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.97591F));
+            this.Panel_New_Reg.Size = new System.Drawing.Size(1092, 581);
+            this.Panel_New_Reg.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(241, 34);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Môn học";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(244, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(139, 28);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Lớp học phần";
+            // 
+            // List_Subject
+            // 
+            this.List_Subject.AllowUserToAddRows = false;
+            this.List_Subject.AllowUserToDeleteRows = false;
+            this.List_Subject.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.List_Subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.List_Subject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.List_Subject.ColumnHeadersVisible = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle1;
+            this.List_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.List_Subject.Location = new System.Drawing.Point(3, 37);
+            this.List_Subject.MultiSelect = false;
+            this.List_Subject.Name = "List_Subject";
+            this.List_Subject.ReadOnly = true;
+            this.List_Subject.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.List_Subject.RowHeadersVisible = false;
+            this.List_Subject.RowTemplate.Height = 30;
+            this.List_Subject.RowTemplate.ReadOnly = true;
+            this.List_Subject.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.List_Subject.ShowCellErrors = false;
+            this.List_Subject.ShowEditingIcon = false;
+            this.List_Subject.ShowRowErrors = false;
+            this.List_Subject.Size = new System.Drawing.Size(235, 541);
+            this.List_Subject.TabIndex = 2;
+            this.List_Subject.SelectionChanged += new System.EventHandler(this.List_Subject_SelectionChanged);
+            // 
+            // List_Subject_Choice
+            // 
+            this.List_Subject_Choice.AllowUserToAddRows = false;
+            this.List_Subject_Choice.AllowUserToDeleteRows = false;
+            this.List_Subject_Choice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.List_Subject_Choice.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.List_Subject_Choice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.List_Subject_Choice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.List_Subject_Choice.ColumnHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.List_Subject_Choice.Location = new System.Drawing.Point(244, 37);
+            this.List_Subject_Choice.Name = "List_Subject_Choice";
+            this.List_Subject_Choice.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.List_Subject_Choice.RowHeadersVisible = false;
+            this.List_Subject_Choice.RowTemplate.Height = 30;
+            this.List_Subject_Choice.RowTemplate.ReadOnly = true;
+            this.List_Subject_Choice.Size = new System.Drawing.Size(845, 541);
+            this.List_Subject_Choice.TabIndex = 3;
+            this.List_Subject_Choice.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.List_Subject_Choice_CellDoubleClick);
+            this.List_Subject_Choice.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.List_Subject_Choice_CellFormatting);
+            // 
+            // EndDate_Reg
+            // 
+            this.EndDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EndDate_Reg.AutoSize = true;
+            this.EndDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDate_Reg.Location = new System.Drawing.Point(866, 30);
+            this.EndDate_Reg.Name = "EndDate_Reg";
+            this.EndDate_Reg.Size = new System.Drawing.Size(95, 18);
+            this.EndDate_Reg.TabIndex = 3;
+            this.EndDate_Reg.Text = "Ngày kết thúc:";
+            // 
+            // StartDate_Reg
+            // 
+            this.StartDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StartDate_Reg.AutoSize = true;
+            this.StartDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartDate_Reg.Location = new System.Drawing.Point(866, 8);
+            this.StartDate_Reg.Name = "StartDate_Reg";
+            this.StartDate_Reg.Size = new System.Drawing.Size(97, 18);
+            this.StartDate_Reg.TabIndex = 2;
+            this.StartDate_Reg.Text = "Ngày bắt đầu:";
+            // 
+            // displayOrder_Picker
+            // 
+            this.displayOrder_Picker.BackColor = System.Drawing.Color.Transparent;
+            this.displayOrder_Picker.BaseColor = System.Drawing.Color.White;
+            this.displayOrder_Picker.BorderColor = System.Drawing.Color.Silver;
+            this.displayOrder_Picker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.displayOrder_Picker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.displayOrder_Picker.FocusedColor = System.Drawing.Color.Empty;
+            this.displayOrder_Picker.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.displayOrder_Picker.ForeColor = System.Drawing.Color.Black;
+            this.displayOrder_Picker.FormattingEnabled = true;
+            this.displayOrder_Picker.Items.AddRange(new object[] {
+            "Học kỳ chính",
+            "Học kỳ phụ",
+            "Tiếng Anh tăng cường",
+            "Chuẩn đầu ra ngoại ngữ",
+            "Học phần tốt nghiệp",
+            "Chuẩn đầu ra ngoại ngữ - Đợt 2",
+            "Học kỳ hè"});
+            this.displayOrder_Picker.Location = new System.Drawing.Point(372, 22);
+            this.displayOrder_Picker.Name = "displayOrder_Picker";
+            this.displayOrder_Picker.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.displayOrder_Picker.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.displayOrder_Picker.Size = new System.Drawing.Size(283, 26);
+            this.displayOrder_Picker.StartIndex = 0;
+            this.displayOrder_Picker.TabIndex = 0;
+            this.displayOrder_Picker.SelectedIndexChanged += new System.EventHandler(this.displayOrder_Picker_SelectedIndexChanged);
+            // 
+            // semesterCode_Picker
+            // 
+            this.semesterCode_Picker.BackColor = System.Drawing.Color.Transparent;
+            this.semesterCode_Picker.BaseColor = System.Drawing.Color.White;
+            this.semesterCode_Picker.BorderColor = System.Drawing.Color.Silver;
+            this.semesterCode_Picker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.semesterCode_Picker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterCode_Picker.Enabled = false;
+            this.semesterCode_Picker.FocusedColor = System.Drawing.Color.Empty;
+            this.semesterCode_Picker.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.semesterCode_Picker.ForeColor = System.Drawing.Color.Black;
+            this.semesterCode_Picker.FormattingEnabled = true;
+            this.semesterCode_Picker.Items.AddRange(new object[] {
+            "SemesterName"});
+            this.semesterCode_Picker.Location = new System.Drawing.Point(25, 22);
+            this.semesterCode_Picker.Name = "semesterCode_Picker";
+            this.semesterCode_Picker.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.semesterCode_Picker.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.semesterCode_Picker.Size = new System.Drawing.Size(283, 26);
+            this.semesterCode_Picker.TabIndex = 0;
+            // 
+            // Ketquadangkyhoc
+            // 
+            this.Ketquadangkyhoc.Controls.Add(this.DataLearnTimeTable);
+            this.Ketquadangkyhoc.Controls.Add(this.label9);
+            this.Ketquadangkyhoc.Controls.Add(this.SemesterID_picker);
+            this.Ketquadangkyhoc.Location = new System.Drawing.Point(4, 22);
+            this.Ketquadangkyhoc.Name = "Ketquadangkyhoc";
+            this.Ketquadangkyhoc.Padding = new System.Windows.Forms.Padding(3);
+            this.Ketquadangkyhoc.Size = new System.Drawing.Size(1123, 651);
+            this.Ketquadangkyhoc.TabIndex = 3;
+            this.Ketquadangkyhoc.Text = "Kết quả đăng ký học";
+            this.Ketquadangkyhoc.UseVisualStyleBackColor = true;
+            // 
+            // DataLearnTimeTable
+            // 
+            this.DataLearnTimeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataLearnTimeTable.Location = new System.Drawing.Point(11, 38);
+            this.DataLearnTimeTable.Name = "DataLearnTimeTable";
+            this.DataLearnTimeTable.Size = new System.Drawing.Size(1106, 589);
+            this.DataLearnTimeTable.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Kỳ học:";
+            // 
+            // SemesterID_picker
+            // 
+            this.SemesterID_picker.BackColor = System.Drawing.Color.Transparent;
+            this.SemesterID_picker.BaseColor = System.Drawing.Color.White;
+            this.SemesterID_picker.BorderColor = System.Drawing.Color.Silver;
+            this.SemesterID_picker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.SemesterID_picker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SemesterID_picker.FocusedColor = System.Drawing.Color.Empty;
+            this.SemesterID_picker.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.SemesterID_picker.ForeColor = System.Drawing.Color.Black;
+            this.SemesterID_picker.FormattingEnabled = true;
+            this.SemesterID_picker.Location = new System.Drawing.Point(69, 6);
+            this.SemesterID_picker.Name = "SemesterID_picker";
+            this.SemesterID_picker.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.SemesterID_picker.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.SemesterID_picker.Size = new System.Drawing.Size(255, 26);
+            this.SemesterID_picker.TabIndex = 0;
+            this.SemesterID_picker.SelectedIndexChanged += new System.EventHandler(this.SemesterID_picker_SelectedIndexChanged);
+            // 
+            // Dangkynguyenvonghoc
+            // 
+            this.Dangkynguyenvonghoc.Location = new System.Drawing.Point(4, 22);
+            this.Dangkynguyenvonghoc.Name = "Dangkynguyenvonghoc";
+            this.Dangkynguyenvonghoc.Padding = new System.Windows.Forms.Padding(3);
+            this.Dangkynguyenvonghoc.Size = new System.Drawing.Size(1123, 651);
+            this.Dangkynguyenvonghoc.TabIndex = 4;
+            this.Dangkynguyenvonghoc.Text = "Đăng ký nguyện vọng học";
+            this.Dangkynguyenvonghoc.UseVisualStyleBackColor = true;
+            // 
+            // Tracuudiemtonghop
+            // 
+            this.Tracuudiemtonghop.Controls.Add(this.label8);
+            this.Tracuudiemtonghop.Controls.Add(this.listStudentmark_table);
+            this.Tracuudiemtonghop.Location = new System.Drawing.Point(4, 22);
+            this.Tracuudiemtonghop.Name = "Tracuudiemtonghop";
+            this.Tracuudiemtonghop.Padding = new System.Windows.Forms.Padding(3);
+            this.Tracuudiemtonghop.Size = new System.Drawing.Size(1123, 651);
+            this.Tracuudiemtonghop.TabIndex = 5;
+            this.Tracuudiemtonghop.Text = "Tra cứu điểm tổng hợp";
+            this.Tracuudiemtonghop.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("SVN-Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(173, 23);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Bảng điểm tổng hợp";
+            // 
+            // listStudentmark_table
+            // 
+            this.listStudentmark_table.AllowUserToAddRows = false;
+            this.listStudentmark_table.AllowUserToDeleteRows = false;
+            this.listStudentmark_table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listStudentmark_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listStudentmark_table.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.listStudentmark_table.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.listStudentmark_table.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listStudentmark_table.CausesValidation = false;
+            this.listStudentmark_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listStudentmark_table.Location = new System.Drawing.Point(7, 29);
+            this.listStudentmark_table.Name = "listStudentmark_table";
+            this.listStudentmark_table.ReadOnly = true;
+            this.listStudentmark_table.Size = new System.Drawing.Size(1110, 559);
+            this.listStudentmark_table.TabIndex = 0;
+            // 
+            // Diemrenluyen
+            // 
+            this.Diemrenluyen.Location = new System.Drawing.Point(4, 22);
+            this.Diemrenluyen.Name = "Diemrenluyen";
+            this.Diemrenluyen.Padding = new System.Windows.Forms.Padding(3);
+            this.Diemrenluyen.Size = new System.Drawing.Size(1123, 651);
+            this.Diemrenluyen.TabIndex = 6;
+            this.Diemrenluyen.Text = "Điểm rèn luyện";
+            this.Diemrenluyen.UseVisualStyleBackColor = true;
+            // 
+            // Chuongtrinhdaotao
+            // 
+            this.Chuongtrinhdaotao.Location = new System.Drawing.Point(4, 22);
+            this.Chuongtrinhdaotao.Name = "Chuongtrinhdaotao";
+            this.Chuongtrinhdaotao.Padding = new System.Windows.Forms.Padding(3);
+            this.Chuongtrinhdaotao.Size = new System.Drawing.Size(1123, 651);
+            this.Chuongtrinhdaotao.TabIndex = 7;
+            this.Chuongtrinhdaotao.Text = "Chương trình đào tạo";
+            this.Chuongtrinhdaotao.UseVisualStyleBackColor = true;
+            // 
+            // Xemlichthi
+            // 
+            this.Xemlichthi.Location = new System.Drawing.Point(4, 22);
+            this.Xemlichthi.Name = "Xemlichthi";
+            this.Xemlichthi.Padding = new System.Windows.Forms.Padding(3);
+            this.Xemlichthi.Size = new System.Drawing.Size(1123, 651);
+            this.Xemlichthi.TabIndex = 8;
+            this.Xemlichthi.Text = "Xem lịch thi";
+            this.Xemlichthi.UseVisualStyleBackColor = true;
+            // 
+            // Tracuuhocphi
+            // 
+            this.Tracuuhocphi.Location = new System.Drawing.Point(4, 22);
+            this.Tracuuhocphi.Name = "Tracuuhocphi";
+            this.Tracuuhocphi.Padding = new System.Windows.Forms.Padding(3);
+            this.Tracuuhocphi.Size = new System.Drawing.Size(1123, 651);
+            this.Tracuuhocphi.TabIndex = 9;
+            this.Tracuuhocphi.Text = "Tra cứu học phí";
+            this.Tracuuhocphi.UseVisualStyleBackColor = true;
+            // 
+            // Khenthuong
+            // 
+            this.Khenthuong.Location = new System.Drawing.Point(4, 22);
+            this.Khenthuong.Name = "Khenthuong";
+            this.Khenthuong.Padding = new System.Windows.Forms.Padding(3);
+            this.Khenthuong.Size = new System.Drawing.Size(1123, 651);
+            this.Khenthuong.TabIndex = 10;
+            this.Khenthuong.Text = "Khen thưởng";
+            this.Khenthuong.UseVisualStyleBackColor = true;
+            // 
+            // Kyluat
+            // 
+            this.Kyluat.Location = new System.Drawing.Point(4, 22);
+            this.Kyluat.Name = "Kyluat";
+            this.Kyluat.Padding = new System.Windows.Forms.Padding(3);
+            this.Kyluat.Size = new System.Drawing.Size(1123, 651);
+            this.Kyluat.TabIndex = 11;
+            this.Kyluat.Text = "Kỷ luật";
+            this.Kyluat.UseVisualStyleBackColor = true;
+            // 
+            // Nghiencuukhoahoc
+            // 
+            this.Nghiencuukhoahoc.Location = new System.Drawing.Point(4, 22);
+            this.Nghiencuukhoahoc.Name = "Nghiencuukhoahoc";
+            this.Nghiencuukhoahoc.Padding = new System.Windows.Forms.Padding(3);
+            this.Nghiencuukhoahoc.Size = new System.Drawing.Size(1123, 651);
+            this.Nghiencuukhoahoc.TabIndex = 12;
+            this.Nghiencuukhoahoc.Text = "Nghiên cứu khoa học";
+            this.Nghiencuukhoahoc.UseVisualStyleBackColor = true;
+            // 
+            // FCCID
+            // 
+            this.FCCID.Controls.Add(this.label5);
+            this.FCCID.Controls.Add(this.label1);
+            this.FCCID.Controls.Add(this.label3);
+            this.FCCID.Controls.Add(this.label4);
+            this.FCCID.Controls.Add(this.label2);
+            this.FCCID.Location = new System.Drawing.Point(4, 22);
+            this.FCCID.Name = "FCCID";
+            this.FCCID.Padding = new System.Windows.Forms.Padding(3);
+            this.FCCID.Size = new System.Drawing.Size(1123, 651);
+            this.FCCID.TabIndex = 13;
+            this.FCCID.Text = "Thông tin bản dựng";
+            this.FCCID.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(171, 418);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 28);
+            this.label5.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(540, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 28);
+            this.label1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(540, 322);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 28);
+            this.label3.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(124, 362);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 28);
+            this.label4.TabIndex = 3;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(540, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 28);
+            this.label2.TabIndex = 1;
+            // 
+            // Thongtintaikhoan
+            // 
+            this.Thongtintaikhoan.Controls.Add(this.textBox1);
+            this.Thongtintaikhoan.Location = new System.Drawing.Point(4, 22);
+            this.Thongtintaikhoan.Name = "Thongtintaikhoan";
+            this.Thongtintaikhoan.Padding = new System.Windows.Forms.Padding(3);
+            this.Thongtintaikhoan.Size = new System.Drawing.Size(1123, 651);
+            this.Thongtintaikhoan.TabIndex = 14;
+            this.Thongtintaikhoan.Text = "Thông tin tài khoản";
+            this.Thongtintaikhoan.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(8, 18);
+            this.textBox1.MaxLength = 1000000;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(1109, 617);
+            this.textBox1.TabIndex = 1;
+            // 
+            // Doimatkhau
+            // 
+            this.Doimatkhau.Controls.Add(this.panel_changepassword);
+            this.Doimatkhau.Location = new System.Drawing.Point(4, 22);
+            this.Doimatkhau.Name = "Doimatkhau";
+            this.Doimatkhau.Padding = new System.Windows.Forms.Padding(3);
+            this.Doimatkhau.Size = new System.Drawing.Size(1123, 651);
+            this.Doimatkhau.TabIndex = 15;
+            this.Doimatkhau.Text = "Đổi mật khẩu";
+            this.Doimatkhau.UseVisualStyleBackColor = true;
+            // 
+            // panel_changepassword
+            // 
+            this.panel_changepassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_changepassword.BackColor = System.Drawing.Color.Transparent;
+            this.panel_changepassword.Controls.Add(this.gunaLabel2);
+            this.panel_changepassword.Controls.Add(this.gunaLabel3);
+            this.panel_changepassword.Controls.Add(this.gunaLabel1);
+            this.panel_changepassword.Controls.Add(this.New_Password);
+            this.panel_changepassword.Controls.Add(this.Old_Password);
+            this.panel_changepassword.Controls.Add(this.Change_Password_Button);
+            this.panel_changepassword.Controls.Add(this.RE_New_Password);
+            this.panel_changepassword.Location = new System.Drawing.Point(260, 126);
+            this.panel_changepassword.Name = "panel_changepassword";
+            this.panel_changepassword.Size = new System.Drawing.Size(611, 376);
+            this.panel_changepassword.TabIndex = 7;
+            // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaLabel2.AutoSize = true;
+            this.gunaLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Location = new System.Drawing.Point(115, 129);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(142, 28);
+            this.gunaLabel2.TabIndex = 3;
+            this.gunaLabel2.Text = "Mật khẩu mới:";
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Location = new System.Drawing.Point(22, 193);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(234, 28);
+            this.gunaLabel3.TabIndex = 5;
+            this.gunaLabel3.Text = "Xác nhận mật khẩu mới:";
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(126, 62);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(131, 28);
+            this.gunaLabel1.TabIndex = 1;
+            this.gunaLabel1.Text = "Mật khẩu cũ:";
+            // 
+            // New_Password
+            // 
+            this.New_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.New_Password.Animated = true;
+            this.New_Password.BackColor = System.Drawing.Color.White;
+            this.New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.New_Password.FocusedLineColor = System.Drawing.Color.Orange;
+            this.New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.New_Password.LineColor = System.Drawing.Color.LawnGreen;
+            this.New_Password.Location = new System.Drawing.Point(260, 123);
+            this.New_Password.Name = "New_Password";
+            this.New_Password.PasswordChar = '\0';
+            this.New_Password.SelectedText = "";
+            this.New_Password.Size = new System.Drawing.Size(283, 39);
+            this.New_Password.TabIndex = 2;
+            // 
+            // Old_Password
+            // 
+            this.Old_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Old_Password.Animated = true;
+            this.Old_Password.BackColor = System.Drawing.Color.White;
+            this.Old_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Old_Password.FocusedLineColor = System.Drawing.Color.Orange;
+            this.Old_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Old_Password.LineColor = System.Drawing.Color.LawnGreen;
+            this.Old_Password.Location = new System.Drawing.Point(260, 56);
+            this.Old_Password.Name = "Old_Password";
+            this.Old_Password.PasswordChar = '\0';
+            this.Old_Password.SelectedText = "";
+            this.Old_Password.Size = new System.Drawing.Size(283, 39);
+            this.Old_Password.TabIndex = 0;
+            // 
+            // Change_Password_Button
+            // 
+            this.Change_Password_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Change_Password_Button.Animated = true;
+            this.Change_Password_Button.AnimationHoverSpeed = 0.07F;
+            this.Change_Password_Button.AnimationSpeed = 0.03F;
+            this.Change_Password_Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.Change_Password_Button.BorderColor = System.Drawing.Color.Black;
+            this.Change_Password_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Change_Password_Button.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Change_Password_Button.FocusedColor = System.Drawing.Color.Empty;
+            this.Change_Password_Button.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Change_Password_Button.ForeColor = System.Drawing.Color.White;
+            this.Change_Password_Button.Image = null;
+            this.Change_Password_Button.ImageSize = new System.Drawing.Size(20, 20);
+            this.Change_Password_Button.Location = new System.Drawing.Point(438, 310);
+            this.Change_Password_Button.Name = "Change_Password_Button";
+            this.Change_Password_Button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.Change_Password_Button.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Change_Password_Button.OnHoverForeColor = System.Drawing.Color.White;
+            this.Change_Password_Button.OnHoverImage = null;
+            this.Change_Password_Button.OnPressedColor = System.Drawing.Color.Black;
+            this.Change_Password_Button.Size = new System.Drawing.Size(160, 42);
+            this.Change_Password_Button.TabIndex = 6;
+            this.Change_Password_Button.Text = "Đổi mật khẩu";
+            this.Change_Password_Button.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Change_Password_Button.Click += new System.EventHandler(this.Change_Password_Button_Click);
+            // 
+            // RE_New_Password
+            // 
+            this.RE_New_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RE_New_Password.Animated = true;
+            this.RE_New_Password.BackColor = System.Drawing.Color.White;
+            this.RE_New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RE_New_Password.FocusedLineColor = System.Drawing.Color.Orange;
+            this.RE_New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RE_New_Password.LineColor = System.Drawing.Color.LawnGreen;
+            this.RE_New_Password.Location = new System.Drawing.Point(262, 186);
+            this.RE_New_Password.Name = "RE_New_Password";
+            this.RE_New_Password.PasswordChar = '\0';
+            this.RE_New_Password.SelectedText = "";
+            this.RE_New_Password.Size = new System.Drawing.Size(283, 39);
+            this.RE_New_Password.TabIndex = 4;
+            // 
+            // Tracuudiemrenluyen
+            // 
+            this.Tracuudiemrenluyen.Location = new System.Drawing.Point(4, 22);
+            this.Tracuudiemrenluyen.Name = "Tracuudiemrenluyen";
+            this.Tracuudiemrenluyen.Padding = new System.Windows.Forms.Padding(3);
+            this.Tracuudiemrenluyen.Size = new System.Drawing.Size(1123, 651);
+            this.Tracuudiemrenluyen.TabIndex = 16;
+            this.Tracuudiemrenluyen.Text = "Tra cứu điểm rèn luyện";
+            this.Tracuudiemrenluyen.UseVisualStyleBackColor = true;
             // 
             // Left_Panel
             // 
@@ -483,7 +1168,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.Tracuudiemtonghop_button.BorderColor = System.Drawing.Color.Black;
             this.Tracuudiemtonghop_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Tracuudiemtonghop_button.Enabled = false;
             this.Tracuudiemtonghop_button.FocusedColor = System.Drawing.Color.Empty;
             this.Tracuudiemtonghop_button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Tracuudiemtonghop_button.ForeColor = System.Drawing.Color.White;
@@ -639,612 +1323,10 @@ namespace Sinhvien.tlu.Mainboard
             this.Copyright_Panel.Size = new System.Drawing.Size(1356, 35);
             this.Copyright_Panel.TabIndex = 4;
             // 
-            // Tracuudiemrenluyen
-            // 
-            this.Tracuudiemrenluyen.Location = new System.Drawing.Point(4, 22);
-            this.Tracuudiemrenluyen.Name = "Tracuudiemrenluyen";
-            this.Tracuudiemrenluyen.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuudiemrenluyen.Size = new System.Drawing.Size(1123, 651);
-            this.Tracuudiemrenluyen.TabIndex = 16;
-            this.Tracuudiemrenluyen.Text = "Tra cứu điểm rèn luyện";
-            this.Tracuudiemrenluyen.UseVisualStyleBackColor = true;
-            // 
-            // Doimatkhau
-            // 
-            this.Doimatkhau.Controls.Add(this.panel_changepassword);
-            this.Doimatkhau.Location = new System.Drawing.Point(4, 22);
-            this.Doimatkhau.Name = "Doimatkhau";
-            this.Doimatkhau.Padding = new System.Windows.Forms.Padding(3);
-            this.Doimatkhau.Size = new System.Drawing.Size(1123, 651);
-            this.Doimatkhau.TabIndex = 15;
-            this.Doimatkhau.Text = "Đổi mật khẩu";
-            this.Doimatkhau.UseVisualStyleBackColor = true;
-            // 
-            // panel_changepassword
-            // 
-            this.panel_changepassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel_changepassword.BackColor = System.Drawing.Color.Transparent;
-            this.panel_changepassword.Controls.Add(this.gunaLabel2);
-            this.panel_changepassword.Controls.Add(this.gunaLabel3);
-            this.panel_changepassword.Controls.Add(this.gunaLabel1);
-            this.panel_changepassword.Controls.Add(this.New_Password);
-            this.panel_changepassword.Controls.Add(this.Old_Password);
-            this.panel_changepassword.Controls.Add(this.Change_Password_Button);
-            this.panel_changepassword.Controls.Add(this.RE_New_Password);
-            this.panel_changepassword.Location = new System.Drawing.Point(260, 126);
-            this.panel_changepassword.Name = "panel_changepassword";
-            this.panel_changepassword.Size = new System.Drawing.Size(611, 376);
-            this.panel_changepassword.TabIndex = 7;
-            // 
-            // RE_New_Password
-            // 
-            this.RE_New_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RE_New_Password.Animated = true;
-            this.RE_New_Password.BackColor = System.Drawing.Color.White;
-            this.RE_New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RE_New_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.RE_New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RE_New_Password.LineColor = System.Drawing.Color.LawnGreen;
-            this.RE_New_Password.Location = new System.Drawing.Point(262, 186);
-            this.RE_New_Password.Name = "RE_New_Password";
-            this.RE_New_Password.PasswordChar = '\0';
-            this.RE_New_Password.SelectedText = "";
-            this.RE_New_Password.Size = new System.Drawing.Size(283, 39);
-            this.RE_New_Password.TabIndex = 4;
-            // 
-            // Change_Password_Button
-            // 
-            this.Change_Password_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Change_Password_Button.Animated = true;
-            this.Change_Password_Button.AnimationHoverSpeed = 0.07F;
-            this.Change_Password_Button.AnimationSpeed = 0.03F;
-            this.Change_Password_Button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Change_Password_Button.BorderColor = System.Drawing.Color.Black;
-            this.Change_Password_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Change_Password_Button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Change_Password_Button.FocusedColor = System.Drawing.Color.Empty;
-            this.Change_Password_Button.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Change_Password_Button.ForeColor = System.Drawing.Color.White;
-            this.Change_Password_Button.Image = null;
-            this.Change_Password_Button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Change_Password_Button.Location = new System.Drawing.Point(438, 310);
-            this.Change_Password_Button.Name = "Change_Password_Button";
-            this.Change_Password_Button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Change_Password_Button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Change_Password_Button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Change_Password_Button.OnHoverImage = null;
-            this.Change_Password_Button.OnPressedColor = System.Drawing.Color.Black;
-            this.Change_Password_Button.Size = new System.Drawing.Size(160, 42);
-            this.Change_Password_Button.TabIndex = 6;
-            this.Change_Password_Button.Text = "Đổi mật khẩu";
-            this.Change_Password_Button.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Change_Password_Button.Click += new System.EventHandler(this.Change_Password_Button_Click);
-            // 
-            // Old_Password
-            // 
-            this.Old_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Old_Password.Animated = true;
-            this.Old_Password.BackColor = System.Drawing.Color.White;
-            this.Old_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Old_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.Old_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Old_Password.LineColor = System.Drawing.Color.LawnGreen;
-            this.Old_Password.Location = new System.Drawing.Point(260, 56);
-            this.Old_Password.Name = "Old_Password";
-            this.Old_Password.PasswordChar = '\0';
-            this.Old_Password.SelectedText = "";
-            this.Old_Password.Size = new System.Drawing.Size(283, 39);
-            this.Old_Password.TabIndex = 0;
-            // 
-            // New_Password
-            // 
-            this.New_Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.New_Password.Animated = true;
-            this.New_Password.BackColor = System.Drawing.Color.White;
-            this.New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.New_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.New_Password.LineColor = System.Drawing.Color.LawnGreen;
-            this.New_Password.Location = new System.Drawing.Point(260, 123);
-            this.New_Password.Name = "New_Password";
-            this.New_Password.PasswordChar = '\0';
-            this.New_Password.SelectedText = "";
-            this.New_Password.Size = new System.Drawing.Size(283, 39);
-            this.New_Password.TabIndex = 2;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(126, 62);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(131, 28);
-            this.gunaLabel1.TabIndex = 1;
-            this.gunaLabel1.Text = "Mật khẩu cũ:";
-            // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.Location = new System.Drawing.Point(22, 193);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(234, 28);
-            this.gunaLabel3.TabIndex = 5;
-            this.gunaLabel3.Text = "Xác nhận mật khẩu mới:";
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.Location = new System.Drawing.Point(115, 129);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(142, 28);
-            this.gunaLabel2.TabIndex = 3;
-            this.gunaLabel2.Text = "Mật khẩu mới:";
-            // 
-            // Thongtintaikhoan
-            // 
-            this.Thongtintaikhoan.Controls.Add(this.textBox1);
-            this.Thongtintaikhoan.Location = new System.Drawing.Point(4, 22);
-            this.Thongtintaikhoan.Name = "Thongtintaikhoan";
-            this.Thongtintaikhoan.Padding = new System.Windows.Forms.Padding(3);
-            this.Thongtintaikhoan.Size = new System.Drawing.Size(1123, 651);
-            this.Thongtintaikhoan.TabIndex = 14;
-            this.Thongtintaikhoan.Text = "Thông tin tài khoản";
-            this.Thongtintaikhoan.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(8, 18);
-            this.textBox1.MaxLength = 1000000;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(1109, 617);
-            this.textBox1.TabIndex = 1;
-            // 
-            // Nghiencuukhoahoc
-            // 
-            this.Nghiencuukhoahoc.Location = new System.Drawing.Point(4, 22);
-            this.Nghiencuukhoahoc.Name = "Nghiencuukhoahoc";
-            this.Nghiencuukhoahoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Nghiencuukhoahoc.Size = new System.Drawing.Size(1123, 651);
-            this.Nghiencuukhoahoc.TabIndex = 12;
-            this.Nghiencuukhoahoc.Text = "Nghiên cứu khoa học";
-            this.Nghiencuukhoahoc.UseVisualStyleBackColor = true;
-            // 
-            // Kyluat
-            // 
-            this.Kyluat.Location = new System.Drawing.Point(4, 22);
-            this.Kyluat.Name = "Kyluat";
-            this.Kyluat.Padding = new System.Windows.Forms.Padding(3);
-            this.Kyluat.Size = new System.Drawing.Size(1123, 651);
-            this.Kyluat.TabIndex = 11;
-            this.Kyluat.Text = "Kỷ luật";
-            this.Kyluat.UseVisualStyleBackColor = true;
-            // 
-            // Khenthuong
-            // 
-            this.Khenthuong.Location = new System.Drawing.Point(4, 22);
-            this.Khenthuong.Name = "Khenthuong";
-            this.Khenthuong.Padding = new System.Windows.Forms.Padding(3);
-            this.Khenthuong.Size = new System.Drawing.Size(1123, 651);
-            this.Khenthuong.TabIndex = 10;
-            this.Khenthuong.Text = "Khen thưởng";
-            this.Khenthuong.UseVisualStyleBackColor = true;
-            // 
-            // Tracuuhocphi
-            // 
-            this.Tracuuhocphi.Location = new System.Drawing.Point(4, 22);
-            this.Tracuuhocphi.Name = "Tracuuhocphi";
-            this.Tracuuhocphi.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuuhocphi.Size = new System.Drawing.Size(1123, 651);
-            this.Tracuuhocphi.TabIndex = 9;
-            this.Tracuuhocphi.Text = "Tra cứu học phí";
-            this.Tracuuhocphi.UseVisualStyleBackColor = true;
-            // 
-            // Xemlichthi
-            // 
-            this.Xemlichthi.Location = new System.Drawing.Point(4, 22);
-            this.Xemlichthi.Name = "Xemlichthi";
-            this.Xemlichthi.Padding = new System.Windows.Forms.Padding(3);
-            this.Xemlichthi.Size = new System.Drawing.Size(1123, 651);
-            this.Xemlichthi.TabIndex = 8;
-            this.Xemlichthi.Text = "Xem lịch thi";
-            this.Xemlichthi.UseVisualStyleBackColor = true;
-            // 
-            // Chuongtrinhdaotao
-            // 
-            this.Chuongtrinhdaotao.Location = new System.Drawing.Point(4, 22);
-            this.Chuongtrinhdaotao.Name = "Chuongtrinhdaotao";
-            this.Chuongtrinhdaotao.Padding = new System.Windows.Forms.Padding(3);
-            this.Chuongtrinhdaotao.Size = new System.Drawing.Size(1123, 651);
-            this.Chuongtrinhdaotao.TabIndex = 7;
-            this.Chuongtrinhdaotao.Text = "Chương trình đào tạo";
-            this.Chuongtrinhdaotao.UseVisualStyleBackColor = true;
-            // 
-            // Diemrenluyen
-            // 
-            this.Diemrenluyen.Location = new System.Drawing.Point(4, 22);
-            this.Diemrenluyen.Name = "Diemrenluyen";
-            this.Diemrenluyen.Padding = new System.Windows.Forms.Padding(3);
-            this.Diemrenluyen.Size = new System.Drawing.Size(1123, 651);
-            this.Diemrenluyen.TabIndex = 6;
-            this.Diemrenluyen.Text = "Điểm rèn luyện";
-            this.Diemrenluyen.UseVisualStyleBackColor = true;
-            // 
-            // Tracuudiemtonghop
-            // 
-            this.Tracuudiemtonghop.Location = new System.Drawing.Point(4, 22);
-            this.Tracuudiemtonghop.Name = "Tracuudiemtonghop";
-            this.Tracuudiemtonghop.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuudiemtonghop.Size = new System.Drawing.Size(1123, 651);
-            this.Tracuudiemtonghop.TabIndex = 5;
-            this.Tracuudiemtonghop.Text = "Tra cứu điểm tổng hợp";
-            this.Tracuudiemtonghop.UseVisualStyleBackColor = true;
-            // 
-            // Dangkynguyenvonghoc
-            // 
-            this.Dangkynguyenvonghoc.Location = new System.Drawing.Point(4, 22);
-            this.Dangkynguyenvonghoc.Name = "Dangkynguyenvonghoc";
-            this.Dangkynguyenvonghoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Dangkynguyenvonghoc.Size = new System.Drawing.Size(1123, 651);
-            this.Dangkynguyenvonghoc.TabIndex = 4;
-            this.Dangkynguyenvonghoc.Text = "Đăng ký nguyện vọng học";
-            this.Dangkynguyenvonghoc.UseVisualStyleBackColor = true;
-            // 
-            // Ketquadangkyhoc
-            // 
-            this.Ketquadangkyhoc.Location = new System.Drawing.Point(4, 22);
-            this.Ketquadangkyhoc.Name = "Ketquadangkyhoc";
-            this.Ketquadangkyhoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Ketquadangkyhoc.Size = new System.Drawing.Size(1123, 651);
-            this.Ketquadangkyhoc.TabIndex = 3;
-            this.Ketquadangkyhoc.Text = "Kết quả đăng ký học";
-            this.Ketquadangkyhoc.UseVisualStyleBackColor = true;
-            // 
-            // Dangkihocmoi
-            // 
-            this.Dangkihocmoi.Controls.Add(this.refresh_button);
-            this.Dangkihocmoi.Controls.Add(this.Panel_New_Reg);
-            this.Dangkihocmoi.Controls.Add(this.EndDate_Reg);
-            this.Dangkihocmoi.Controls.Add(this.StartDate_Reg);
-            this.Dangkihocmoi.Controls.Add(this.displayOrder_Picker);
-            this.Dangkihocmoi.Controls.Add(this.semesterCode_Picker);
-            this.Dangkihocmoi.Location = new System.Drawing.Point(4, 22);
-            this.Dangkihocmoi.Name = "Dangkihocmoi";
-            this.Dangkihocmoi.Padding = new System.Windows.Forms.Padding(3);
-            this.Dangkihocmoi.Size = new System.Drawing.Size(1123, 651);
-            this.Dangkihocmoi.TabIndex = 2;
-            this.Dangkihocmoi.Text = "Đăng kí học mới";
-            this.Dangkihocmoi.UseVisualStyleBackColor = true;
-            // 
-            // semesterCode_Picker
-            // 
-            this.semesterCode_Picker.BackColor = System.Drawing.Color.Transparent;
-            this.semesterCode_Picker.BaseColor = System.Drawing.Color.White;
-            this.semesterCode_Picker.BorderColor = System.Drawing.Color.Silver;
-            this.semesterCode_Picker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.semesterCode_Picker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.semesterCode_Picker.Enabled = false;
-            this.semesterCode_Picker.FocusedColor = System.Drawing.Color.Empty;
-            this.semesterCode_Picker.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.semesterCode_Picker.ForeColor = System.Drawing.Color.Black;
-            this.semesterCode_Picker.FormattingEnabled = true;
-            this.semesterCode_Picker.Items.AddRange(new object[] {
-            "SemesterName"});
-            this.semesterCode_Picker.Location = new System.Drawing.Point(25, 22);
-            this.semesterCode_Picker.Name = "semesterCode_Picker";
-            this.semesterCode_Picker.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.semesterCode_Picker.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.semesterCode_Picker.Size = new System.Drawing.Size(283, 26);
-            this.semesterCode_Picker.TabIndex = 0;
-            // 
-            // displayOrder_Picker
-            // 
-            this.displayOrder_Picker.BackColor = System.Drawing.Color.Transparent;
-            this.displayOrder_Picker.BaseColor = System.Drawing.Color.White;
-            this.displayOrder_Picker.BorderColor = System.Drawing.Color.Silver;
-            this.displayOrder_Picker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.displayOrder_Picker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.displayOrder_Picker.FocusedColor = System.Drawing.Color.Empty;
-            this.displayOrder_Picker.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.displayOrder_Picker.ForeColor = System.Drawing.Color.Black;
-            this.displayOrder_Picker.FormattingEnabled = true;
-            this.displayOrder_Picker.Items.AddRange(new object[] {
-            "Học kỳ chính",
-            "Học kỳ phụ",
-            "Tiếng Anh tăng cường",
-            "Chuẩn đầu ra ngoại ngữ",
-            "Học phần tốt nghiệp",
-            "Chuẩn đầu ra ngoại ngữ - Đợt 2",
-            "Học kỳ hè"});
-            this.displayOrder_Picker.Location = new System.Drawing.Point(372, 22);
-            this.displayOrder_Picker.Name = "displayOrder_Picker";
-            this.displayOrder_Picker.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.displayOrder_Picker.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.displayOrder_Picker.Size = new System.Drawing.Size(283, 26);
-            this.displayOrder_Picker.StartIndex = 0;
-            this.displayOrder_Picker.TabIndex = 0;
-            this.displayOrder_Picker.SelectedIndexChanged += new System.EventHandler(this.displayOrder_Picker_SelectedIndexChanged);
-            // 
-            // StartDate_Reg
-            // 
-            this.StartDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.StartDate_Reg.AutoSize = true;
-            this.StartDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartDate_Reg.Location = new System.Drawing.Point(866, 8);
-            this.StartDate_Reg.Name = "StartDate_Reg";
-            this.StartDate_Reg.Size = new System.Drawing.Size(97, 18);
-            this.StartDate_Reg.TabIndex = 2;
-            this.StartDate_Reg.Text = "Ngày bắt đầu:";
-            // 
-            // EndDate_Reg
-            // 
-            this.EndDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EndDate_Reg.AutoSize = true;
-            this.EndDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndDate_Reg.Location = new System.Drawing.Point(866, 30);
-            this.EndDate_Reg.Name = "EndDate_Reg";
-            this.EndDate_Reg.Size = new System.Drawing.Size(95, 18);
-            this.EndDate_Reg.TabIndex = 3;
-            this.EndDate_Reg.Text = "Ngày kết thúc:";
-            // 
-            // Panel_New_Reg
-            // 
-            this.Panel_New_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Panel_New_Reg.ColumnCount = 2;
-            this.Panel_New_Reg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.0696F));
-            this.Panel_New_Reg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.9304F));
-            this.Panel_New_Reg.Controls.Add(this.label6, 0, 0);
-            this.Panel_New_Reg.Controls.Add(this.label7, 1, 0);
-            this.Panel_New_Reg.Controls.Add(this.List_Subject, 0, 1);
-            this.Panel_New_Reg.Controls.Add(this.List_Subject_Choice, 1, 1);
-            this.Panel_New_Reg.Location = new System.Drawing.Point(25, 54);
-            this.Panel_New_Reg.Name = "Panel_New_Reg";
-            this.Panel_New_Reg.RowCount = 2;
-            this.Panel_New_Reg.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.024096F));
-            this.Panel_New_Reg.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.97591F));
-            this.Panel_New_Reg.Size = new System.Drawing.Size(1092, 581);
-            this.Panel_New_Reg.TabIndex = 4;
-            // 
-            // List_Subject_Choice
-            // 
-            this.List_Subject_Choice.AllowUserToAddRows = false;
-            this.List_Subject_Choice.AllowUserToDeleteRows = false;
-            this.List_Subject_Choice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.List_Subject_Choice.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.List_Subject_Choice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.List_Subject_Choice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.List_Subject_Choice.ColumnHeadersVisible = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle13;
-            this.List_Subject_Choice.Location = new System.Drawing.Point(244, 37);
-            this.List_Subject_Choice.Name = "List_Subject_Choice";
-            this.List_Subject_Choice.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.List_Subject_Choice.RowHeadersVisible = false;
-            this.List_Subject_Choice.RowTemplate.Height = 30;
-            this.List_Subject_Choice.RowTemplate.ReadOnly = true;
-            this.List_Subject_Choice.Size = new System.Drawing.Size(845, 541);
-            this.List_Subject_Choice.TabIndex = 3;
-            this.List_Subject_Choice.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.List_Subject_Choice_CellDoubleClick);
-            this.List_Subject_Choice.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.List_Subject_Choice_CellFormatting);
-            // 
-            // List_Subject
-            // 
-            this.List_Subject.AllowUserToAddRows = false;
-            this.List_Subject.AllowUserToDeleteRows = false;
-            this.List_Subject.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.List_Subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.List_Subject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.List_Subject.ColumnHeadersVisible = false;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle15;
-            this.List_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.List_Subject.Location = new System.Drawing.Point(3, 37);
-            this.List_Subject.MultiSelect = false;
-            this.List_Subject.Name = "List_Subject";
-            this.List_Subject.ReadOnly = true;
-            this.List_Subject.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.List_Subject.RowHeadersVisible = false;
-            this.List_Subject.RowTemplate.Height = 30;
-            this.List_Subject.RowTemplate.ReadOnly = true;
-            this.List_Subject.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.List_Subject.ShowCellErrors = false;
-            this.List_Subject.ShowEditingIcon = false;
-            this.List_Subject.ShowRowErrors = false;
-            this.List_Subject.Size = new System.Drawing.Size(235, 541);
-            this.List_Subject.TabIndex = 2;
-            this.List_Subject.SelectionChanged += new System.EventHandler(this.List_Subject_SelectionChanged);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(244, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 28);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Lớp học phần";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(241, 34);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Môn học";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // refresh_button
-            // 
-            this.refresh_button.Location = new System.Drawing.Point(661, 23);
-            this.refresh_button.Name = "refresh_button";
-            this.refresh_button.Size = new System.Drawing.Size(75, 23);
-            this.refresh_button.TabIndex = 5;
-            this.refresh_button.Text = "Làm mới";
-            this.refresh_button.UseVisualStyleBackColor = true;
-            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
-            // 
-            // TrangChu
-            // 
-            this.TrangChu.Location = new System.Drawing.Point(4, 22);
-            this.TrangChu.Name = "TrangChu";
-            this.TrangChu.Padding = new System.Windows.Forms.Padding(3);
-            this.TrangChu.Size = new System.Drawing.Size(1123, 651);
-            this.TrangChu.TabIndex = 1;
-            this.TrangChu.Text = "Trang chủ";
-            this.TrangChu.UseVisualStyleBackColor = true;
-            // 
-            // Main_Dashboard
-            // 
-            this.Main_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Main_Dashboard.Controls.Add(this.TrangChu);
-            this.Main_Dashboard.Controls.Add(this.Dangkihocmoi);
-            this.Main_Dashboard.Controls.Add(this.Ketquadangkyhoc);
-            this.Main_Dashboard.Controls.Add(this.Dangkynguyenvonghoc);
-            this.Main_Dashboard.Controls.Add(this.Tracuudiemtonghop);
-            this.Main_Dashboard.Controls.Add(this.Diemrenluyen);
-            this.Main_Dashboard.Controls.Add(this.Chuongtrinhdaotao);
-            this.Main_Dashboard.Controls.Add(this.Xemlichthi);
-            this.Main_Dashboard.Controls.Add(this.Tracuuhocphi);
-            this.Main_Dashboard.Controls.Add(this.Khenthuong);
-            this.Main_Dashboard.Controls.Add(this.Kyluat);
-            this.Main_Dashboard.Controls.Add(this.Nghiencuukhoahoc);
-            this.Main_Dashboard.Controls.Add(this.FCCID);
-            this.Main_Dashboard.Controls.Add(this.Thongtintaikhoan);
-            this.Main_Dashboard.Controls.Add(this.Doimatkhau);
-            this.Main_Dashboard.Controls.Add(this.Tracuudiemrenluyen);
-            this.Main_Dashboard.Location = new System.Drawing.Point(-7, 0);
-            this.Main_Dashboard.Name = "Main_Dashboard";
-            this.Main_Dashboard.SelectedIndex = 0;
-            this.Main_Dashboard.Size = new System.Drawing.Size(1131, 677);
-            this.Main_Dashboard.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.Main_Dashboard.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(540, 270);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 28);
-            this.label2.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(124, 362);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 28);
-            this.label4.TabIndex = 3;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(540, 322);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 28);
-            this.label3.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(540, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 28);
-            this.label1.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(171, 418);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 28);
-            this.label5.TabIndex = 4;
-            // 
-            // FCCID
-            // 
-            this.FCCID.Controls.Add(this.label5);
-            this.FCCID.Controls.Add(this.label1);
-            this.FCCID.Controls.Add(this.label3);
-            this.FCCID.Controls.Add(this.label4);
-            this.FCCID.Controls.Add(this.label2);
-            this.FCCID.Location = new System.Drawing.Point(4, 22);
-            this.FCCID.Name = "FCCID";
-            this.FCCID.Padding = new System.Windows.Forms.Padding(3);
-            this.FCCID.Size = new System.Drawing.Size(1123, 651);
-            this.FCCID.TabIndex = 13;
-            this.FCCID.Text = "Thông tin bản dựng";
-            this.FCCID.UseVisualStyleBackColor = true;
-            // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(1134, 12);
@@ -1280,24 +1362,30 @@ namespace Sinhvien.tlu.Mainboard
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Header)).EndInit();
             this.Main_Panel.ResumeLayout(false);
-            this.Left_Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            this.Copyright_Panel.ResumeLayout(false);
-            this.Copyright_Panel.PerformLayout();
-            this.Doimatkhau.ResumeLayout(false);
-            this.panel_changepassword.ResumeLayout(false);
-            this.panel_changepassword.PerformLayout();
-            this.Thongtintaikhoan.ResumeLayout(false);
-            this.Thongtintaikhoan.PerformLayout();
+            this.Main_Dashboard.ResumeLayout(false);
             this.Dangkihocmoi.ResumeLayout(false);
             this.Dangkihocmoi.PerformLayout();
             this.Panel_New_Reg.ResumeLayout(false);
             this.Panel_New_Reg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.List_Subject_Choice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.List_Subject)).EndInit();
-            this.Main_Dashboard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.List_Subject_Choice)).EndInit();
+            this.Ketquadangkyhoc.ResumeLayout(false);
+            this.Ketquadangkyhoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataLearnTimeTable)).EndInit();
+            this.Tracuudiemtonghop.ResumeLayout(false);
+            this.Tracuudiemtonghop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).EndInit();
             this.FCCID.ResumeLayout(false);
             this.FCCID.PerformLayout();
+            this.Thongtintaikhoan.ResumeLayout(false);
+            this.Thongtintaikhoan.PerformLayout();
+            this.Doimatkhau.ResumeLayout(false);
+            this.panel_changepassword.ResumeLayout(false);
+            this.panel_changepassword.PerformLayout();
+            this.Left_Panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            this.Copyright_Panel.ResumeLayout(false);
+            this.Copyright_Panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1374,5 +1462,10 @@ namespace Sinhvien.tlu.Mainboard
         private Label label4;
         private Label label2;
         private LinkLabel linkLabel1;
+        private DataGridView listStudentmark_table;
+        private Label label8;
+        private Guna.UI.WinForms.GunaComboBox SemesterID_picker;
+        private DataGridView DataLearnTimeTable;
+        private Label label9;
     }
 }

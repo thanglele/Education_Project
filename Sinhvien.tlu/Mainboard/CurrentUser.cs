@@ -32,7 +32,7 @@ namespace Sinhvien.tlu.Mainboard
         public string lastName { get; set; }
         public string displayName { get; set; }
         public object shortName { get; set; }
-        public long birthDate { get; set; }
+        public long? birthDate { get; set; }
         public string birthDateString { get; set; }
         public string birthPlace { get; set; }
         public string gender { get; set; }
@@ -41,7 +41,7 @@ namespace Sinhvien.tlu.Mainboard
         public string phoneNumber { get; set; }
         public string idNumber { get; set; }
         public string idNumberIssueBy { get; set; }
-        public long idNumberIssueDate { get; set; }
+        public long? idNumberIssueDate { get; set; }
         public string idNumberIssueDateString { get; set; }
         public string email { get; set; }
         public object nationality { get; set; }
@@ -84,7 +84,7 @@ namespace Sinhvien.tlu.Mainboard
         public bool? active { get; set; }
         public object lastName { get; set; }
         public object firstName { get; set; }
-        public long dob { get; set; }
+        public long? dob { get; set; }
         public string birthPlace { get; set; }
         public string email { get; set; }
         public CurrentUser_Person person { get; set; }

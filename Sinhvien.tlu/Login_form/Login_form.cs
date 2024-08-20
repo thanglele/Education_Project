@@ -126,7 +126,7 @@ namespace Sinhvien.tlu.Login_form
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //MessageBox.Show("Mất kết nối với internet, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Login_action.Text = "Mất kết nối với internet, yêu cầu kiểm tra lại!";
@@ -272,7 +272,7 @@ namespace Sinhvien.tlu.Login_form
 
         private void System_Login_Load(object sender, EventArgs e)
         {
-            if (Update_task.activate())
+            if (Update_task.activate() && System.Diagnostics.Debugger.IsAttached == false)
             {
                 MessageBox.Show("Phần mềm bị chặn khởi động từ máy chủ, cảm ơn bạn đã sử dụng phần mềm.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);

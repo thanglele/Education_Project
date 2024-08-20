@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Sinhvien.tlu.Login_form
@@ -41,28 +39,36 @@ namespace Sinhvien.tlu.Login_form
 
         public bool checkversion()
         {
-            string currentVersion = "v1.0.4/KB1002"; // Phiên bản hiện tại của ứng dụng
-            string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt"; // URL chứa thông tin phiên bản mới
+            string currentVersion = "v1.0.4/KB1007";
+            /*Update tính năng xem kết quả đăng kí môn*/
+            string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt";
 
-            try
+            if (System.Diagnostics.Debugger.IsAttached == false)
             {
-                // Kiểm tra phiên bản mới
-                using (WebClient client = new WebClient())
+                try
                 {
-                    string newVersion = client.DownloadString(versionUrl).Trim();
-
-                    if (newVersion != currentVersion)
+                    // Kiểm tra phiên bản mới
+                    using (WebClient client = new WebClient())
                     {
-                        return true;
+                        string newVersion = client.DownloadString(versionUrl).Trim();
+
+                        if (newVersion != currentVersion)
+                        {
+                            return true;
+                        }
                     }
                 }
+                catch (Exception)
+                {
+                    //Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                    MessageBox.Show("Mất kết nối tới máy chủ dữ liệu, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return false;
             }
-            catch (Exception)
+            else
             {
-                //Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
-                MessageBox.Show("Mất kết nối tới máy chủ dữ liệu, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return false;
+                return false;
+            }    
         }
     }
 }

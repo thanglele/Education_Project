@@ -16,10 +16,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://www.facebook.com/Thanglele2884"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="Thanglele"/>
-    <ROW Property="ProductCode" Value="1033:{C5317B51-202B-4A4C-A042-9AA4A16D5612} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{F6FF3FFE-840A-490B-B709-4761DD4266D8} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Education"/>
-    <ROW Property="ProductVersion" Value="1.0.4" Options="32"/>
+    <ROW Property="ProductVersion" Value="1.0.10" Options="4"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{11F6D6BB-703F-4A27-A75A-75A1325DE3E1}"/>
