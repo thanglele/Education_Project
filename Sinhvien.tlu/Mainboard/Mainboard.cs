@@ -72,15 +72,16 @@ namespace Sinhvien.tlu.Mainboard
                         List<SubjectRegistrationDto> subjects = RegisterPeriod.CourseRegisterViewObject.ListSubjectRegistrationDtos;
                         List_Subject.DataSource = subjects;
                     }
-                    catch (Exception) 
+                    catch (Exception ex)
                     {
+                        MessageBox.Show(ex.ToString());
                         MessageBox.Show("Có lỗi trong việc biên dịch dữ liệu, vui lòng cập nhật bản vá lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 MessageBox.Show("Có lỗi trong việc biên dịch dữ liệu, vui lòng cập nhật bản vá lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -104,7 +105,7 @@ namespace Sinhvien.tlu.Mainboard
 
                 foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
                 {
-                    if(Sub_Course.NumberSubCourseSubject != 0)
+                    if (Sub_Course.NumberSubCourseSubject != 0)
                     {
                         var Subject_Information = new Subject_Preview();
                         if (Sub_Course.IsFullClass)
@@ -116,14 +117,6 @@ namespace Sinhvien.tlu.Mainboard
                         {
                             Subject_Information.IsOvelapTime = "Trùng tiết!";
                         }
-                        //if (Sub_Course.IsSelected)
-                        //{
-                        //    Subject_Information.isSelected = "Đã đăng ký";
-                        //}
-                        //else
-                        //{
-                        //    Subject_Information.isSelected = "Bấm đúp chuột để đăng ký";
-                        //}
                         Subject_Information.numberstudent = "Sĩ số " + Sub_Course.NumberStudent + "/" + Sub_Course.MaxStudent;
                         subject_preview.Add(Subject_Information);
 
@@ -137,19 +130,34 @@ namespace Sinhvien.tlu.Mainboard
                             isSelected = ""
                         });
 
-                        foreach (var timetable in Sub_Course.Timetables)
+                        try
+                        {
+                            foreach (var timetable in Sub_Course.Timetables)
+                            {
+                                subject_preview.Add(new Subject_Preview()
+                                {
+                                    isFullclass = "",
+                                    displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
+                                    IsOvelapTime = timetable.start + " -> " + timetable.end,
+                                    Information = timetable.roomName,
+                                    numberstudent = timetable.teacherName,
+                                    isSelected = ""
+                                });
+                            }
+                        }
+                        catch (Exception)
                         {
                             subject_preview.Add(new Subject_Preview()
                             {
                                 isFullclass = "",
-                                displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
-                                IsOvelapTime = timetable.start + " -> " + timetable.end,
-                                Information = timetable.roomName,
-                                numberstudent = timetable.teacherName,
+                                displayName = "Chưa có lịch học lớp này!",
+                                IsOvelapTime = "",
+                                Information = "",
+                                numberstudent = "",
                                 isSelected = ""
                             });
                         }
-                    }    
+                    }
                     else
                     {
                         var Subject_Information = new Subject_Preview();
@@ -183,17 +191,32 @@ namespace Sinhvien.tlu.Mainboard
                             isSelected = ""
                         });
 
-                        foreach (var timetable in Sub_Course.Timetables)
+                        if (Sub_Course.Timetables == null)
                         {
                             subject_preview.Add(new Subject_Preview()
                             {
                                 isFullclass = "",
-                                displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
-                                IsOvelapTime = timetable.start + " -> " + timetable.end,
-                                Information = timetable.roomName,
-                                numberstudent = timetable.teacherName,
+                                displayName = "Chưa có lịch học lớp này!",
+                                IsOvelapTime = "",
+                                Information = "",
+                                numberstudent = "",
                                 isSelected = ""
                             });
+                        }
+                        else
+                        {
+                            foreach (var timetable in Sub_Course.Timetables)
+                            {
+                                subject_preview.Add(new Subject_Preview()
+                                {
+                                    isFullclass = "",
+                                    displayName = "Thứ " + timetable.weekIndex + ", " + ConvertJsonDateToString(timetable.startDate) + " -> " + ConvertJsonDateToString(timetable.endDate),
+                                    IsOvelapTime = timetable.start + " -> " + timetable.end,
+                                    Information = timetable.roomName,
+                                    numberstudent = timetable.teacherName,
+                                    isSelected = ""
+                                });
+                            }
                         }
                     }
 
@@ -282,7 +305,7 @@ namespace Sinhvien.tlu.Mainboard
         {
             Static_loading.Text = "Đang lấy thông tin tài khoản...";
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            
+
             response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/student/getstudentbylogin").Result;
 
             Static_loading.Text = "";
@@ -355,7 +378,7 @@ namespace Sinhvien.tlu.Mainboard
             try
             {
                 HttpContent content = new StringContent(register, Encoding.UTF8, "application/json");
-                response = client.PostAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                response = client.PostAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port +
                     "/education/api/cs_reg_mongo/add-register/" + currentUser.person.id + "/" + registerPeriodId
                     , content).Result;
                 JObject respond = JObject.Parse(response.Content.ReadAsStringAsync().Result);
@@ -374,9 +397,10 @@ namespace Sinhvien.tlu.Mainboard
         {
             try
             {
-                response = client.SendAsync(new HttpRequestMessage {
+                response = client.SendAsync(new HttpRequestMessage
+                {
                     Method = HttpMethod.Delete,
-                    RequestUri = new Uri("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                    RequestUri = new Uri("https://sinhvien" + server + ".tlu.edu.vn:" + port +
                     "/education/api/cs_reg_mongo/remove-register/" + currentUser.person.id + "/" + registerPeriodId),
                     Content = new StringContent(register, Encoding.UTF8, "application/json")
                 }).Result;
@@ -406,7 +430,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             try
             {
-                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
+                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port +
                     "/education/api/cs_reg_mongo/findByPeriod/" + currentUser.person.id + "/" + registerPeriodId).Result;
 
                 if (response.IsSuccessStatusCode)
@@ -457,10 +481,10 @@ namespace Sinhvien.tlu.Mainboard
 
             if (List_Subject_Choice.Columns[e.ColumnIndex].Name == "IsOvelapTime")
             {
-                if(e.Value != null && e.Value.ToString() == "Trùng tiết!")
+                if (e.Value != null && e.Value.ToString() == "Trùng tiết!")
                 {
                     e.CellStyle.ForeColor = Color.Red;
-                }    
+                }
             }
 
             if (List_Subject_Choice.Columns[e.ColumnIndex].Name == "isSelected")
@@ -472,7 +496,19 @@ namespace Sinhvien.tlu.Mainboard
                 else
                 {
                     e.CellStyle.ForeColor = Color.Orange;
-                }    
+                }
+            }
+
+            if (List_Subject_Choice.Columns[e.ColumnIndex].Name == "displayName")
+            {
+                if (e.Value.ToString() == "Chưa có lịch học lớp này!")
+                {
+                    e.CellStyle.ForeColor = Color.Orange;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                }
             }
         }
 
@@ -498,89 +534,89 @@ namespace Sinhvien.tlu.Mainboard
                         //}
                         //else
                         //{
-                            if (selectedSubject1.IsOvelapTime == "Trùng tiết!")
+                        if (selectedSubject1.IsOvelapTime == "Trùng tiết!")
+                        {
+                            MessageBox.Show("Xuất hiện môn học khác trùng với thời gian của môn đang đăng kí, yêu cầu kiểm tra lại!", "Cảnh báo");
+                        }
+                        else
+                        {
+                            Register_Class foundCourseSubject = null;
+                            bool static_search = false;
+                            foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
                             {
-                                MessageBox.Show("Xuất hiện môn học khác trùng với thời gian của môn đang đăng kí, yêu cầu kiểm tra lại!", "Cảnh báo");
-                            }
-                            else
-                            {
-                                Register_Class foundCourseSubject = null;
-                                bool static_search = false;
-                                foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
+                                if (Sub_Course.DisplayName == selectedSubject1.displayName)
                                 {
-                                    if (Sub_Course.DisplayName == selectedSubject1.displayName)
+                                    foundCourseSubject = new Register_Class
                                     {
-                                        foundCourseSubject = new Register_Class
-                                        {
-                                            createDate = Sub_Course.CreateDate ?? null,
-                                            createdBy = Sub_Course.CreatedBy ?? null,
-                                            modifyDate = Sub_Course.ModifyDate ?? null,
-                                            modifiedBy = Sub_Course.ModifiedBy ?? null,
-                                            id = Sub_Course.Id,
-                                            voided = Sub_Course.Voided,
-                                            code = Sub_Course.Code ?? null,
-                                            shortCode = Sub_Course.ShortCode ?? null,
-                                            subjectId = Sub_Course.SubjectId,
-                                            subjectName = Sub_Course.SubjectName ?? null,
-                                            subjectCode = Sub_Course.SubjectCode ?? null,
-                                            parent = Sub_Course.Parent ?? null,
-                                            subCourseSubjects = Sub_Course.SubCourseSubjects,
-                                            isUsingConfig = Sub_Course.IsUsingConfig,
-                                            isFullClass = Sub_Course.IsFullClass,
-                                            courseSubjectConfigs = Sub_Course.CourseSubjectConfigs ?? null,
-                                            timetables = Sub_Course.Timetables ?? null,
-                                            semesterSubject = Sub_Course.SemesterSubject ?? null,
-                                            maxStudent = Sub_Course.MaxStudent,
-                                            minStudent = Sub_Course.MinStudent,
-                                            numberStudent = Sub_Course.NumberStudent,
-                                            courseSubjectType = Sub_Course.CourseSubjectType ?? null,
-                                            learningSkillId = Sub_Course.LearningSkillId ?? null,
-                                            learningSkillName = Sub_Course.LearningSkillName ?? null,
-                                            learningSkillCode = Sub_Course.LearningSkillCode ?? null,
-                                            isSelected = Sub_Course.IsSelected,
-                                            children = Sub_Course.Children ?? null,
-                                            hashCourseSubjects = Sub_Course.HashCourseSubjects,
-                                            expanded = Sub_Course.Expanded,
-                                            isGrantAll = Sub_Course.IsGrantAll,
-                                            isDeniedAll = Sub_Course.IsDeniedAll,
-                                            trainingBase = Sub_Course.TrainingBase ?? null,
-                                            isOvelapTime = Sub_Course.IsOvelapTime,
-                                            overLapClasses = Sub_Course.OverLapClasses,
-                                            courseYearId = Sub_Course.CourseYearId ?? null,
-                                            courseYearCode = Sub_Course.CourseYearCode ?? null,
-                                            courseYearName = Sub_Course.CourseYearName ?? null,
-                                            displayName = Sub_Course.DisplayName ?? null,
-                                            numberOfCredit = Sub_Course.NumberOfCredit,
-                                            isFeeByCourseSubject = Sub_Course.IsFeeByCourseSubject,
-                                            feePerCredit = Sub_Course.FeePerCredit ?? null,
-                                            tuitionCoefficient = Sub_Course.TuitionCoefficient ?? null,
-                                            totalFee = Sub_Course.TotalFee ?? null,
-                                            feePerStudent = Sub_Course.FeePerStudent ?? null,
-                                            enrollmentClassId = Sub_Course.EnrollmentClassId ?? null,
-                                            enrollmentClassCode = Sub_Course.EnrollmentClassCode ?? null,
-                                            numberHours = Sub_Course.NumberHours ?? null,
-                                            teacher = Sub_Course.Teacher ?? null,
-                                            teacherName = Sub_Course.TeacherName ?? null,
-                                            teacherCode = Sub_Course.TeacherCode ?? null,
-                                            startDate = Sub_Course.StartDate ?? null,
-                                            endDate = Sub_Course.EndDate ?? null,
-                                            learningMethod = Sub_Course.LearningMethod ?? null,
-                                            status = Sub_Course.Status,
-                                            subjectExams = Sub_Course.SubjectExams ?? null,
-                                            semesterId = Sub_Course.SemesterId ?? null,
-                                            semesterCode = Sub_Course.SemesterCode ?? null,
-                                            periodId = Sub_Course.PeriodId ?? null,
-                                            periodName = Sub_Course.PeriodName ?? null,
-                                            username = Sub_Course.Username ?? null,
-                                            actionTime = Sub_Course.ActionTime ?? null,
-                                            logContent = Sub_Course.LogContent ?? null,
-                                            numberLearningSkill = Sub_Course.NumberLearningSkill,
-                                            numberSubCourseSubject = Sub_Course.NumberSubCourseSubject,
-                                            check = Sub_Course.Check
-                                        };
-                                        break;
-                                    }
+                                        createDate = Sub_Course.CreateDate ?? null,
+                                        createdBy = Sub_Course.CreatedBy ?? null,
+                                        modifyDate = Sub_Course.ModifyDate ?? null,
+                                        modifiedBy = Sub_Course.ModifiedBy ?? null,
+                                        id = Sub_Course.Id,
+                                        voided = Sub_Course.Voided,
+                                        code = Sub_Course.Code ?? null,
+                                        shortCode = Sub_Course.ShortCode ?? null,
+                                        subjectId = Sub_Course.SubjectId,
+                                        subjectName = Sub_Course.SubjectName ?? null,
+                                        subjectCode = Sub_Course.SubjectCode ?? null,
+                                        parent = Sub_Course.Parent ?? null,
+                                        subCourseSubjects = Sub_Course.SubCourseSubjects,
+                                        isUsingConfig = Sub_Course.IsUsingConfig,
+                                        isFullClass = Sub_Course.IsFullClass,
+                                        courseSubjectConfigs = Sub_Course.CourseSubjectConfigs ?? null,
+                                        timetables = Sub_Course.Timetables ?? null,
+                                        semesterSubject = Sub_Course.SemesterSubject ?? null,
+                                        maxStudent = Sub_Course.MaxStudent,
+                                        minStudent = Sub_Course.MinStudent,
+                                        numberStudent = Sub_Course.NumberStudent,
+                                        courseSubjectType = Sub_Course.CourseSubjectType ?? null,
+                                        learningSkillId = Sub_Course.LearningSkillId ?? null,
+                                        learningSkillName = Sub_Course.LearningSkillName ?? null,
+                                        learningSkillCode = Sub_Course.LearningSkillCode ?? null,
+                                        isSelected = Sub_Course.IsSelected,
+                                        children = Sub_Course.Children ?? null,
+                                        hashCourseSubjects = Sub_Course.HashCourseSubjects,
+                                        expanded = Sub_Course.Expanded,
+                                        isGrantAll = Sub_Course.IsGrantAll,
+                                        isDeniedAll = Sub_Course.IsDeniedAll,
+                                        trainingBase = Sub_Course.TrainingBase ?? null,
+                                        isOvelapTime = Sub_Course.IsOvelapTime,
+                                        overLapClasses = Sub_Course.OverLapClasses,
+                                        courseYearId = Sub_Course.CourseYearId ?? null,
+                                        courseYearCode = Sub_Course.CourseYearCode ?? null,
+                                        courseYearName = Sub_Course.CourseYearName ?? null,
+                                        displayName = Sub_Course.DisplayName ?? null,
+                                        numberOfCredit = Sub_Course.NumberOfCredit,
+                                        isFeeByCourseSubject = Sub_Course.IsFeeByCourseSubject,
+                                        feePerCredit = Sub_Course.FeePerCredit ?? null,
+                                        tuitionCoefficient = Sub_Course.TuitionCoefficient ?? null,
+                                        totalFee = Sub_Course.TotalFee ?? null,
+                                        feePerStudent = Sub_Course.FeePerStudent ?? null,
+                                        enrollmentClassId = Sub_Course.EnrollmentClassId ?? null,
+                                        enrollmentClassCode = Sub_Course.EnrollmentClassCode ?? null,
+                                        numberHours = Sub_Course.NumberHours ?? null,
+                                        teacher = Sub_Course.Teacher ?? null,
+                                        teacherName = Sub_Course.TeacherName ?? null,
+                                        teacherCode = Sub_Course.TeacherCode ?? null,
+                                        startDate = Sub_Course.StartDate ?? null,
+                                        endDate = Sub_Course.EndDate ?? null,
+                                        learningMethod = Sub_Course.LearningMethod ?? null,
+                                        status = Sub_Course.Status,
+                                        subjectExams = Sub_Course.SubjectExams ?? null,
+                                        semesterId = Sub_Course.SemesterId ?? null,
+                                        semesterCode = Sub_Course.SemesterCode ?? null,
+                                        periodId = Sub_Course.PeriodId ?? null,
+                                        periodName = Sub_Course.PeriodName ?? null,
+                                        username = Sub_Course.Username ?? null,
+                                        actionTime = Sub_Course.ActionTime ?? null,
+                                        logContent = Sub_Course.LogContent ?? null,
+                                        numberLearningSkill = Sub_Course.NumberLearningSkill,
+                                        numberSubCourseSubject = Sub_Course.NumberSubCourseSubject,
+                                        check = Sub_Course.Check
+                                    };
+                                    break;
                                 }
+                            }
                             foreach (var Sub_Course in selectedSubject.CourseSubjectDtos)
                             {
                                 if (Sub_Course.NumberSubCourseSubject != 0)
@@ -662,37 +698,37 @@ namespace Sinhvien.tlu.Mainboard
                                 }
                             }
 
-                                if (static_search == false)
+                            if (static_search == false)
+                            {
+                                if (foundCourseSubject != null)
                                 {
-                                    if (foundCourseSubject != null)
-                                    {
-                                        // Chuyển đổi đối tượng thành chuỗi JSON để hiển thị
-                                        string json = JsonConvert.SerializeObject(foundCourseSubject, Formatting.None);
+                                    // Chuyển đổi đối tượng thành chuỗi JSON để hiển thị
+                                    string json = JsonConvert.SerializeObject(foundCourseSubject, Formatting.None);
 
-                                        string filePath = Work_path + "Semester\\reg_preview.txt";
-                                        File.WriteAllText(filePath, json);
-                                        //MessageBox.Show(json);
-                                        if (selectedSubject1.isSelected == "Đã đăng ký")
+                                    string filePath = Work_path + "Semester\\reg_preview.txt";
+                                    File.WriteAllText(filePath, json);
+                                    //MessageBox.Show(json);
+                                    if (selectedSubject1.isSelected == "Đã đăng ký")
+                                    {
+                                        DialogResult dlr = MessageBox.Show("Xác nhận hủy môn này?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                                        if (dlr == DialogResult.Yes)
                                         {
-                                            DialogResult dlr = MessageBox.Show("Xác nhận hủy môn này?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                                            if (dlr == DialogResult.Yes)
-                                            {
-                                                //Hủy môn
-                                                remove_reg(json);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            //Đăng kí môn
-                                            new_reg(json);
+                                            //Hủy môn
+                                            remove_reg(json);
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Không tìm thấy thông tin chi tiết của môn học, Chú ý bấm đúp chuột vào tên môn học!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        //Đăng kí môn
+                                        new_reg(json);
                                     }
                                 }
+                                else
+                                {
+                                    MessageBox.Show("Không tìm thấy thông tin chi tiết của môn học, Chú ý bấm đúp chuột vào tên môn học!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
+                        }
                         //}
                     }
                     else
@@ -739,9 +775,9 @@ namespace Sinhvien.tlu.Mainboard
                             client_Change.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                             client_Change.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenData.access_token);
 
-                            response = client_Change.PutAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + 
-                                "/education/api/users/password/self", 
-                                new StringContent("{\"id\":" + currentUser.id + ",\"username\":\"" + currentUser.username + "\",\"password\":\"" + RE_New_Password.Text + "\"}", 
+                            response = client_Change.PutAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port +
+                                "/education/api/users/password/self",
+                                new StringContent("{\"id\":" + currentUser.id + ",\"username\":\"" + currentUser.username + "\",\"password\":\"" + RE_New_Password.Text + "\"}",
                                 Encoding.UTF8, "application/json")).Result;
 
                             if (response.IsSuccessStatusCode)
@@ -802,7 +838,7 @@ namespace Sinhvien.tlu.Mainboard
                     foreach (Semester100 semesters in content.semesters)
                     {
                         SemesterID_picker.Items.Add(semesters.semesterCode);
-                    }    
+                    }
                 }
                 SemesterID_picker.StartIndex = 0;
             }
@@ -821,13 +857,13 @@ namespace Sinhvien.tlu.Mainboard
         private void Tracuudiemtonghop_button_Click(object sender, EventArgs e)
         {
             this.Text = "Education | Tra cứu điểm tổng hợp";
-            this.Cursor= Cursors.WaitCursor;
+            this.Cursor = Cursors.WaitCursor;
 
-            response = client.GetAsync("https://sinhvien"+ server +".tlu.edu.vn:" + port + "/education/api/studentsubjectmark/getListStudentMarkBySemesterByLoginUser/0").Result;
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/studentsubjectmark/getListStudentMarkBySemesterByLoginUser/0").Result;
             listStudentmarkBysemesterByloginUser = JsonConvert.DeserializeObject<List<listStudentmarkBysemesterByloginUser_Root>>(response.Content.ReadAsStringAsync().Result);
 
             List<viewListStudentMark> listsubjectmark = new List<viewListStudentMark>();
-            for(int i = 0; i < listStudentmarkBysemesterByloginUser.Count; i++)
+            for (int i = 0; i < listStudentmarkBysemesterByloginUser.Count; i++)
             {
                 listsubjectmark.Add(new viewListStudentMark()
                 {
@@ -837,8 +873,8 @@ namespace Sinhvien.tlu.Mainboard
                     sotinchi = listStudentmarkBysemesterByloginUser[i].subject.numberOfCredit,
                     lanhoc = listStudentmarkBysemesterByloginUser[i].studyTime,
                     lanthi = listStudentmarkBysemesterByloginUser[i].examRound,
-                    tinhdiem = (listStudentmarkBysemesterByloginUser[i].subject.isCalculateMark == true)? true : false,
-                    danhgia = (listStudentmarkBysemesterByloginUser[i].charMark == "F")? "Không đạt" : "Đạt",
+                    tinhdiem = (listStudentmarkBysemesterByloginUser[i].subject.isCalculateMark == true) ? true : false,
+                    danhgia = (listStudentmarkBysemesterByloginUser[i].charMark == "F") ? "Không đạt" : "Đạt",
                     masinhvien = listStudentmarkBysemesterByloginUser[i].student.studentCode,
                     diemquatrinh = listStudentmarkBysemesterByloginUser[i].markQT,
                     diemthi = listStudentmarkBysemesterByloginUser[i].markTHI,
@@ -930,11 +966,11 @@ namespace Sinhvien.tlu.Mainboard
             {
                 foreach (Semester100 semesters in content.semesters)
                 {
-                    if(SemesterID_picker.SelectedItem.ToString() == semesters.semesterCode)
+                    if (SemesterID_picker.SelectedItem.ToString() == semesters.semesterCode)
                     {
                         response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/StudentCourseSubject/studentLoginUser/" + semesters.id).Result;
 
-                        if(response.IsSuccessStatusCode)
+                        if (response.IsSuccessStatusCode)
                         {
                             List<StudentCourseSubject_Root> Root = JsonConvert.DeserializeObject<List<StudentCourseSubject_Root>>(response.Content.ReadAsStringAsync().Result);
                             File.WriteAllText(Work_path + "Semester\\" + semesters.id + ".txt", response.Content.ReadAsStringAsync().Result);
@@ -943,8 +979,8 @@ namespace Sinhvien.tlu.Mainboard
                         else
                         {
                             MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }    
-                    }    
+                        }
+                    }
                 }
             }
         }
@@ -1017,7 +1053,7 @@ namespace Sinhvien.tlu.Mainboard
             }
 
             this.Main_Dashboard.Location = new System.Drawing.Point(-7, -20);
-            
+
             //Nhận token từ file khi form đang load và đẩy vào header
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenData.access_token);
 

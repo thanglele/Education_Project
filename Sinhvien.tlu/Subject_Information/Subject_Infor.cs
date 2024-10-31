@@ -273,8 +273,8 @@ namespace Sinhvien.tlu.Mainboard
         public bool allowRegister { get; set; }
         //Được hủy đăng kí môn
         public bool IsAllowUnRegister { get; set; }
-        public long StartDate { get; set; }
-        public long EndDate { get; set; }
+        public long? StartDate { get; set; }
+        public long? EndDate { get; set; }
         public string StartDateString { get; set; }
         public string EndDateString { get; set; }
         public object StartUnDate { get; set; }

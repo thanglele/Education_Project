@@ -1,5 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Management;
 using System.Net;
+using System.Net.Http;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Sinhvien.tlu.Login_form
@@ -8,38 +13,14 @@ namespace Sinhvien.tlu.Login_form
     {
         //Hàm kiểm tra kích hoạt phần mềm từ máy chủ
         //Điều kiện đảo: false là cho phép chạy, true là không cho chạy
-        public bool activate()
-        {
-            string activateUrl = "https://education.thanglele08.id.vn/Active.txt";
-
-            try
-            {
-                // Kiểm tra quyền kích hoạt phần mềm
-                using (WebClient client = new WebClient())
-                {
-                    string Role = client.DownloadString(activateUrl).Trim();
-
-                    if (Role == "True")
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-                MessageBox.Show("Mất kết nối tới máy chủ dữ liệu, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
-            }
-        }
+        //public bool activate()
+        //{
+            
+        //}
 
         public bool checkversion()
         {
-            string currentVersion = "v1.0.4/KB1007";
+            string currentVersion = "v1.0.4/KB1011";
             /*Update tính năng xem kết quả đăng kí môn*/
             string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt";
 
@@ -58,9 +39,9 @@ namespace Sinhvien.tlu.Login_form
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                    Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
                     MessageBox.Show("Mất kết nối tới máy chủ dữ liệu, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return false;
@@ -68,7 +49,7 @@ namespace Sinhvien.tlu.Login_form
             else
             {
                 return false;
-            }    
+            }
         }
     }
 }
