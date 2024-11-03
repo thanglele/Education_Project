@@ -28,7 +28,7 @@ namespace Sinhvien.tlu.Mainboard
         public string name { get; set; }
         public string code { get; set; }
         public int year { get; set; }
-        public bool current { get; set; }
+        public bool? current { get; set; }
         public object startDate { get; set; }
         public object endDate { get; set; }
         public List<Child100> children { get; set; }

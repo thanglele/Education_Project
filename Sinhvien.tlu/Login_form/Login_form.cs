@@ -6,6 +6,8 @@ using Sinhvien.tlu.Mainboard;
 using System.Collections.Generic;
 using System.Net;
 using System.ComponentModel;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace Sinhvien.tlu.Login_form
 {
@@ -58,6 +60,25 @@ namespace Sinhvien.tlu.Login_form
                 Progress_Dowloader.Enabled = false;
                 Update_Status.Visible = false;
                 Progress_Dowloader.Visible = false;
+            }
+            
+            try
+            {
+                using (var client = new TcpClient())
+                {
+                    var result = client.BeginConnect("sinhvien1.tlu.edu.vn", 8098, null, null);
+
+                    if (!result.AsyncWaitHandle.WaitOne(10000))
+                    {
+                        MessageBox.Show("Máy chủ sinhvien1.tlu.edu.vn đang bị quá tải, các dịch vụ có thể không hoạt động!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+
+                    client.EndConnect(result);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Máy chủ sinhvien1.tlu.edu.vn đang không hoạt động, tool có thể không đăng nhập được!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -130,6 +151,7 @@ namespace Sinhvien.tlu.Login_form
             {
                 //MessageBox.Show("Mất kết nối với internet, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Login_action.Text = "Mất kết nối với internet, yêu cầu kiểm tra lại!";
+                //Console.WriteLine(ex.ToString());
                 //MessageBox.Show(Convert.ToString(ex));
             }
             finally

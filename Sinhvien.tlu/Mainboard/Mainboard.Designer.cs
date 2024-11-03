@@ -62,6 +62,7 @@ namespace Sinhvien.tlu.Mainboard
             this.displayOrder_Picker = new Guna.UI.WinForms.GunaComboBox();
             this.semesterCode_Picker = new Guna.UI.WinForms.GunaComboBox();
             this.Ketquadangkyhoc = new System.Windows.Forms.TabPage();
+            this.Calendar_Btn = new Guna.UI.WinForms.GunaButton();
             this.DataLearnTimeTable = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.SemesterID_picker = new Guna.UI.WinForms.GunaComboBox();
@@ -158,7 +159,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Top_Panel.Controls.Add(this.Logo_Header);
             this.Top_Panel.Location = new System.Drawing.Point(0, 0);
             this.Top_Panel.Name = "Top_Panel";
-            this.Top_Panel.Size = new System.Drawing.Size(1350, 40);
+            this.Top_Panel.Size = new System.Drawing.Size(1344, 40);
             this.Top_Panel.TabIndex = 1;
             // 
             // Static_loading
@@ -166,12 +167,12 @@ namespace Sinhvien.tlu.Mainboard
             this.Static_loading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Static_loading.AutoSize = true;
-            this.Static_loading.Font = new System.Drawing.Font("SVN-Avo", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Static_loading.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Static_loading.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Static_loading.Location = new System.Drawing.Point(229, 13);
             this.Static_loading.Name = "Static_loading";
             this.Static_loading.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Static_loading.Size = new System.Drawing.Size(0, 16);
+            this.Static_loading.Size = new System.Drawing.Size(0, 13);
             this.Static_loading.TabIndex = 20;
             this.Static_loading.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -183,9 +184,9 @@ namespace Sinhvien.tlu.Mainboard
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.User_UI});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStrip1.Location = new System.Drawing.Point(1144, 7);
+            this.menuStrip1.Location = new System.Drawing.Point(1147, 7);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(100, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(91, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,42 +198,42 @@ namespace Sinhvien.tlu.Mainboard
             this.thôngTinTàiKhoảnToolStripMenuItem1,
             this.đổiMậtKhẩuToolStripMenuItem1,
             this.đăngXuấtToolStripMenuItem1});
-            this.User_UI.Font = new System.Drawing.Font("SVN-Avo", 11F);
+            this.User_UI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.User_UI.ForeColor = System.Drawing.Color.Black;
             this.User_UI.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.User_UI.Name = "User_UI";
-            this.User_UI.Size = new System.Drawing.Size(92, 26);
+            this.User_UI.Size = new System.Drawing.Size(83, 22);
             this.User_UI.Text = "Họ và tên";
             // 
             // thôngTinTàiKhoảnToolStripMenuItem1
             // 
             this.thôngTinTàiKhoảnToolStripMenuItem1.Name = "thôngTinTàiKhoảnToolStripMenuItem1";
-            this.thôngTinTàiKhoảnToolStripMenuItem1.Size = new System.Drawing.Size(217, 26);
+            this.thôngTinTàiKhoảnToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.thôngTinTàiKhoảnToolStripMenuItem1.Text = "Thông tin tài khoản";
             this.thôngTinTàiKhoảnToolStripMenuItem1.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem1_Click);
             // 
             // đổiMậtKhẩuToolStripMenuItem1
             // 
             this.đổiMậtKhẩuToolStripMenuItem1.Name = "đổiMậtKhẩuToolStripMenuItem1";
-            this.đổiMậtKhẩuToolStripMenuItem1.Size = new System.Drawing.Size(217, 26);
+            this.đổiMậtKhẩuToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.đổiMậtKhẩuToolStripMenuItem1.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem1.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem1_Click);
             // 
             // đăngXuấtToolStripMenuItem1
             // 
             this.đăngXuấtToolStripMenuItem1.Name = "đăngXuấtToolStripMenuItem1";
-            this.đăngXuấtToolStripMenuItem1.Size = new System.Drawing.Size(217, 26);
+            this.đăngXuấtToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
             this.đăngXuấtToolStripMenuItem1.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem1.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem1_Click);
             // 
             // DHTL
             // 
             this.DHTL.AutoSize = true;
-            this.DHTL.Font = new System.Drawing.Font("SVN-Avo", 10F);
+            this.DHTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.DHTL.ForeColor = System.Drawing.Color.White;
             this.DHTL.Location = new System.Drawing.Point(51, 9);
             this.DHTL.Name = "DHTL";
-            this.DHTL.Size = new System.Drawing.Size(174, 21);
+            this.DHTL.Size = new System.Drawing.Size(160, 17);
             this.DHTL.TabIndex = 2;
             this.DHTL.Text = "Trường Đại học Thủy lợi";
             // 
@@ -257,7 +258,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Main_Panel.Controls.Add(this.Main_Dashboard);
             this.Main_Panel.Location = new System.Drawing.Point(232, 40);
             this.Main_Panel.Name = "Main_Panel";
-            this.Main_Panel.Size = new System.Drawing.Size(1120, 655);
+            this.Main_Panel.Size = new System.Drawing.Size(1114, 655);
             this.Main_Panel.TabIndex = 2;
             // 
             // Main_Dashboard
@@ -284,7 +285,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Main_Dashboard.Location = new System.Drawing.Point(-7, 0);
             this.Main_Dashboard.Name = "Main_Dashboard";
             this.Main_Dashboard.SelectedIndex = 0;
-            this.Main_Dashboard.Size = new System.Drawing.Size(1131, 677);
+            this.Main_Dashboard.Size = new System.Drawing.Size(1125, 677);
             this.Main_Dashboard.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.Main_Dashboard.TabIndex = 0;
             // 
@@ -293,7 +294,7 @@ namespace Sinhvien.tlu.Mainboard
             this.TrangChu.Location = new System.Drawing.Point(4, 22);
             this.TrangChu.Name = "TrangChu";
             this.TrangChu.Padding = new System.Windows.Forms.Padding(3);
-            this.TrangChu.Size = new System.Drawing.Size(1123, 651);
+            this.TrangChu.Size = new System.Drawing.Size(1117, 651);
             this.TrangChu.TabIndex = 1;
             this.TrangChu.Text = "Trang chủ";
             this.TrangChu.UseVisualStyleBackColor = true;
@@ -350,7 +351,7 @@ namespace Sinhvien.tlu.Mainboard
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
@@ -363,10 +364,10 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(244, 6);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(244, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 28);
+            this.label7.Size = new System.Drawing.Size(127, 24);
             this.label7.TabIndex = 1;
             this.label7.Text = "Lớp học phần";
             // 
@@ -454,10 +455,10 @@ namespace Sinhvien.tlu.Mainboard
             this.EndDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EndDate_Reg.AutoSize = true;
-            this.EndDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndDate_Reg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EndDate_Reg.Location = new System.Drawing.Point(866, 30);
             this.EndDate_Reg.Name = "EndDate_Reg";
-            this.EndDate_Reg.Size = new System.Drawing.Size(95, 18);
+            this.EndDate_Reg.Size = new System.Drawing.Size(83, 15);
             this.EndDate_Reg.TabIndex = 3;
             this.EndDate_Reg.Text = "Ngày kết thúc:";
             // 
@@ -466,10 +467,10 @@ namespace Sinhvien.tlu.Mainboard
             this.StartDate_Reg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.StartDate_Reg.AutoSize = true;
-            this.StartDate_Reg.Font = new System.Drawing.Font("SVN-Avo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartDate_Reg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartDate_Reg.Location = new System.Drawing.Point(866, 8);
             this.StartDate_Reg.Name = "StartDate_Reg";
-            this.StartDate_Reg.Size = new System.Drawing.Size(97, 18);
+            this.StartDate_Reg.Size = new System.Drawing.Size(82, 15);
             this.StartDate_Reg.TabIndex = 2;
             this.StartDate_Reg.Text = "Ngày bắt đầu:";
             // 
@@ -524,23 +525,67 @@ namespace Sinhvien.tlu.Mainboard
             // 
             // Ketquadangkyhoc
             // 
+            this.Ketquadangkyhoc.Controls.Add(this.Calendar_Btn);
             this.Ketquadangkyhoc.Controls.Add(this.DataLearnTimeTable);
             this.Ketquadangkyhoc.Controls.Add(this.label9);
             this.Ketquadangkyhoc.Controls.Add(this.SemesterID_picker);
             this.Ketquadangkyhoc.Location = new System.Drawing.Point(4, 22);
             this.Ketquadangkyhoc.Name = "Ketquadangkyhoc";
             this.Ketquadangkyhoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Ketquadangkyhoc.Size = new System.Drawing.Size(1123, 651);
+            this.Ketquadangkyhoc.Size = new System.Drawing.Size(1117, 651);
             this.Ketquadangkyhoc.TabIndex = 3;
             this.Ketquadangkyhoc.Text = "Kết quả đăng ký học";
             this.Ketquadangkyhoc.UseVisualStyleBackColor = true;
             // 
+            // Calendar_Btn
+            // 
+            this.Calendar_Btn.AnimationHoverSpeed = 0.07F;
+            this.Calendar_Btn.AnimationSpeed = 0.03F;
+            this.Calendar_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Calendar_Btn.BaseColor = System.Drawing.Color.Teal;
+            this.Calendar_Btn.BorderColor = System.Drawing.Color.Black;
+            this.Calendar_Btn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Calendar_Btn.FocusedColor = System.Drawing.Color.Empty;
+            this.Calendar_Btn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Calendar_Btn.ForeColor = System.Drawing.Color.Black;
+            this.Calendar_Btn.Image = null;
+            this.Calendar_Btn.ImageSize = new System.Drawing.Size(20, 20);
+            this.Calendar_Btn.Location = new System.Drawing.Point(331, 7);
+            this.Calendar_Btn.Name = "Calendar_Btn";
+            this.Calendar_Btn.OnHoverBaseColor = System.Drawing.Color.RosyBrown;
+            this.Calendar_Btn.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Calendar_Btn.OnHoverForeColor = System.Drawing.Color.Black;
+            this.Calendar_Btn.OnHoverImage = null;
+            this.Calendar_Btn.OnPressedColor = System.Drawing.Color.Black;
+            this.Calendar_Btn.Size = new System.Drawing.Size(196, 25);
+            this.Calendar_Btn.TabIndex = 3;
+            this.Calendar_Btn.Text = "Đưa lịch học lên Google Calendar";
+            this.Calendar_Btn.Click += new System.EventHandler(this.Calendar_Btn_Click);
+            // 
             // DataLearnTimeTable
             // 
+            this.DataLearnTimeTable.AllowUserToAddRows = false;
+            this.DataLearnTimeTable.AllowUserToDeleteRows = false;
+            this.DataLearnTimeTable.AllowUserToResizeColumns = false;
+            this.DataLearnTimeTable.AllowUserToResizeRows = false;
+            this.DataLearnTimeTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataLearnTimeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataLearnTimeTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DataLearnTimeTable.BackgroundColor = System.Drawing.Color.White;
+            this.DataLearnTimeTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataLearnTimeTable.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.DataLearnTimeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataLearnTimeTable.ColumnHeadersVisible = false;
+            this.DataLearnTimeTable.EnableHeadersVisualStyles = false;
             this.DataLearnTimeTable.Location = new System.Drawing.Point(11, 38);
+            this.DataLearnTimeTable.MultiSelect = false;
             this.DataLearnTimeTable.Name = "DataLearnTimeTable";
-            this.DataLearnTimeTable.Size = new System.Drawing.Size(1106, 589);
+            this.DataLearnTimeTable.ReadOnly = true;
+            this.DataLearnTimeTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataLearnTimeTable.ShowEditingIcon = false;
+            this.DataLearnTimeTable.Size = new System.Drawing.Size(1100, 589);
             this.DataLearnTimeTable.TabIndex = 2;
             // 
             // label9
@@ -598,10 +643,10 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label8.Font = new System.Drawing.Font("SVN-Avo", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(173, 23);
+            this.label8.Size = new System.Drawing.Size(152, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "Bảng điểm tổng hợp";
             // 
@@ -713,40 +758,40 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(171, 418);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 28);
+            this.label5.Size = new System.Drawing.Size(0, 24);
             this.label5.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(540, 214);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 28);
+            this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(540, 322);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 28);
+            this.label3.Size = new System.Drawing.Size(0, 24);
             this.label3.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(124, 362);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 28);
+            this.label4.Size = new System.Drawing.Size(0, 24);
             this.label4.TabIndex = 3;
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -754,10 +799,10 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(540, 270);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 28);
+            this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 1;
             // 
             // Thongtintaikhoan
@@ -817,10 +862,10 @@ namespace Sinhvien.tlu.Mainboard
             this.gunaLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel2.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.Location = new System.Drawing.Point(115, 129);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(142, 28);
+            this.gunaLabel2.Size = new System.Drawing.Size(127, 24);
             this.gunaLabel2.TabIndex = 3;
             this.gunaLabel2.Text = "Mật khẩu mới:";
             // 
@@ -829,10 +874,10 @@ namespace Sinhvien.tlu.Mainboard
             this.gunaLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel3.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.Location = new System.Drawing.Point(22, 193);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(234, 28);
+            this.gunaLabel3.Size = new System.Drawing.Size(214, 24);
             this.gunaLabel3.TabIndex = 5;
             this.gunaLabel3.Text = "Xác nhận mật khẩu mới:";
             // 
@@ -843,10 +888,10 @@ namespace Sinhvien.tlu.Mainboard
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel1.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.Location = new System.Drawing.Point(126, 62);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(131, 28);
+            this.gunaLabel1.Size = new System.Drawing.Size(117, 24);
             this.gunaLabel1.TabIndex = 1;
             this.gunaLabel1.Text = "Mật khẩu cũ:";
             // 
@@ -857,7 +902,7 @@ namespace Sinhvien.tlu.Mainboard
             this.New_Password.BackColor = System.Drawing.Color.White;
             this.New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.New_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.New_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.New_Password.LineColor = System.Drawing.Color.LawnGreen;
             this.New_Password.Location = new System.Drawing.Point(260, 123);
             this.New_Password.Name = "New_Password";
@@ -873,7 +918,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Old_Password.BackColor = System.Drawing.Color.White;
             this.Old_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Old_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.Old_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Old_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Old_Password.LineColor = System.Drawing.Color.LawnGreen;
             this.Old_Password.Location = new System.Drawing.Point(260, 56);
             this.Old_Password.Name = "Old_Password";
@@ -893,7 +938,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Change_Password_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Change_Password_Button.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Change_Password_Button.FocusedColor = System.Drawing.Color.Empty;
-            this.Change_Password_Button.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Change_Password_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Change_Password_Button.ForeColor = System.Drawing.Color.White;
             this.Change_Password_Button.Image = null;
             this.Change_Password_Button.ImageSize = new System.Drawing.Size(20, 20);
@@ -917,7 +962,7 @@ namespace Sinhvien.tlu.Mainboard
             this.RE_New_Password.BackColor = System.Drawing.Color.White;
             this.RE_New_Password.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.RE_New_Password.FocusedLineColor = System.Drawing.Color.Orange;
-            this.RE_New_Password.Font = new System.Drawing.Font("SVN-Avo", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RE_New_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RE_New_Password.LineColor = System.Drawing.Color.LawnGreen;
             this.RE_New_Password.Location = new System.Drawing.Point(262, 186);
             this.RE_New_Password.Name = "RE_New_Password";
@@ -958,7 +1003,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Left_Panel.Controls.Add(this.Trangchu_button);
             this.Left_Panel.Location = new System.Drawing.Point(0, 40);
             this.Left_Panel.Name = "Left_Panel";
-            this.Left_Panel.Size = new System.Drawing.Size(230, 655);
+            this.Left_Panel.Size = new System.Drawing.Size(224, 655);
             this.Left_Panel.TabIndex = 3;
             // 
             // Nghiencuukhoahoc_button
@@ -1217,7 +1262,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Ketquadangkyhoc_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.Ketquadangkyhoc_button.BorderColor = System.Drawing.Color.Black;
             this.Ketquadangkyhoc_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Ketquadangkyhoc_button.Enabled = false;
             this.Ketquadangkyhoc_button.FocusedColor = System.Drawing.Color.Empty;
             this.Ketquadangkyhoc_button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Ketquadangkyhoc_button.ForeColor = System.Drawing.Color.White;
@@ -1300,11 +1344,11 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.Copyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Copyright.AutoSize = true;
-            this.Copyright.Font = new System.Drawing.Font("SVN-Avo", 10F);
+            this.Copyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Copyright.LinkColor = System.Drawing.Color.Transparent;
             this.Copyright.Location = new System.Drawing.Point(228, 4);
             this.Copyright.Name = "Copyright";
-            this.Copyright.Size = new System.Drawing.Size(0, 21);
+            this.Copyright.Size = new System.Drawing.Size(0, 17);
             this.Copyright.TabIndex = 19;
             this.Copyright.VisitedLinkColor = System.Drawing.Color.Gray;
             this.Copyright.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Copyright_LinkClicked);
@@ -1320,7 +1364,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Copyright_Panel.LineStyle = System.Windows.Forms.BorderStyle.None;
             this.Copyright_Panel.Location = new System.Drawing.Point(0, 695);
             this.Copyright_Panel.Name = "Copyright_Panel";
-            this.Copyright_Panel.Size = new System.Drawing.Size(1356, 35);
+            this.Copyright_Panel.Size = new System.Drawing.Size(1350, 35);
             this.Copyright_Panel.TabIndex = 4;
             // 
             // linkLabel1
@@ -1329,7 +1373,7 @@ namespace Sinhvien.tlu.Mainboard
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(1134, 12);
+            this.linkLabel1.Location = new System.Drawing.Point(1128, 12);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(212, 13);
             this.linkLabel1.TabIndex = 20;
@@ -1341,7 +1385,7 @@ namespace Sinhvien.tlu.Mainboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1344, 729);
             this.Controls.Add(this.Copyright_Panel);
             this.Controls.Add(this.Main_Panel);
             this.Controls.Add(this.Left_Panel);
@@ -1350,7 +1394,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1366, 768);
+            this.MinimumSize = new System.Drawing.Size(1338, 758);
             this.Name = "System_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Education | Trang chủ";
@@ -1467,5 +1511,6 @@ namespace Sinhvien.tlu.Mainboard
         private Guna.UI.WinForms.GunaComboBox SemesterID_picker;
         private DataGridView DataLearnTimeTable;
         private Label label9;
+        private Guna.UI.WinForms.GunaButton Calendar_Btn;
     }
 }

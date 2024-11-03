@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinhvien.tlu", "Sinhvien.tlu.csproj", "{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar_Test", "..\Calendar_Test\Calendar_Test.csproj", "{E429E0F5-E24A-479D-84E5-616F03945D75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -18,6 +20,12 @@ Global
 		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD9CFB3A-A4B8-4BEB-AB28-06663E6C68AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.All|Any CPU.ActiveCfg = Debug|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.All|Any CPU.Build.0 = Debug|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E429E0F5-E24A-479D-84E5-616F03945D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
