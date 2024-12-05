@@ -25,7 +25,7 @@ namespace Calendar_Test
         private static string ApplicationName = "Education";
 
         // Đặt nội dung JSON của credentials.json vào một chuỗi
-        private static string clientSecretJson = @"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""http://localhost""]}}";
+        private static string clientSecretJson = @"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""https://accounts.google.com/o/oauth2/auth"",""token_uri"":""https://oauth2.googleapis.com/token"",""auth_provider_x509_cert_url"":""https://www.googleapis.com/oauth2/v1/certs"",""client_secret"":""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"",""redirect_uris"":[""http://localhost""]}}";
 
         public static async Task<CalendarService> Authenticate()
         {

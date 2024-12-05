@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="21.5.1" version="22.0" Modules="simple" RootPath="." Language="en" Id="{351EE70C-61D9-4367-B8B3-5DBEE31BCCA8}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.5.1" version="22.1" Modules="simple" RootPath="." Language="en" Id="{351EE70C-61D9-4367-B8B3-5DBEE31BCCA8}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_APP_FILE" Value="[#Sinhvien.tlu.exe]"/>
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
@@ -16,10 +16,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://www.facebook.com/Thanglele2884"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="Thanglele"/>
-    <ROW Property="ProductCode" Value="1033:{4F43906D-BE62-4E5F-9AA1-FA97E4FD78DB} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{32DAF6A0-0874-4204-9A66-1F7F196195E1} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Education"/>
-    <ROW Property="ProductVersion" Value="1.0.14" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.0.16" Options="4"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{11F6D6BB-703F-4A27-A75A-75A1325DE3E1}"/>
@@ -38,7 +38,6 @@
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="Account_Dir" Directory_Parent="Education_Dir" DefaultDir="Account"/>
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
-    <ROW Directory="Dotfuscated_Dir" Directory_Parent="APPDIR" DefaultDir="DOTFUS~1|Dotfuscated"/>
     <ROW Directory="Education_Dir" Directory_Parent="UserProfileFolder" DefaultDir="EDUCAT~1|Education"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="Semester_Dir" Directory_Parent="Education_Dir" DefaultDir="Semester"/>
@@ -52,18 +51,17 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{3E2F6F88-EC05-41E2-9856-AA032A76109B}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="Account" ComponentId="{AAE0E2C4-3432-4346-B579-2584996A982B}" Directory_="Account_Dir" Attributes="0"/>
-    <ROW Component="Azure.Core.dll" ComponentId="{E10E8899-A17C-4131-9132-2DB7F5830D36}" Directory_="APPDIR" Attributes="0" KeyPath="Azure.Core.dll"/>
-    <ROW Component="Bunifu_UI_v1.52.dll" ComponentId="{7532F6FD-5AD4-4AED-B1C1-98BFB27DA859}" Directory_="APPDIR" Attributes="0" KeyPath="Bunifu_UI_v1.52.dll"/>
-    <ROW Component="Google.Apis.Auth.dll" ComponentId="{376A1662-328B-4321-B335-E34896128DB8}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Auth.dll"/>
-    <ROW Component="Google.Apis.Calendar.v3.dll" ComponentId="{65A556B3-FE27-46CF-9A88-D70B044BDCDE}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Calendar.v3.dll"/>
-    <ROW Component="Google.Apis.Core.dll" ComponentId="{CED76784-1A43-4ADA-8BFD-5B2C984B8790}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Core.dll"/>
-    <ROW Component="Google.Apis.Oauth2.v2.dll" ComponentId="{40BE179D-239D-48A6-BC7C-E8B5E39F9766}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Oauth2.v2.dll"/>
-    <ROW Component="Google.Apis.dll" ComponentId="{62771DC8-5F35-491B-97EA-D509CE31BFE2}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.dll"/>
+    <ROW Component="Azure.Core.dll" ComponentId="{5F67185D-5DF5-4E67-AA3F-0481DF692C7A}" Directory_="APPDIR" Attributes="0" KeyPath="Azure.Core.dll"/>
+    <ROW Component="Bunifu_UI_v1.52.dll" ComponentId="{DF2270FD-8008-4080-8872-FC8C6FBF9095}" Directory_="APPDIR" Attributes="0" KeyPath="Bunifu_UI_v1.52.dll"/>
+    <ROW Component="Google.Apis.Auth.dll" ComponentId="{64E20756-9985-4B7F-A471-242BF9EA613F}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Auth.dll"/>
+    <ROW Component="Google.Apis.Calendar.v3.dll" ComponentId="{4B2AA5DC-DD74-459F-B4BA-0346AB748E30}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Calendar.v3.dll"/>
+    <ROW Component="Google.Apis.Core.dll" ComponentId="{B545F3C7-9C33-48B0-AFEB-FFA37AD2BE72}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Core.dll"/>
+    <ROW Component="Google.Apis.Oauth2.v2.dll" ComponentId="{A1210903-4271-48F5-984E-A1A3F12F8925}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.Oauth2.v2.dll"/>
+    <ROW Component="Google.Apis.dll" ComponentId="{9AF5DFA8-E661-4638-AFFD-AF8FEA86A77B}" Directory_="APPDIR" Attributes="0" KeyPath="Google.Apis.dll"/>
     <ROW Component="Guna.UI.dll" ComponentId="{64F10DF2-D67D-47E8-82B8-86E75C981D74}" Directory_="APPDIR" Attributes="0" KeyPath="Guna.UI.dll"/>
-    <ROW Component="Map.0.xml" ComponentId="{22AC6EB4-BB11-487C-9CB3-33E16086F282}" Directory_="Dotfuscated_Dir" Attributes="0" KeyPath="Map.0.xml" Type="0"/>
     <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{9147763F-45FA-47D3-B13B-7FB3837715D1}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Component="Microsoft.CSharp.dll" ComponentId="{985612E7-F377-4F68-B072-7AF933592E67}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.CSharp.dll"/>
-    <ROW Component="Microsoft.Toolkit.Uwp.Notifications.dll" ComponentId="{FA09ACDC-BDBC-40B4-9F32-E62918876FC1}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Toolkit.Uwp.Notifications.dll"/>
+    <ROW Component="Microsoft.Toolkit.Uwp.Notifications.dll" ComponentId="{2BF2956D-E5BE-43FA-AEC2-5B89BA602A65}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Toolkit.Uwp.Notifications.dll"/>
     <ROW Component="Microsoft.VisualBasic.dll" ComponentId="{F49191ED-6D2E-4CC9-8B7F-2C2F91F2E7C3}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualBasic.dll"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{1A784EBB-B66B-449B-9CE3-5D812D1BB3F9}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="ProductInformation" ComponentId="{0986EE85-18FA-4CD5-93C6-2748F7B59B7E}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
@@ -73,7 +71,7 @@
     <ROW Component="Sinhvien.tlu.exe.config" ComponentId="{2E91DE8B-26B1-4493-904A-4B2807C5FC9C}" Directory_="APPDIR" Attributes="0" KeyPath="Sinhvien.tlu.exe.config" Type="0"/>
     <ROW Component="System.Buffers.dll" ComponentId="{892C06DC-9BDC-412C-BF30-D6A7E257BBBA}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
     <ROW Component="System.ClientModel.dll" ComponentId="{602FF3B5-F8FE-488C-8A09-4FFADD3451E6}" Directory_="APPDIR" Attributes="0" KeyPath="System.ClientModel.dll"/>
-    <ROW Component="System.CodeDom.dll" ComponentId="{724C4A53-EA30-4125-8C90-CD57C9E9A1D4}" Directory_="APPDIR" Attributes="0" KeyPath="System.CodeDom.dll"/>
+    <ROW Component="System.CodeDom.dll" ComponentId="{E8396553-19A9-419D-B974-2B0ABFCAC219}" Directory_="APPDIR" Attributes="0" KeyPath="System.CodeDom.dll"/>
     <ROW Component="System.Core.dll" ComponentId="{997063AA-1CAA-4F03-B12F-EE4D33700CC2}" Directory_="APPDIR" Attributes="0" KeyPath="System.Core.dll"/>
     <ROW Component="System.Data.DataSetExtensions.dll" ComponentId="{C591059E-D4DD-4835-BC34-B333F14807D9}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.DataSetExtensions.dll"/>
     <ROW Component="System.Data.dll" ComponentId="{24E3CEDE-2A33-478B-A391-B231E52D3327}" Directory_="APPDIR" Attributes="0" KeyPath="System.Data.dll"/>
@@ -86,7 +84,7 @@
     <ROW Component="System.Net.Http.dll" ComponentId="{9A89E772-BEE7-4F3D-A2DE-1E7FD6FEF53E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Net.Http.dll"/>
     <ROW Component="System.Numerics.Vectors.dll" ComponentId="{FD3D0F75-A3FD-46E0-9BDE-72CAA58BEFE9}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
     <ROW Component="System.Numerics.dll" ComponentId="{E293FA33-0E4C-4399-B5A8-3571F744852D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.dll"/>
-    <ROW Component="System.Reactive.dll" ComponentId="{137DC23D-82BD-4D08-B8D6-E0A5FF228D6A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.dll"/>
+    <ROW Component="System.Reactive.dll" ComponentId="{AC1115AA-DD3F-4C9E-8C85-02C71AAF221F}" Directory_="APPDIR" Attributes="0" KeyPath="System.Reactive.dll"/>
     <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{E108C525-9291-437E-A135-B79DD1A1B33E}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
     <ROW Component="System.Text.Encodings.Web.dll" ComponentId="{8041D501-2221-4E24-A024-6FD91602A63B}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Encodings.Web.dll"/>
     <ROW Component="System.Text.Json.dll" ComponentId="{0492EA73-74F1-4582-AD3C-1A5F6753BA98}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Json.dll"/>
@@ -106,18 +104,19 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="System.Text.Json.dll" Component_="System.Text.Json.dll" FileName="SYSTEM~1.DLL|System.Text.Json.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Text.Json.dll" SelfReg="false"/>
-    <ROW File="Sinhvien.tlu.exe" Component_="Sinhvien.tlu.exe" FileName="SINHVI~1.EXE|Sinhvien.tlu.exe" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Sinhvien.tlu.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~2.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.Text.Json.dll" Component_="System.Text.Json.dll" FileName="SYSTEM~1.DLL|System.Text.Json.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Text.Json.dll" SelfReg="false"/>
+    <ROW File="Sinhvien.tlu.exe" Component_="Sinhvien.tlu.exe" FileName="SINHVI~1.EXE|Sinhvien.tlu.exe" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Sinhvien.tlu.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~2.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
     <ROW File="WindowsBase.dll" Component_="WindowsBase.dll" FileName="WINDOW~1.DLL|WindowsBase.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\WindowsBase.dll" SelfReg="false"/>
     <ROW File="System.Net.Http.dll" Component_="System.Net.Http.dll" FileName="SYSTEM~3.DLL|System.Net.Http.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Net.Http.dll" SelfReg="false"/>
     <ROW File="System.Deployment.dll" Component_="System.Deployment.dll" FileName="SYSTEM~4.DLL|System.Deployment.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Deployment.dll" SelfReg="false"/>
-    <ROW File="Sinhvien.tlu.exe.config" Component_="Sinhvien.tlu.exe.config" FileName="SINHVI~1.CON|Sinhvien.tlu.exe.config" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Sinhvien.tlu.exe.config" SelfReg="false"/>
-    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Newtonsoft.Json.dll" SelfReg="false"/>
+    <ROW File="Sinhvien.tlu.exe.config" Component_="Sinhvien.tlu.exe.config" FileName="SINHVI~1.CON|Sinhvien.tlu.exe.config" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Sinhvien.tlu.exe.config" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Newtonsoft.Json.dll" SelfReg="false"/>
     <ROW File="Microsoft.VisualBasic.dll" Component_="Microsoft.VisualBasic.dll" FileName="MICROS~1.DLL|Microsoft.VisualBasic.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\Microsoft.VisualBasic.dll" SelfReg="false"/>
-    <ROW File="System.Memory.Data.dll" Component_="System.Memory.Data.dll" FileName="SYSTEM~5.DLL|System.Memory.Data.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Memory.Data.dll" SelfReg="false"/>
-    <ROW File="Guna.UI.dll" Component_="Guna.UI.dll" FileName="GUNAUI~1.DLL|Guna.UI.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Guna.UI.dll" SelfReg="false"/>
+    <ROW File="System.Memory.Data.dll" Component_="System.Memory.Data.dll" FileName="SYSTEM~5.DLL|System.Memory.Data.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Memory.Data.dll" SelfReg="false"/>
+    <ROW File="Guna.UI.dll" Component_="Guna.UI.dll" FileName="GUNAUI~1.DLL|Guna.UI.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Guna.UI.dll" SelfReg="false"/>
     <ROW File="Microsoft.CSharp.dll" Component_="Microsoft.CSharp.dll" FileName="MICROS~2.DLL|Microsoft.CSharp.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\Microsoft.CSharp.dll" SelfReg="false"/>
+    <ROW File="Azure.Core.dll" Component_="Azure.Core.dll" FileName="AZUREC~1.DLL|Azure.Core.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Azure.Core.dll" SelfReg="false"/>
     <ROW File="mscorlib.dll" Component_="mscorlib.dll" FileName="mscorlib.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\mscorlib.dll" SelfReg="false"/>
     <ROW File="System.Core.dll" Component_="System.Core.dll" FileName="SYSTEM~6.DLL|System.Core.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Core.dll" SelfReg="false"/>
     <ROW File="System.Data.DataSetExtensions.dll" Component_="System.Data.DataSetExtensions.dll" FileName="SYSTEM~7.DLL|System.Data.DataSetExtensions.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Data.DataSetExtensions.dll" SelfReg="false"/>
@@ -127,40 +126,35 @@
     <ROW File="System.Management.dll" Component_="System.Management.dll" FileName="SYSTE~10.DLL|System.Management.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Management.dll" SelfReg="false"/>
     <ROW File="System.Numerics.dll" Component_="System.Numerics.dll" FileName="SYSTE~11.DLL|System.Numerics.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Numerics.dll" SelfReg="false"/>
     <ROW File="System.Windows.dll" Component_="System.Windows.dll" FileName="SYSTE~12.DLL|System.Windows.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Windows.dll" SelfReg="false"/>
-    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTE~13.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTE~13.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
     <ROW File="netstandard.dll" Component_="netstandard.dll" FileName="NETSTA~1.DLL|netstandard.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\Facades\netstandard.dll" SelfReg="false"/>
     <ROW File="System.Windows.Forms.dll" Component_="System.Windows.Forms.dll" FileName="SYSTE~14.DLL|System.Windows.Forms.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Windows.Forms.dll" SelfReg="false"/>
     <ROW File="System.Xml.dll" Component_="System.Xml.dll" FileName="SYSTE~16.DLL|System.Xml.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Xml.dll" SelfReg="false"/>
     <ROW File="System.Xml.Linq.dll" Component_="System.Xml.Linq.dll" FileName="SYSTE~17.DLL|System.Xml.Linq.dll" Attributes="0" SourcePath="..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8.1\System.Xml.Linq.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~3.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
-    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTE~18.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Buffers.dll" SelfReg="false"/>
-    <ROW File="System.ClientModel.dll" Component_="System.ClientModel.dll" FileName="SYSTE~19.DLL|System.ClientModel.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.ClientModel.dll" SelfReg="false"/>
-    <ROW File="Sinhvien.tlu.pdb" Component_="Sinhvien.tlu.exe" FileName="SINHVI~1.PDB|Sinhvien.tlu.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Sinhvien.tlu.pdb" SelfReg="false"/>
-    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="System.Diagnostics.DiagnosticSource.dll" FileName="SYSTE~20.DLL|System.Diagnostics.DiagnosticSource.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Diagnostics.DiagnosticSource.dll" SelfReg="false"/>
-    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTE~21.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Memory.dll" SelfReg="false"/>
-    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTE~22.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
-    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTE~23.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.ValueTuple.dll" SelfReg="false"/>
-    <ROW File="System.Text.Encodings.Web.dll" Component_="System.Text.Encodings.Web.dll" FileName="SYSTE~24.DLL|System.Text.Encodings.Web.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Text.Encodings.Web.dll" SelfReg="false"/>
-    <ROW File="Map.0.xml" Component_="Map.0.xml" FileName="MAP0~1.XML|Map.0.xml" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Dotfuscated\Map.0.xml" SelfReg="false"/>
-    <ROW File="Map.xml" Component_="Map.0.xml" FileName="Map.xml" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Dotfuscated\Map.xml" SelfReg="false"/>
-    <ROW File="Azure.Core.dll" Component_="Azure.Core.dll" FileName="AZUREC~1.DLL|Azure.Core.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Azure.Core.dll" SelfReg="false"/>
-    <ROW File="Bunifu_UI_v1.52.dll" Component_="Bunifu_UI_v1.52.dll" FileName="BUNIFU~1.DLL|Bunifu_UI_v1.52.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Bunifu_UI_v1.52.dll" SelfReg="false"/>
-    <ROW File="Dotfuscator1.xml" Component_="Sinhvien.tlu.exe.config" FileName="DOTFUS~1.XML|Dotfuscator1.xml" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Dotfuscator1.xml" SelfReg="false"/>
-    <ROW File="Google.Apis.Auth.dll" Component_="Google.Apis.Auth.dll" FileName="GOOGLE~1.DLL|Google.Apis.Auth.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Auth.dll" SelfReg="false"/>
-    <ROW File="Google.Apis.Auth.pdb" Component_="Google.Apis.Auth.dll" FileName="GOOGLE~1.PDB|Google.Apis.Auth.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Auth.pdb" SelfReg="false"/>
-    <ROW File="Google.Apis.Calendar.v3.dll" Component_="Google.Apis.Calendar.v3.dll" FileName="GOOGLE~2.DLL|Google.Apis.Calendar.v3.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Calendar.v3.dll" SelfReg="false"/>
-    <ROW File="Google.Apis.Calendar.v3.pdb" Component_="Google.Apis.Calendar.v3.dll" FileName="GOOGLE~2.PDB|Google.Apis.Calendar.v3.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Calendar.v3.pdb" SelfReg="false"/>
-    <ROW File="Google.Apis.Core.dll" Component_="Google.Apis.Core.dll" FileName="GOOGLE~3.DLL|Google.Apis.Core.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Core.dll" SelfReg="false"/>
-    <ROW File="Google.Apis.Core.pdb" Component_="Google.Apis.Core.dll" FileName="GOOGLE~3.PDB|Google.Apis.Core.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Core.pdb" SelfReg="false"/>
-    <ROW File="Google.Apis.dll" Component_="Google.Apis.dll" FileName="GOOGLE~4.DLL|Google.Apis.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.dll" SelfReg="false"/>
-    <ROW File="Google.Apis.Oauth2.v2.dll" Component_="Google.Apis.Oauth2.v2.dll" FileName="GOOGLE~5.DLL|Google.Apis.Oauth2.v2.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Oauth2.v2.dll" SelfReg="false"/>
-    <ROW File="Google.Apis.Oauth2.v2.pdb" Component_="Google.Apis.Oauth2.v2.dll" FileName="GOOGLE~4.PDB|Google.Apis.Oauth2.v2.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.Oauth2.v2.pdb" SelfReg="false"/>
-    <ROW File="Google.Apis.pdb" Component_="Google.Apis.dll" FileName="GOOGLE~5.PDB|Google.Apis.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Google.Apis.pdb" SelfReg="false"/>
-    <ROW File="Microsoft.Toolkit.Uwp.Notifications.dll" Component_="Microsoft.Toolkit.Uwp.Notifications.dll" FileName="MICROS~4.DLL|Microsoft.Toolkit.Uwp.Notifications.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Toolkit.Uwp.Notifications.pdb" Component_="Microsoft.Toolkit.Uwp.Notifications.dll" FileName="MICROS~1.PDB|Microsoft.Toolkit.Uwp.Notifications.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb" SelfReg="false"/>
-    <ROW File="Sinhvien.tlu_0.0.0.0.nrmap" Component_="Sinhvien.tlu.exe.config" FileName="SINHVI~1.NRM|Sinhvien.tlu_0.0.0.0.nrmap" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\Sinhvien.tlu_0.0.0.0.nrmap" SelfReg="false"/>
-    <ROW File="System.CodeDom.dll" Component_="System.CodeDom.dll" FileName="SYSTE~15.DLL|System.CodeDom.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.CodeDom.dll" SelfReg="false"/>
-    <ROW File="System.Reactive.dll" Component_="System.Reactive.dll" FileName="SYSTE~25.DLL|System.Reactive.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Debug\System.Reactive.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~3.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTE~18.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.ClientModel.dll" Component_="System.ClientModel.dll" FileName="SYSTE~19.DLL|System.ClientModel.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.ClientModel.dll" SelfReg="false"/>
+    <ROW File="Sinhvien.tlu.pdb" Component_="Sinhvien.tlu.exe" FileName="SINHVI~1.PDB|Sinhvien.tlu.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Sinhvien.tlu.pdb" SelfReg="false"/>
+    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="System.Diagnostics.DiagnosticSource.dll" FileName="SYSTE~20.DLL|System.Diagnostics.DiagnosticSource.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Diagnostics.DiagnosticSource.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTE~21.DLL|System.Memory.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTE~22.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTE~23.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.ValueTuple.dll" SelfReg="false"/>
+    <ROW File="System.Text.Encodings.Web.dll" Component_="System.Text.Encodings.Web.dll" FileName="SYSTE~24.DLL|System.Text.Encodings.Web.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Text.Encodings.Web.dll" SelfReg="false"/>
+    <ROW File="Bunifu_UI_v1.52.dll" Component_="Bunifu_UI_v1.52.dll" FileName="BUNIFU~1.DLL|Bunifu_UI_v1.52.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Bunifu_UI_v1.52.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Auth.dll" Component_="Google.Apis.Auth.dll" FileName="GOOGLE~1.DLL|Google.Apis.Auth.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Auth.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Auth.pdb" Component_="Google.Apis.Auth.dll" FileName="GOOGLE~1.PDB|Google.Apis.Auth.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Auth.pdb" SelfReg="false"/>
+    <ROW File="Google.Apis.Calendar.v3.dll" Component_="Google.Apis.Calendar.v3.dll" FileName="GOOGLE~2.DLL|Google.Apis.Calendar.v3.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Calendar.v3.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Calendar.v3.pdb" Component_="Google.Apis.Calendar.v3.dll" FileName="GOOGLE~2.PDB|Google.Apis.Calendar.v3.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Calendar.v3.pdb" SelfReg="false"/>
+    <ROW File="Google.Apis.Core.dll" Component_="Google.Apis.Core.dll" FileName="GOOGLE~3.DLL|Google.Apis.Core.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Core.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Core.pdb" Component_="Google.Apis.Core.dll" FileName="GOOGLE~3.PDB|Google.Apis.Core.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Core.pdb" SelfReg="false"/>
+    <ROW File="Google.Apis.dll" Component_="Google.Apis.dll" FileName="GOOGLE~4.DLL|Google.Apis.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Oauth2.v2.dll" Component_="Google.Apis.Oauth2.v2.dll" FileName="GOOGLE~5.DLL|Google.Apis.Oauth2.v2.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Oauth2.v2.dll" SelfReg="false"/>
+    <ROW File="Google.Apis.Oauth2.v2.pdb" Component_="Google.Apis.Oauth2.v2.dll" FileName="GOOGLE~4.PDB|Google.Apis.Oauth2.v2.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.Oauth2.v2.pdb" SelfReg="false"/>
+    <ROW File="Google.Apis.pdb" Component_="Google.Apis.dll" FileName="GOOGLE~5.PDB|Google.Apis.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Google.Apis.pdb" SelfReg="false"/>
+    <ROW File="Microsoft.Toolkit.Uwp.Notifications.dll" Component_="Microsoft.Toolkit.Uwp.Notifications.dll" FileName="MICROS~4.DLL|Microsoft.Toolkit.Uwp.Notifications.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Microsoft.Toolkit.Uwp.Notifications.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Toolkit.Uwp.Notifications.pdb" Component_="Microsoft.Toolkit.Uwp.Notifications.dll" FileName="MICROS~1.PDB|Microsoft.Toolkit.Uwp.Notifications.pdb" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\Microsoft.Toolkit.Uwp.Notifications.pdb" SelfReg="false"/>
+    <ROW File="System.CodeDom.dll" Component_="System.CodeDom.dll" FileName="SYSTE~15.DLL|System.CodeDom.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.CodeDom.dll" SelfReg="false"/>
+    <ROW File="System.Reactive.dll" Component_="System.Reactive.dll" FileName="SYSTE~25.DLL|System.Reactive.dll" Attributes="0" SourcePath="..\Sinhvien.tlu\bin\Release\System.Reactive.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.custcomp.MsiShortcutPropertyComponent">
     <ROW MsiShortcutProperty="UninstallProductNameProductVersion0" Shortcut_="UninstallProductNameProductVersion" PropertyKey="System.AppUserModel.PreventPinning" PropVariantValue="1"/>
@@ -268,6 +262,7 @@
     <ROW Feature_="MainFeature" Component_="System.Memory.Data.dll"/>
     <ROW Feature_="MainFeature" Component_="Guna.UI.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.CSharp.dll"/>
+    <ROW Feature_="MainFeature" Component_="Azure.Core.dll"/>
     <ROW Feature_="MainFeature" Component_="mscorlib.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Core.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Data.DataSetExtensions.dll"/>
@@ -293,8 +288,6 @@
     <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
     <ROW Feature_="MainFeature" Component_="Account"/>
     <ROW Feature_="MainFeature" Component_="Semester"/>
-    <ROW Feature_="MainFeature" Component_="Map.0.xml"/>
-    <ROW Feature_="MainFeature" Component_="Azure.Core.dll"/>
     <ROW Feature_="MainFeature" Component_="Bunifu_UI_v1.52.dll"/>
     <ROW Feature_="MainFeature" Component_="Google.Apis.Auth.dll"/>
     <ROW Feature_="MainFeature" Component_="Google.Apis.Calendar.v3.dll"/>
@@ -348,7 +341,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="Sinhvien.tlu.exe" Directory_="SHORTCUTDIR" Name="EDUCAT~1|Education" Component_="Sinhvien.tlu.exe" Target="[#Sinhvien.tlu.exe]" Description="Education" Hotkey="0" Icon_="logothuyloi.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="2"/>
     <ROW Shortcut="Sinhvien.tlu.exe_1" Directory_="DesktopFolder" Name="EDUCAT~1|Education" Component_="Sinhvien.tlu.exe" Target="[#Sinhvien.tlu.exe]" Description="Education" Hotkey="0" Icon_="logothuyloi.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="2"/>
-    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="SHORTCUTDIR" Name="UNINST~1.4|Uninstall [|ProductName] [|ProductVersion]" Component_="Microsoft.VisualBasic.dll" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="SHORTCUTDIR" Name="UNINST~1.4|Uninstall [|ProductName] [|ProductVersion]" Component_="Azure.Core.dll" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>

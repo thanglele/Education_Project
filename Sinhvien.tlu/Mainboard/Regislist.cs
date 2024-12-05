@@ -13,7 +13,7 @@ namespace Sinhvien.tlu.Mainboard
         public string numberStudent { get; set; }
         public string weekIndex { get; set; }
         public string startString { get; set; }
-        public object endString { get; set; }
+        public string endString { get; set; }
         public string nameRoom { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
@@ -42,7 +42,7 @@ namespace Sinhvien.tlu.Mainboard
         public object numberHours { get; set; }
         public Regislist_Teacher teacher { get; set; }
         public Regislist_SemesterSubject semesterSubject { get; set; }
-        public int status { get; set; }
+        public int? status { get; set; }
         public int numberOfCredit { get; set; }
         public int id { get; set; }
         public object subjectId { get; set; }
@@ -81,7 +81,7 @@ namespace Sinhvien.tlu.Mainboard
         public string subjectCode { get; set; }
         public int subjectId { get; set; }
         public object message { get; set; }
-        public int status { get; set; }
+        public int? status { get; set; }
         public object totalCredit { get; set; }
         public object totalFee { get; set; }
         public object tuitionFeePerCredit { get; set; }

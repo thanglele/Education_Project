@@ -1063,7 +1063,7 @@ namespace Sinhvien.tlu.Mainboard
             }
         }
 
-        private void Calendar_Btn_Click(object sender, EventArgs e)
+        private async void Calendar_Btn_Click(object sender, EventArgs e)
         {
             if(blockUI == false)
             {
@@ -1071,23 +1071,26 @@ namespace Sinhvien.tlu.Mainboard
                 DialogResult dialog = MessageBox.Show("Bạn sẽ phải đăng nhập tài khoản Google của bạn để lưu lịch, phần mềm không lấy bất kỳ thông tin đăng nhập của bạn. Nếu không đồng ý đăng nhập, vui lòng không sử dụng tính năng này.", "Lưu ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialog == DialogResult.OK)
                 {
-                    this.Cursor = Cursors.WaitCursor;
                     if (regislist_Preview == null)
                     {
+                        this.Cursor = Cursors.WaitCursor;
                         MessageBox.Show("Dữ liệu môn học đã đăng ký không hợp lệ, vui lòng kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         this.Cursor = Cursors.Default;
                         blockUI = false;
                     }
                     else
                     {
+                        this.Cursor = Cursors.WaitCursor;
                         Static_loading.Text = "Đang upload lịch lên Google Calendar, xin vui lòng không thao tác thêm!";
-                        new Calendar_services(currentUser.username, regislist_Preview);
+                        Calendar_services calendar_Services = new Calendar_services(currentUser.username, regislist_Preview);
+                        calendar_Services.send_regislist();
+                        await calendar_Services.GetTask();
+                        blockUI = false;
+                        Static_loading.Text = "Lịch đã được upload thành công.";
                         this.Cursor = Cursors.Default;
                     }
                 }
-                blockUI = false;
-                Static_loading.Text = "Lịch đã được upload thành công.";
-            }           
+            }
         }
 
         //Lấy thông tin semesterRegisterPrios từ displayOrder -> get dữ liệu từ pick các loại học kì khác nhau

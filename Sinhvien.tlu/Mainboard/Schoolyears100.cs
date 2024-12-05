@@ -12,7 +12,7 @@ namespace Sinhvien.tlu.Mainboard
         public object name { get; set; }
         public string code { get; set; }
         public object year { get; set; }
-        public bool current { get; set; }
+        public bool? current { get; set; }
         public object startDate { get; set; }
         public object endDate { get; set; }
         public object children { get; set; }
@@ -43,12 +43,12 @@ namespace Sinhvien.tlu.Mainboard
         public List<Content100> content { get; set; }
         public int totalElements { get; set; }
         public int totalPages { get; set; }
-        public bool last { get; set; }
+        public bool? last { get; set; }
         public int size { get; set; }
         public int number { get; set; }
         public int numberOfElements { get; set; }
         public object sort { get; set; }
-        public bool first { get; set; }
+        public bool? first { get; set; }
     }
 
     public class Semester100
@@ -61,7 +61,7 @@ namespace Sinhvien.tlu.Mainboard
         public object year { get; set; }
         public object startDate { get; set; }
         public object endDate { get; set; }
-        public bool isCurrent { get; set; }
+        public bool? isCurrent { get; set; }
         public object parent { get; set; }
         public object children { get; set; }
         public object subSemesters { get; set; }
@@ -91,7 +91,7 @@ namespace Sinhvien.tlu.Mainboard
         public object modifyDate { get; set; }
         public object modifiedBy { get; set; }
         public int id { get; set; }
-        public bool voided { get; set; }
+        public bool? voided { get; set; }
         public object semester { get; set; }
         public string name { get; set; }
         public int displayOrder { get; set; }

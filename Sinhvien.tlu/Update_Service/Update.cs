@@ -20,7 +20,7 @@ namespace Sinhvien.tlu.Login_form
 
         public bool checkversion()
         {
-            string currentVersion = "v1.0.5/KB1012";
+            string currentVersion = "v1.0.5/KB1015";
             /*Update tính năng xem kết quả đăng kí môn*/
             string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt";
 
@@ -41,7 +41,7 @@ namespace Sinhvien.tlu.Login_form
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                    //Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
                     MessageBox.Show("Mất kết nối tới máy chủ dữ liệu, yêu cầu kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return false;

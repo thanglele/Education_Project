@@ -12,6 +12,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using Guna.UI.Licensing;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Sinhvien.tlu.Mainboard
 {
@@ -21,22 +23,20 @@ namespace Sinhvien.tlu.Mainboard
 		private static string ApplicationName = "Education";
 		private static string MSV = "";
 		private static List<Regislist_Preview> regislist_Preview;
+        private TaskCompletionSource<bool> _taskCompletionSource = new TaskCompletionSource<bool>();
 
-        private static string clientSecretJson = @"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""http://localhost""]}}";
-
-		public Calendar_services(string temp, List<Regislist_Preview> regislist_inp)
+        public Calendar_services(string temp, List<Regislist_Preview> regislist_inp)
 		{
 			MSV = temp;
 			regislist_Preview = regislist_inp;
-			send_regislist();
         }
 
 		public static async Task<CalendarService> Authenticate()
 		{
-			var clientSecrets = GoogleClientSecrets.FromStream(new MemoryStream(Encoding.UTF8.GetBytes(clientSecretJson))).Secrets;
+            var clientSecrets = GoogleClientSecrets.FromStream(new MemoryStream(Encoding.UTF8.GetBytes(@"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""https://accounts.google.com/o/oauth2/auth"",""token_uri"":""https://oauth2.googleapis.com/token"",""auth_provider_x509_cert_url"":""https://www.googleapis.com/oauth2/v1/certs"",""client_secret"":""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"",""redirect_uris"":[""http://localhost""]}}"))).Secrets;
 
-			// Sử dụng LocalServerCodeReceiver để mở trình duyệt và theo dõi trạng thái
-			var codeReceiver = new Google.Apis.Auth.OAuth2.LocalServerCodeReceiver();
+            // Sử dụng LocalServerCodeReceiver để mở trình duyệt và theo dõi trạng thái
+            var codeReceiver = new Google.Apis.Auth.OAuth2.LocalServerCodeReceiver();
 
 			var authorizationCodeFlow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
 			{
@@ -107,116 +107,155 @@ namespace Sinhvien.tlu.Mainboard
 			request.SingleEvents = true;
 			var events = request.Execute().Items;
 
-			foreach (var ev in events)
+			if(events.Count != 0)
 			{
-				service.Events.Delete(calendarId, ev.Id).Execute();
-				Console.WriteLine($"Deleted event with ID: {ev.Id}");
-			}
+                foreach (var ev in events)
+                {
+                    service.Events.Delete(calendarId, ev.Id).Execute();
+                    Console.WriteLine($"Deleted event with ID: {ev.Id}");
+                }
+            }
 		}
 
-		public static void AddEventToSecondaryCalendar(CalendarService service, string calendarId)
+        public static DateTime? GetFirstDayOfWeekInRange(DateTime startDate, DateTime endDate, string weekIndex_string)
+        {
+            int weekIndex;
+            switch (weekIndex_string)
+            {
+                case "MO":
+                    weekIndex = 1;
+                    break;
+                case "TU":
+                    weekIndex = 2;
+                    break;
+                case "WE":
+                    weekIndex = 3;
+                    break;
+                case "TH":
+                    weekIndex = 4;
+                    break;
+                case "FR":
+                    weekIndex = 5;
+                    break;
+                case "SA":
+                    weekIndex = 6;
+                    break;
+                default:
+                    weekIndex = 7;
+                    break;
+            }
+
+            // Ngày đầu tiên tìm thấy là startDate + daysToAdd
+            DateTime firstDate = startDate.AddDays((weekIndex - (int)startDate.DayOfWeek + 7) % 7);
+
+            // Kiểm tra xem ngày tìm thấy có nằm trong khoảng không
+            if (firstDate <= endDate)
+            {
+                return firstDate;
+            }
+
+            // Trả về null nếu không có ngày hợp lệ trong khoảng
+            return null;
+        }
+
+        public static void AddEventToSecondaryCalendar(CalendarService service, string calendarId)
 		{
 			Regislist_Preview last_regis = new Regislist_Preview();
-			foreach(Regislist_Preview regislist in regislist_Preview)
-			{
-				if(regislist.displayName == null)
-				{
-					regislist.displayName = last_regis.displayName;
-					regislist.teacher_displayName = last_regis.teacher_displayName;
-					regislist.numberStudent = last_regis.numberStudent;
-				}	
-				else
-				{
-					last_regis = regislist;
-				}
+            foreach (Regislist_Preview regislist in regislist_Preview)
+            {
+                if (regislist.displayName == null)
+                {
+                    regislist.displayName = last_regis.displayName;
+                    regislist.teacher_displayName = last_regis.teacher_displayName;
+                    regislist.numberStudent = last_regis.numberStudent;
+                }
+                else
+                {
+                    last_regis = regislist;
+                }
 
-				switch (Convert.ToInt32(regislist.weekIndex))
-				{
-                    case 2:
-						regislist.weekIndex = "MO";
-						break;
-					case 3:
+                switch (regislist.weekIndex)
+                {
+                    case "Thứ 2":
+                        regislist.weekIndex = "MO";
+                        break;
+                    case "Thứ 3":
                         regislist.weekIndex = "TU";
                         break;
-                    case 4:
+                    case "Thứ 4":
                         regislist.weekIndex = "WE";
                         break;
-                    case 5:
+                    case "Thứ 5":
                         regislist.weekIndex = "TH";
                         break;
-                    case 6:
+                    case "Thứ 6":
                         regislist.weekIndex = "FR";
                         break;
-                    case 7:
+                    case "Thứ 7":
                         regislist.weekIndex = "SA";
                         break;
                     default:
                         regislist.weekIndex = "SU";
                         break;
                 }
+                DateTime? firstday_weekindex = GetFirstDayOfWeekInRange(DateTime.ParseExact(regislist.startDate, "dd-MM-yyyy", null), DateTime.ParseExact(regislist.endDate, "dd-MM-yyyy", null), regislist.weekIndex);
 
-    //            Event subject = new Event()
-				//{
-    //                Summary = regislist.displayName,
-				//	Location = regislist.nameRoom,
+                Event subject = new Event();
 
-    //                Start = new EventDateTime()
-    //                {
-    //                    DateTime = DateTime.ParseExact(regislist.startDate + " " + regislist.startString, "dd/MM/yyyy HH:mm", null),
-    //                    TimeZone = "Asia/Ho_Chi_Minh"
-    //                },
-    //                End = new EventDateTime()
-    //                {
-    //                    DateTime = DateTime.ParseExact(regislist.startDate + " " + regislist.endString, "dd/MM/yyyy HH:mm", null),
-    //                    TimeZone = "Asia/Ho_Chi_Minh"
-    //                },
-    //                Recurrence = new string[]
-				//	{
-				//		$"RRULE:FREQ=WEEKLY;BYDAY={regislist.weekIndex};UNTIL=" + DateTime.ParseExact(regislist.endDate, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddHours(23).AddMinutes(59).AddSeconds(59).ToString("yyyyMMdd'T'HHmmss'Z'")
-				//	},
-    //                Reminders = new Event.RemindersData()
-    //                {
-    //                    UseDefault = false,
-    //                    Overrides = new EventReminder[]
-				//		{
-				//			new EventReminder() { Method = "popup", Minutes = 30 }
-				//		}
-    //                }
-    //            };
-                // Thêm sự kiện vào lịch phụ
-                service.Events.Insert(new Event()
+                subject.Summary = regislist.displayName;
+                subject.Location = regislist.nameRoom;
+
+                subject.Start = new EventDateTime();
+                subject.Start.DateTime = DateTime.ParseExact(firstday_weekindex.Value.ToString("dd-MM-yyyy") + " " + regislist.startString, "dd-MM-yyyy HH:mm", null);
+                subject.Start.TimeZone = "Asia/Ho_Chi_Minh";
+                subject.End = new EventDateTime();
+                subject.End.DateTime = DateTime.ParseExact(firstday_weekindex.Value.ToString("dd-MM-yyyy") + " " + regislist.endString, "dd-MM-yyyy HH:mm", null);
+                subject.End.TimeZone = "Asia/Ho_Chi_Minh";
+                subject.Recurrence = new string[]
+                    {
+                        $"RRULE:FREQ=WEEKLY;BYDAY={regislist.weekIndex};UNTIL=" + DateTime.ParseExact(regislist.endDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).AddHours(23).AddMinutes(59).AddSeconds(59).ToString("yyyyMMdd'T'HHmmss'Z'")
+                    };
+                subject.Reminders = new Event.RemindersData()
                 {
-                    Summary = regislist.displayName,
-                    Location = regislist.nameRoom,
-
-                    Start = new EventDateTime()
-                    {
-                        DateTime = DateTime.ParseExact(regislist.startDate + " " + regislist.startString, "dd/MM/yyyy HH:mm", null),
-                        TimeZone = "Asia/Ho_Chi_Minh"
-                    },
-                    End = new EventDateTime()
-                    {
-                        DateTime = DateTime.ParseExact(regislist.startDate + " " + regislist.endString, "dd/MM/yyyy HH:mm", null),
-                        TimeZone = "Asia/Ho_Chi_Minh"
-                    },
-                    Recurrence = new string[]
-                    {
-                        $"RRULE:FREQ=WEEKLY;BYDAY={regislist.weekIndex};UNTIL=" + DateTime.ParseExact(regislist.endDate, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddHours(23).AddMinutes(59).AddSeconds(59).ToString("yyyyMMdd'T'HHmmss'Z'")
-                    },
-                    Reminders = new Event.RemindersData()
-                    {
-                        UseDefault = false,
-                        Overrides = new EventReminder[]
+                    UseDefault = false,
+                    Overrides = new EventReminder[]
                         {
                             new EventReminder() { Method = "popup", Minutes = 30 }
                         }
-                    }
-                }, calendarId).Execute();
-            }	
-			MessageBox.Show("Recurring event added to secondary calendar successfully.");
+                };
+
+                // Thêm sự kiện vào lịch phụ
+                service.Events.Insert(subject, calendarId).Execute();
+
+                switch (regislist.weekIndex)
+                {
+                    case "MO":
+                        regislist.weekIndex = "Thứ 2";
+                        break;
+                    case "TU":
+                        regislist.weekIndex = "Thứ 3";
+                        break;
+                    case "WE":
+                        regislist.weekIndex = "Thứ 4";
+                        break;
+                    case "TH":
+                        regislist.weekIndex = "Thứ 5";
+                        break;
+                    case "FR":
+                        regislist.weekIndex = "Thứ 6";
+                        break;
+                    case "SA":
+                        regislist.weekIndex = "Thứ 7";
+                        break;
+                    default:
+                        regislist.weekIndex = "Chủ nhật";
+                        break;
+                }
+            }
+			MessageBox.Show("Lịch học đã được gửi lên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-		private async void send_regislist()
+        public async void send_regislist()
 		{
 			var calendarService = await Authenticate();
 
@@ -235,6 +274,8 @@ namespace Sinhvien.tlu.Mainboard
 			{
 				MessageBox.Show("Bạn chưa đăng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-		}
-	}
+            _taskCompletionSource.SetResult(true);
+        }
+        public Task GetTask() => _taskCompletionSource.Task;
+    }
 }
