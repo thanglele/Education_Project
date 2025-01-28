@@ -27,6 +27,7 @@ namespace Sinhvien.tlu.Mainboard
         private List<listStudentmarkBysemesterByloginUser_Root> listStudentmarkBysemesterByloginUser;
         Root100 myDeserializedClass;
         List<Regislist_Preview> regislist_Preview = new List<Regislist_Preview>();
+        List<ListRoomExam_Preview> listroomexam_Preview = new List<ListRoomExam_Preview>();
         private string server, port;
         public string Work_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Education\\";
 
@@ -350,13 +351,13 @@ namespace Sinhvien.tlu.Mainboard
             getStudentbylogin_task();
             this.Text = "Education | Thông tin tài khoản";
 
-            Main_Dashboard.SelectedIndex = 13;
+            Main_Dashboard.SelectedIndex = 5;
         }
 
         private void đổiMậtKhẩuToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Text = "Education | Đổi mật khẩu";
-            Main_Dashboard.SelectedIndex = 14;
+            Main_Dashboard.SelectedIndex = 6;
         }
 
         private void displayOrder_Picker_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,12 +367,6 @@ namespace Sinhvien.tlu.Mainboard
             //textBox2.Text = File.ReadAllText("Semester\\registerPeriodId.txt");
 
             //semesterCode_Picker.Items.Add(textBox2.Text);
-        }
-
-        private void Trangchu_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Trang chủ";
-            Main_Dashboard.SelectedIndex = 0;
         }
 
         //Lệnh đăng kí môn
@@ -747,13 +742,14 @@ namespace Sinhvien.tlu.Mainboard
 
         private void Dangkyhocmoi_button_Click(object sender, EventArgs e)
         {
+            getSemester();
             Static_loading.Text = "Đang lấy thông tin môn học...";
             displayOrder_Picker.StartIndex = 0;
 
             get_findByPeriod();
 
             this.Text = "Education | Đăng ký học mới | Đăng ký môn";
-            Main_Dashboard.SelectedIndex = 1;
+            Main_Dashboard.SelectedIndex = 0;
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -825,7 +821,7 @@ namespace Sinhvien.tlu.Mainboard
         private void Ketquadangkyhoc_button_Click(object sender, EventArgs e)
         {
             this.Text = "Education | Kết quả đăng ký học";
-            Main_Dashboard.SelectedIndex = 2;
+            Main_Dashboard.SelectedIndex = 1;
 
             this.Cursor = Cursors.WaitCursor;
 
@@ -852,71 +848,6 @@ namespace Sinhvien.tlu.Mainboard
                 }
                 SemesterID_picker.StartIndex = 0;
                 #endregion
-                #region Lấy danh sách các môn học đã đăng ký trên hệ thống
-                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/StudentCourseSubject/studentLoginUser/" + semesterId).Result;
-                if(response.IsSuccessStatusCode)
-                {
-                    File.WriteAllText(Work_path + "Semester\\Regislist.txt", response.Content.ReadAsStringAsync().Result);
-                    List<Regislist_Root> regislist_Root = JsonConvert.DeserializeObject<List<Regislist_Root>>(response.Content.ReadAsStringAsync().Result);
-
-                    foreach (Regislist_Root Root in regislist_Root)
-                    {
-                        Regislist_Preview preview = new Regislist_Preview();
-                        Regislist_CourseSubject courseSubject = Root.courseSubject;
-                        preview.numberStudent = courseSubject.numberStudent + "/" + courseSubject.maxStudent;
-                        preview.displayName = courseSubject.displayName;
-                        try
-                        {
-                            if(courseSubject.teacher == null)
-                            {
-                                preview.teacher_displayName = null;
-                            }    
-                            else
-                            {
-                                preview.teacher_displayName = courseSubject.teacher.displayName;
-                            }   
-                        }
-                        catch(Exception)
-                        {
-                            preview.teacher_displayName = null;
-                        }
-                        List<Regislist_Timetable> timetable = courseSubject.timetables;
-                        
-                        for(int i = 0; i < timetable.Count; i++)
-                        {
-                            if(i == 0)
-                            {
-                                preview.weekIndex = "Thứ " + timetable[i].weekIndex;
-                                preview.endString = timetable[i].endHour.endString;
-                                preview.startString = timetable[i].startHour.startString;
-                                preview.nameRoom = timetable[i].room.name;
-                                preview.startDate = ConvertJsonDateToString(timetable[i].startDate);
-                                preview.endDate = ConvertJsonDateToString(timetable[i].endDate);
-                                regislist_Preview.Add(preview);
-                            }   
-                            else
-                            {
-                                regislist_Preview.Add(new Regislist_Preview()
-                                {
-                                    weekIndex = "Thứ " + timetable[i].weekIndex,
-                                    endString = timetable[i].endHour.endString,
-                                    startString = timetable[i].startHour.startString,
-                                    nameRoom = timetable[i].room.name,
-                                    startDate = ConvertJsonDateToString(timetable[i].startDate),
-                                    endDate = ConvertJsonDateToString(timetable[i].endDate)
-                                });
-                            }    
-                        }    
-                    }    
-
-                    DataLearnTimeTable.DataSource = regislist_Preview;                    
-                    DataLearnTimeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                }    
-                else
-                {
-                    MessageBox.Show("Lấy thông tin thất bại + " + response.Headers);
-                }    
-                #endregion
             }
             else
             {
@@ -924,12 +855,6 @@ namespace Sinhvien.tlu.Mainboard
             }
 
             this.Cursor = Cursors.Default;
-        }
-
-        private void Dangkynguyenvonghoc_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Đăng ký nguyện vọng học";
-            Main_Dashboard.SelectedIndex = 3;
         }
 
         private void Tracuudiemtonghop_button_Click(object sender, EventArgs e)
@@ -977,7 +902,7 @@ namespace Sinhvien.tlu.Mainboard
             listStudentmark_table.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             this.Cursor = Cursors.Default;
-            Main_Dashboard.SelectedIndex = 4;
+            Main_Dashboard.SelectedIndex = 2;
         }
 
         private void System_Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -990,76 +915,305 @@ namespace Sinhvien.tlu.Mainboard
             System.Diagnostics.Process.Start("https://www.facebook.com/Thanglele2884");
         }
 
-        private void Diemrenluyen_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Điểm rèn luyện";
-            Main_Dashboard.SelectedIndex = 5;
-        }
-
-        private void Tracuudiemrenluyen_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Tra cứu điểm rèn luyện";
-            Main_Dashboard.SelectedIndex = 15;
-        }
-
-        private void Chuongtrinhdaotao_button_Click(object sender, EventArgs e)
-        {
-            this.Text = "Education | Chương trình đào tạo";
-            Main_Dashboard.SelectedIndex = 6;
-        }
-
         private void Xemlichthi_button_Click(object sender, EventArgs e)
         {
             this.Text = "Education | Xem lịch thi";
-            Main_Dashboard.SelectedIndex = 7;
+            Main_Dashboard.SelectedIndex = 3;
+
+            this.Cursor = Cursors.WaitCursor;
+
+            SemesterID_picker.Items.Clear();
+
+            #region Lấy danh sách các kỳ học
+            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/schoolyear/1/100").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                File.WriteAllText(Work_path + "Semester\\Schoolyears100.txt", response.Content.ReadAsStringAsync().Result);
+                myDeserializedClass = JsonConvert.DeserializeObject<Root100>(response.Content.ReadAsStringAsync().Result);
+
+                ListSemester.Items.Clear();
+
+                foreach (Content100 content in myDeserializedClass.content)
+                {
+                    foreach (Semester100 semesters in content.semesters)
+                    {
+                        if (semesters.isCurrent == true)
+                        {
+                            SemesterID = semesters.id.ToString();
+                        }
+                        ListSemester.Items.Add(semesters.semesterCode);
+                    }
+                }
+                ListSemester.StartIndex = 0;
+                #endregion
+            }
+            else
+            {
+                MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
         }
 
-        private void Tracuuhocphi_button_Click(object sender, EventArgs e)
+        private void ListSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Text = "Education | Tra cứu học phí";
-            Main_Dashboard.SelectedIndex = 8;
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                myDeserializedClass = JsonConvert.DeserializeObject<Root100>(File.ReadAllText(Work_path + "Semester\\Schoolyears100.txt"));
+                foreach (Content100 content in myDeserializedClass.content)
+                {
+                    foreach (Semester100 semesters in content.semesters)
+                    {
+                        if(semesters.semesterCode == ListSemester.Text)
+                        {
+                            SemesterID = semesters.id.ToString();
+                            if(DisplayOrderExam.StartIndex != 0)
+                            {
+                                DisplayOrderExam.StartIndex = 0;
+                                break;
+                            }
+                            else
+                            {
+                                foreach (SemesterRegisterPeriod100 semesterRegisterPeriod100 in semesters.semesterRegisterPeriods)
+                                {
+                                    if (semesterRegisterPeriod100.displayOrder == displayOrder_Picker.SelectedIndex + 1)
+                                    {
+                                        if (TestNumber.StartIndex != 0)
+                                        {
+                                            registerPeriodId = semesterRegisterPeriod100.id.ToString();
+                                            TestNumber.StartIndex = 0;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            registerPeriodId = semesterRegisterPeriod100.id.ToString();
+                                            getDataExamTimetable();
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }    
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi trong quá trình xử lý dữ liệu, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
-        private void Khenthuong_button_Click(object sender, EventArgs e)
+        private void DisplayOrderExam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Text = "Education | Khen thưởng";
-            Main_Dashboard.SelectedIndex = 9;
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                myDeserializedClass = JsonConvert.DeserializeObject<Root100>(File.ReadAllText(Work_path + "Semester\\Schoolyears100.txt"));
+                foreach (Content100 content in myDeserializedClass.content)
+                {
+                    foreach (Semester100 semesters in content.semesters)
+                    {
+                        if (semesters.id.ToString() == SemesterID)
+                        {
+                            foreach (SemesterRegisterPeriod100 semesterRegisterPeriod100 in semesters.semesterRegisterPeriods)
+                            {
+                                if (semesterRegisterPeriod100.displayOrder == displayOrder_Picker.SelectedIndex + 1)
+                                {
+                                    if(TestNumber.StartIndex != 0)
+                                    {
+                                        registerPeriodId = semesterRegisterPeriod100.id.ToString();
+                                        TestNumber.StartIndex = 0;
+                                        break;
+                                    }   
+                                    else
+                                    {
+                                        registerPeriodId = semesterRegisterPeriod100.id.ToString();
+                                        getDataExamTimetable();
+                                        break;
+                                    }    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi trong quá trình xử lý dữ liệu, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
-        private void Kyluat_button_Click(object sender, EventArgs e)
+        private void TestNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Text = "Education | Kỷ luật";
-            Main_Dashboard.SelectedIndex = 10;
+            this.Cursor = Cursors.WaitCursor;
+            getDataExamTimetable();
         }
 
-        private void Nghiencuukhoahoc_button_Click(object sender, EventArgs e)
+        private void getDataExamTimetable()
         {
-            this.Text = "Education | Nghiên cứu khoa học";
-            Main_Dashboard.SelectedIndex = 11;
+            try
+            {
+                ListRoomExam.DataSource = null;
+                listroomexam_Preview.Clear();
+                response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/semestersubjectexamroom/getListRoomByStudentByLoginUser/" + SemesterID + "/" + registerPeriodId + "/" + (TestNumber.SelectedIndex + 1).ToString()).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    File.WriteAllText(Work_path + "Semester\\TimetableExam.txt", response.Content.ReadAsStringAsync().Result);
+                    List<ListRoomExam_Root> listRoomExam_Root = JsonConvert.DeserializeObject<List<ListRoomExam_Root>>(response.Content.ReadAsStringAsync().Result);
+
+                    if (listRoomExam_Root.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu dự thi.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        for (int i = 0; i < listRoomExam_Root.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                listroomexam_Preview.Add(new ListRoomExam_Preview()
+                                {
+                                    examCode = "Mã kỳ thi",
+                                    examPeriodCode = "Số báo danh",
+                                    subjectName = "Tên môn học",
+                                    name = "Phòng thi",
+                                    examDateString = "Ngày thi",
+                                    startString = "Giờ bắt đầu",
+                                    endString = "Giờ kết thúc",
+                                });
+                            }
+                            listroomexam_Preview.Add(new ListRoomExam_Preview()
+                            {
+                                examCode = listRoomExam_Root[i].examCode,
+                                examPeriodCode = listRoomExam_Root[i].examPeriodCode,
+                                subjectName = listRoomExam_Root[i].subjectName,
+                                name = listRoomExam_Root[i].examRoom.room.name,
+                                examDateString = listRoomExam_Root[i].examRoom.examDateString,
+                                startString = listRoomExam_Root[i].examRoom.examHour.startString,
+                                endString = listRoomExam_Root[i].examRoom.examHour.endString,
+                            });
+                        }
+
+                        ListRoomExam.DataSource = listroomexam_Preview;
+                        ListRoomExam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Có vấn đề trong quá trình xử lý dữ liệu, vui lòng thử lại sau...", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void SemesterID_picker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Content100 content in myDeserializedClass.content)
+            DataLearnTimeTable.DataSource = null;
+            regislist_Preview = new List<Regislist_Preview>();
+            this.Cursor = Cursors.WaitCursor;
+            try
             {
-                foreach (Semester100 semesters in content.semesters)
+                foreach (Content100 content in myDeserializedClass.content)
                 {
-                    if (SemesterID_picker.SelectedItem.ToString() == semesters.semesterCode)
+                    foreach (Semester100 semesters in content.semesters)
                     {
-                        response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/StudentCourseSubject/studentLoginUser/" + semesters.id).Result;
-
-                        if (response.IsSuccessStatusCode)
+                        if (SemesterID_picker.SelectedItem.ToString() == semesters.semesterCode)
                         {
-                            List<StudentCourseSubject_Root> Root = JsonConvert.DeserializeObject<List<StudentCourseSubject_Root>>(response.Content.ReadAsStringAsync().Result);
-                            File.WriteAllText(Work_path + "Semester\\" + semesters.id + ".txt", response.Content.ReadAsStringAsync().Result);
+                            response = client.GetAsync("https://sinhvien" + server + ".tlu.edu.vn:" + port + "/education/api/StudentCourseSubject/studentLoginUser/" + semesters.id).Result;
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (response.IsSuccessStatusCode)
+                            {
+                                //List<StudentCourseSubject_Root> Root = JsonConvert.DeserializeObject<List<StudentCourseSubject_Root>>(response.Content.ReadAsStringAsync().Result);
+                                File.WriteAllText(Work_path + "Semester\\" + semesters.id + ".txt", response.Content.ReadAsStringAsync().Result);
+                                List<Regislist_Root> regislist_Root = JsonConvert.DeserializeObject<List<Regislist_Root>>(response.Content.ReadAsStringAsync().Result);
+
+                                foreach (Regislist_Root Root in regislist_Root)
+                                {
+                                    Regislist_Preview preview = new Regislist_Preview();
+                                    Regislist_CourseSubject courseSubject = Root.courseSubject;
+                                    preview.numberStudent = courseSubject.numberStudent + "/" + courseSubject.maxStudent;
+                                    preview.displayName = courseSubject.displayName;
+                                    try
+                                    {
+                                        if (courseSubject.teacher == null)
+                                        {
+                                            preview.teacher_displayName = null;
+                                        }
+                                        else
+                                        {
+                                            preview.teacher_displayName = courseSubject.teacher.displayName;
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        preview.teacher_displayName = null;
+                                    }
+                                    List<Regislist_Timetable> timetable = courseSubject.timetables;
+
+                                    for (int i = 0; i < timetable.Count; i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            preview.weekIndex = "Thứ " + timetable[i].weekIndex;
+                                            preview.endString = timetable[i].endHour.endString;
+                                            preview.startString = timetable[i].startHour.startString;
+                                            preview.nameRoom = timetable[i].room.name;
+                                            preview.startDate = ConvertJsonDateToString(timetable[i].startDate);
+                                            preview.endDate = ConvertJsonDateToString(timetable[i].endDate);
+                                            regislist_Preview.Add(preview);
+
+                                        }
+                                        else
+                                        {
+                                            regislist_Preview.Add(new Regislist_Preview()
+                                            {
+                                                weekIndex = "Thứ " + timetable[i].weekIndex,
+                                                endString = timetable[i].endHour.endString,
+                                                startString = timetable[i].startHour.startString,
+                                                nameRoom = timetable[i].room.name,
+                                                startDate = ConvertJsonDateToString(timetable[i].startDate),
+                                                endDate = ConvertJsonDateToString(timetable[i].endDate)
+                                            });
+                                        }
+                                    }
+                                }
+
+                                DataLearnTimeTable.DataSource = regislist_Preview;
+                                DataLearnTimeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Lỗi kết nối tới máy chủ, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lỗi trong quá trình xử lý dữ liệu, vui lòng thử lại sau...", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -1085,6 +1239,36 @@ namespace Sinhvien.tlu.Mainboard
                         Calendar_services calendar_Services = new Calendar_services(currentUser.username, regislist_Preview);
                         calendar_Services.send_regislist();
                         await calendar_Services.GetTask();
+                        blockUI = false;
+                        Static_loading.Text = "Lịch đã được upload thành công.";
+                        this.Cursor = Cursors.Default;
+                    }
+                }
+            }
+        }
+
+        private async void BtnCalendarTimeTable_Click(object sender, EventArgs e)
+        {
+            if (blockUI == false)
+            {
+                blockUI = true;
+                DialogResult dialog = MessageBox.Show("Bạn sẽ phải đăng nhập tài khoản Google của bạn để lưu lịch, phần mềm không lấy bất kỳ thông tin đăng nhập của bạn. Nếu không đồng ý đăng nhập, vui lòng không sử dụng tính năng này.", "Lưu ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialog == DialogResult.OK)
+                {
+                    if (listroomexam_Preview == null)
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        MessageBox.Show("Dữ liệu lịch thi không hợp lệ, vui lòng kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        this.Cursor = Cursors.Default;
+                        blockUI = false;
+                    }
+                    else
+                    {
+                        this.Cursor = Cursors.WaitCursor;
+                        Static_loading.Text = "Đang upload lịch lên Google Calendar, xin vui lòng không thao tác thêm!";
+                        Calendar_services calendar_Services = new Calendar_services(currentUser.username, listroomexam_Preview);
+                        calendar_Services.send_examlist();
+                        await calendar_Services.GetTask2();
                         blockUI = false;
                         Static_loading.Text = "Lịch đã được upload thành công.";
                         this.Cursor = Cursors.Default;
@@ -1177,7 +1361,7 @@ namespace Sinhvien.tlu.Mainboard
                 get_findByPeriod();
 
                 this.Text = "Education | Đăng ký học mới | Đăng ký môn";
-                Main_Dashboard.SelectedIndex = 1;
+                Main_Dashboard.SelectedIndex = 0;
                 this.WindowState = FormWindowState.Maximized;
             }
             catch (Exception ex)

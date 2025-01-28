@@ -12,8 +12,6 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
-using Guna.UI.Licensing;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace Sinhvien.tlu.Mainboard
 {
@@ -23,7 +21,9 @@ namespace Sinhvien.tlu.Mainboard
 		private static string ApplicationName = "Education";
 		private static string MSV = "";
 		private static List<Regislist_Preview> regislist_Preview;
+        private static List<ListRoomExam_Preview> examlist_Preview;
         private TaskCompletionSource<bool> _taskCompletionSource = new TaskCompletionSource<bool>();
+        private TaskCompletionSource<bool> _taskCompletionSource2 = new TaskCompletionSource<bool>();
 
         public Calendar_services(string temp, List<Regislist_Preview> regislist_inp)
 		{
@@ -31,7 +31,13 @@ namespace Sinhvien.tlu.Mainboard
 			regislist_Preview = regislist_inp;
         }
 
-		public static async Task<CalendarService> Authenticate()
+        public Calendar_services(string temp, List<ListRoomExam_Preview> examlist_inp)
+        {
+            MSV = temp;
+            examlist_Preview = examlist_inp;
+        }
+
+        public static async Task<CalendarService> Authenticate()
 		{
             var clientSecrets = GoogleClientSecrets.FromStream(new MemoryStream(Encoding.UTF8.GetBytes(@"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""https://accounts.google.com/o/oauth2/auth"",""token_uri"":""https://oauth2.googleapis.com/token"",""auth_provider_x509_cert_url"":""https://www.googleapis.com/oauth2/v1/certs"",""client_secret"":""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"",""redirect_uris"":[""http://localhost""]}}"))).Secrets;
 
@@ -74,7 +80,7 @@ namespace Sinhvien.tlu.Mainboard
 			var existingCalendar = calendarList.FirstOrDefault(c =>
 				c.Summary == "Lịch học" &&
 				c.Description == "Lịch học được tạo tự động bởi Education-Tool" +
-				"Một sản phẩm thuộc hệ thống NDCC." +
+				" Một sản phẩm thuộc hệ thống NDCC." +
 				"ID: " + MSV);
 
 			if (existingCalendar != null)
@@ -99,8 +105,42 @@ namespace Sinhvien.tlu.Mainboard
 				return createdCalendar.Id;
 			}
 		}
+        public static string CreateSecondaryCalendarExam(CalendarService service)
+        {
+            // Lấy danh sách lịch của người dùng
+            var calendarList = service.CalendarList.List().Execute().Items;
 
-		public static void DeleteAllEventsInCalendar(CalendarService service, string calendarId)
+            // Tìm kiếm lịch phụ dựa trên tên và thuộc tính Description đặc biệt
+            var existingCalendar = calendarList.FirstOrDefault(c =>
+                c.Summary == "Lịch thi" &&
+                c.Description == "Lịch thi được tạo tự động bởi Education-Tool" +
+                " Một sản phẩm thuộc hệ thống NDCC." +
+                "ID: " + MSV);
+
+            if (existingCalendar != null)
+            {
+                // Lịch đã tồn tại, trả về calendarId của nó
+                //MessageBox.Show("Found existing calendar with ID: " + existingCalendar.Id);
+                return existingCalendar.Id;
+            }
+            else
+            {
+                // Tạo lịch phụ mới nếu chưa tồn tại
+                var newCalendar = new Google.Apis.Calendar.v3.Data.Calendar()
+
+                {
+                    Summary = "Lịch thi",
+                    Description = "Lịch thi được tạo tự động bởi Education-Tool" + "Một sản phẩm thuộc hệ thống NDCC." + "ID: " + MSV,
+                    TimeZone = "Asia/Ho_Chi_Minh"
+                };
+
+                var createdCalendar = service.Calendars.Insert(newCalendar).Execute();
+                //MessageBox.Show("Created new calendar with ID: " + createdCalendar.Id);
+                return createdCalendar.Id;
+            }
+        }
+
+        public static void DeleteAllEventsInCalendar(CalendarService service, string calendarId)
 		{
 			var request = service.Events.List(calendarId);
 			request.ShowDeleted = false;
@@ -254,6 +294,44 @@ namespace Sinhvien.tlu.Mainboard
             }
 			MessageBox.Show("Lịch học đã được gửi lên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+        public static void AddEventToSecondaryCalendarExam(CalendarService service, string calendarId)
+        {
+            ListRoomExam_Preview last_exam = new ListRoomExam_Preview();
+            foreach (ListRoomExam_Preview examlist in examlist_Preview)
+            {
+                if(examlist.subjectName != "Tên môn học")
+                {
+                    Event exam = new Event();
+
+                    exam.Summary = examlist.subjectName;
+                    exam.Location = examlist.name;
+                    exam.Description = "Số báo danh: " + examlist.examCode;
+
+                    exam.Start = new EventDateTime();
+                    exam.Start.DateTime = DateTime.ParseExact(examlist.examDateString.ToString() + " " + examlist.startString, "dd/MM/yyyy HH:mm", null);
+                    exam.Start.TimeZone = "Asia/Ho_Chi_Minh";
+                    exam.End = new EventDateTime();
+                    exam.End.DateTime = DateTime.ParseExact(examlist.examDateString.ToString() + " " + examlist.startString, "dd/MM/yyyy HH:mm", null);
+                    exam.End.TimeZone = "Asia/Ho_Chi_Minh";
+                    //exam.Recurrence = new string[]
+                    //    {
+                    //        $"RRULE:FREQ=WEEKLY;BYDAY={examlist.weekIndex};UNTIL=" + DateTime.ParseExact(examlist.endDate, "dd-MM-yyyy", CultureInfo.InvariantCulture).AddHours(23).AddMinutes(59).AddSeconds(59).ToString("yyyyMMdd'T'HHmmss'Z'")
+                    //    };
+                    exam.Reminders = new Event.RemindersData()
+                    {
+                        UseDefault = false,
+                        Overrides = new EventReminder[]
+                            {
+                            new EventReminder() { Method = "popup", Minutes = 30 }
+                            }
+                    };
+
+                    // Thêm sự kiện vào lịch phụ
+                    service.Events.Insert(exam, calendarId).Execute();
+                }    
+            }
+            MessageBox.Show("Lịch thi đã được gửi lên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         public async void send_regislist()
 		{
@@ -276,6 +354,29 @@ namespace Sinhvien.tlu.Mainboard
 			}
             _taskCompletionSource.SetResult(true);
         }
+
+        public async void send_examlist()
+        {
+            var calendarService = await Authenticate();
+
+            if (calendarService != null)
+            {
+                // Tạo lịch phụ nếu chưa có, hoặc lấy calendarId đã tạo
+                string calendarId = CreateSecondaryCalendarExam(calendarService);
+
+                // Xóa tất cả sự kiện trong lịch phụ
+                DeleteAllEventsInCalendar(calendarService, calendarId);
+
+                // Thêm sự kiện vào lịch phụ
+                AddEventToSecondaryCalendarExam(calendarService, calendarId);
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa đăng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            _taskCompletionSource2.SetResult(true);
+        }
         public Task GetTask() => _taskCompletionSource.Task;
+        public Task GetTask2() => _taskCompletionSource2.Task;
     }
 }

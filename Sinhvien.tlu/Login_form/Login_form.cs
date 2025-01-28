@@ -141,8 +141,8 @@ namespace Sinhvien.tlu.Login_form
                         }
                         else
                         {
-                            //MessageBox.Show("Mất kết nối với internet, yêu cầu kiểm tra lại!", "Cảnh báo Token", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            MessageBox.Show("Có lỗi trong việc lấy dữ liệu từ máy chủ, hãy đăng nhập lại!");
+                            MessageBox.Show("Mất kết nối với internet, yêu cầu kiểm tra lại!", "Cảnh báo Token", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //MessageBox.Show("Có lỗi trong việc lấy dữ liệu từ máy chủ, hãy đăng nhập lại!");
                         }
                     }
                 }

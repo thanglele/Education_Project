@@ -32,10 +32,10 @@ namespace Sinhvien.tlu.Mainboard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(System_Main));
             this.UIPanel = new System.Windows.Forms.Panel();
             this.Top_Panel = new System.Windows.Forms.Panel();
@@ -49,7 +49,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Logo_Header = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.Main_Panel = new System.Windows.Forms.Panel();
             this.Main_Dashboard = new System.Windows.Forms.TabControl();
-            this.TrangChu = new System.Windows.Forms.TabPage();
             this.Dangkihocmoi = new System.Windows.Forms.TabPage();
             this.refresh_button = new System.Windows.Forms.Button();
             this.Panel_New_Reg = new System.Windows.Forms.TableLayoutPanel();
@@ -66,23 +65,16 @@ namespace Sinhvien.tlu.Mainboard
             this.DataLearnTimeTable = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.SemesterID_picker = new Guna.UI.WinForms.GunaComboBox();
-            this.Dangkynguyenvonghoc = new System.Windows.Forms.TabPage();
             this.Tracuudiemtonghop = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.listStudentmark_table = new System.Windows.Forms.DataGridView();
-            this.Diemrenluyen = new System.Windows.Forms.TabPage();
-            this.Chuongtrinhdaotao = new System.Windows.Forms.TabPage();
             this.Xemlichthi = new System.Windows.Forms.TabPage();
-            this.Tracuuhocphi = new System.Windows.Forms.TabPage();
-            this.Khenthuong = new System.Windows.Forms.TabPage();
-            this.Kyluat = new System.Windows.Forms.TabPage();
-            this.Nghiencuukhoahoc = new System.Windows.Forms.TabPage();
-            this.FCCID = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TestNumber = new Guna.UI.WinForms.GunaComboBox();
+            this.DisplayOrderExam = new Guna.UI.WinForms.GunaComboBox();
+            this.ListSemester = new Guna.UI.WinForms.GunaComboBox();
+            this.Tracuuhocphi = new System.Windows.Forms.TabPage();
             this.Thongtintaikhoan = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Doimatkhau = new System.Windows.Forms.TabPage();
@@ -94,25 +86,17 @@ namespace Sinhvien.tlu.Mainboard
             this.Old_Password = new Guna.UI.WinForms.GunaLineTextBox();
             this.Change_Password_Button = new Guna.UI.WinForms.GunaButton();
             this.RE_New_Password = new Guna.UI.WinForms.GunaLineTextBox();
-            this.Tracuudiemrenluyen = new System.Windows.Forms.TabPage();
             this.Left_Panel = new System.Windows.Forms.Panel();
-            this.Nghiencuukhoahoc_button = new Guna.UI.WinForms.GunaButton();
-            this.Kyluat_button = new Guna.UI.WinForms.GunaButton();
-            this.Khenthuong_button = new Guna.UI.WinForms.GunaButton();
-            this.Tracuuhocphi_button = new Guna.UI.WinForms.GunaButton();
             this.Xemlichthi_button = new Guna.UI.WinForms.GunaButton();
-            this.Chuongtrinhdaotao_button = new Guna.UI.WinForms.GunaButton();
-            this.Tracuudiemrenluyen_button = new Guna.UI.WinForms.GunaButton();
-            this.Diemrenluyen_button = new Guna.UI.WinForms.GunaButton();
             this.Tracuudiemtonghop_button = new Guna.UI.WinForms.GunaButton();
-            this.Dangkynguyenvonghoc_button = new Guna.UI.WinForms.GunaButton();
             this.Ketquadangkyhoc_button = new Guna.UI.WinForms.GunaButton();
             this.Dangkyhocmoi_button = new Guna.UI.WinForms.GunaButton();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.Trangchu_button = new Guna.UI.WinForms.GunaButton();
             this.Copyright = new Guna.UI.WinForms.GunaLinkLabel();
             this.Copyright_Panel = new Guna.UI.WinForms.GunaLinePanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.ListRoomExam = new System.Windows.Forms.DataGridView();
+            this.BtnCalendarTimeTable = new Guna.UI.WinForms.GunaButton();
             this.Top_Panel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Header)).BeginInit();
@@ -126,13 +110,14 @@ namespace Sinhvien.tlu.Mainboard
             ((System.ComponentModel.ISupportInitialize)(this.DataLearnTimeTable)).BeginInit();
             this.Tracuudiemtonghop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).BeginInit();
-            this.FCCID.SuspendLayout();
+            this.Xemlichthi.SuspendLayout();
             this.Thongtintaikhoan.SuspendLayout();
             this.Doimatkhau.SuspendLayout();
             this.panel_changepassword.SuspendLayout();
             this.Left_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.Copyright_Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).BeginInit();
             this.SuspendLayout();
             // 
             // UIPanel
@@ -266,38 +251,19 @@ namespace Sinhvien.tlu.Mainboard
             this.Main_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Main_Dashboard.Controls.Add(this.TrangChu);
             this.Main_Dashboard.Controls.Add(this.Dangkihocmoi);
             this.Main_Dashboard.Controls.Add(this.Ketquadangkyhoc);
-            this.Main_Dashboard.Controls.Add(this.Dangkynguyenvonghoc);
             this.Main_Dashboard.Controls.Add(this.Tracuudiemtonghop);
-            this.Main_Dashboard.Controls.Add(this.Diemrenluyen);
-            this.Main_Dashboard.Controls.Add(this.Chuongtrinhdaotao);
             this.Main_Dashboard.Controls.Add(this.Xemlichthi);
             this.Main_Dashboard.Controls.Add(this.Tracuuhocphi);
-            this.Main_Dashboard.Controls.Add(this.Khenthuong);
-            this.Main_Dashboard.Controls.Add(this.Kyluat);
-            this.Main_Dashboard.Controls.Add(this.Nghiencuukhoahoc);
-            this.Main_Dashboard.Controls.Add(this.FCCID);
             this.Main_Dashboard.Controls.Add(this.Thongtintaikhoan);
             this.Main_Dashboard.Controls.Add(this.Doimatkhau);
-            this.Main_Dashboard.Controls.Add(this.Tracuudiemrenluyen);
             this.Main_Dashboard.Location = new System.Drawing.Point(-7, 0);
             this.Main_Dashboard.Name = "Main_Dashboard";
             this.Main_Dashboard.SelectedIndex = 0;
             this.Main_Dashboard.Size = new System.Drawing.Size(1125, 677);
             this.Main_Dashboard.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.Main_Dashboard.TabIndex = 0;
-            // 
-            // TrangChu
-            // 
-            this.TrangChu.Location = new System.Drawing.Point(4, 22);
-            this.TrangChu.Name = "TrangChu";
-            this.TrangChu.Padding = new System.Windows.Forms.Padding(3);
-            this.TrangChu.Size = new System.Drawing.Size(1117, 651);
-            this.TrangChu.TabIndex = 1;
-            this.TrangChu.Text = "Trang chủ";
-            this.TrangChu.UseVisualStyleBackColor = true;
             // 
             // Dangkihocmoi
             // 
@@ -310,7 +276,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Dangkihocmoi.Location = new System.Drawing.Point(4, 22);
             this.Dangkihocmoi.Name = "Dangkihocmoi";
             this.Dangkihocmoi.Padding = new System.Windows.Forms.Padding(3);
-            this.Dangkihocmoi.Size = new System.Drawing.Size(1123, 651);
+            this.Dangkihocmoi.Size = new System.Drawing.Size(1117, 651);
             this.Dangkihocmoi.TabIndex = 2;
             this.Dangkihocmoi.Text = "Đăng kí học mới";
             this.Dangkihocmoi.UseVisualStyleBackColor = true;
@@ -379,28 +345,28 @@ namespace Sinhvien.tlu.Mainboard
             this.List_Subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.List_Subject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_Subject.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle5;
             this.List_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.List_Subject.Location = new System.Drawing.Point(3, 37);
             this.List_Subject.MultiSelect = false;
             this.List_Subject.Name = "List_Subject";
             this.List_Subject.ReadOnly = true;
             this.List_Subject.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.List_Subject.RowHeadersVisible = false;
             this.List_Subject.RowTemplate.Height = 30;
             this.List_Subject.RowTemplate.ReadOnly = true;
@@ -423,25 +389,25 @@ namespace Sinhvien.tlu.Mainboard
             this.List_Subject_Choice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.List_Subject_Choice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_Subject_Choice.ColumnHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle7;
             this.List_Subject_Choice.Location = new System.Drawing.Point(244, 37);
             this.List_Subject_Choice.Name = "List_Subject_Choice";
             this.List_Subject_Choice.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.List_Subject_Choice.RowHeadersVisible = false;
             this.List_Subject_Choice.RowTemplate.Height = 30;
             this.List_Subject_Choice.RowTemplate.ReadOnly = true;
@@ -617,16 +583,6 @@ namespace Sinhvien.tlu.Mainboard
             this.SemesterID_picker.TabIndex = 0;
             this.SemesterID_picker.SelectedIndexChanged += new System.EventHandler(this.SemesterID_picker_SelectedIndexChanged);
             // 
-            // Dangkynguyenvonghoc
-            // 
-            this.Dangkynguyenvonghoc.Location = new System.Drawing.Point(4, 22);
-            this.Dangkynguyenvonghoc.Name = "Dangkynguyenvonghoc";
-            this.Dangkynguyenvonghoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Dangkynguyenvonghoc.Size = new System.Drawing.Size(1123, 651);
-            this.Dangkynguyenvonghoc.TabIndex = 4;
-            this.Dangkynguyenvonghoc.Text = "Đăng ký nguyện vọng học";
-            this.Dangkynguyenvonghoc.UseVisualStyleBackColor = true;
-            // 
             // Tracuudiemtonghop
             // 
             this.Tracuudiemtonghop.Controls.Add(this.label8);
@@ -634,7 +590,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop.Location = new System.Drawing.Point(4, 22);
             this.Tracuudiemtonghop.Name = "Tracuudiemtonghop";
             this.Tracuudiemtonghop.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuudiemtonghop.Size = new System.Drawing.Size(1123, 651);
+            this.Tracuudiemtonghop.Size = new System.Drawing.Size(1117, 651);
             this.Tracuudiemtonghop.TabIndex = 5;
             this.Tracuudiemtonghop.Text = "Tra cứu điểm tổng hợp";
             this.Tracuudiemtonghop.UseVisualStyleBackColor = true;
@@ -666,144 +622,124 @@ namespace Sinhvien.tlu.Mainboard
             this.listStudentmark_table.Location = new System.Drawing.Point(7, 29);
             this.listStudentmark_table.Name = "listStudentmark_table";
             this.listStudentmark_table.ReadOnly = true;
-            this.listStudentmark_table.Size = new System.Drawing.Size(1110, 559);
+            this.listStudentmark_table.Size = new System.Drawing.Size(1110, 598);
             this.listStudentmark_table.TabIndex = 0;
-            // 
-            // Diemrenluyen
-            // 
-            this.Diemrenluyen.Location = new System.Drawing.Point(4, 22);
-            this.Diemrenluyen.Name = "Diemrenluyen";
-            this.Diemrenluyen.Padding = new System.Windows.Forms.Padding(3);
-            this.Diemrenluyen.Size = new System.Drawing.Size(1123, 651);
-            this.Diemrenluyen.TabIndex = 6;
-            this.Diemrenluyen.Text = "Điểm rèn luyện";
-            this.Diemrenluyen.UseVisualStyleBackColor = true;
-            // 
-            // Chuongtrinhdaotao
-            // 
-            this.Chuongtrinhdaotao.Location = new System.Drawing.Point(4, 22);
-            this.Chuongtrinhdaotao.Name = "Chuongtrinhdaotao";
-            this.Chuongtrinhdaotao.Padding = new System.Windows.Forms.Padding(3);
-            this.Chuongtrinhdaotao.Size = new System.Drawing.Size(1123, 651);
-            this.Chuongtrinhdaotao.TabIndex = 7;
-            this.Chuongtrinhdaotao.Text = "Chương trình đào tạo";
-            this.Chuongtrinhdaotao.UseVisualStyleBackColor = true;
             // 
             // Xemlichthi
             // 
+            this.Xemlichthi.Controls.Add(this.BtnCalendarTimeTable);
+            this.Xemlichthi.Controls.Add(this.ListRoomExam);
+            this.Xemlichthi.Controls.Add(this.label2);
+            this.Xemlichthi.Controls.Add(this.label1);
+            this.Xemlichthi.Controls.Add(this.TestNumber);
+            this.Xemlichthi.Controls.Add(this.DisplayOrderExam);
+            this.Xemlichthi.Controls.Add(this.ListSemester);
             this.Xemlichthi.Location = new System.Drawing.Point(4, 22);
             this.Xemlichthi.Name = "Xemlichthi";
             this.Xemlichthi.Padding = new System.Windows.Forms.Padding(3);
-            this.Xemlichthi.Size = new System.Drawing.Size(1123, 651);
+            this.Xemlichthi.Size = new System.Drawing.Size(1117, 651);
             this.Xemlichthi.TabIndex = 8;
             this.Xemlichthi.Text = "Xem lịch thi";
             this.Xemlichthi.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(503, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Lần thi:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Kỳ học:";
+            // 
+            // TestNumber
+            // 
+            this.TestNumber.BackColor = System.Drawing.Color.Transparent;
+            this.TestNumber.BaseColor = System.Drawing.Color.White;
+            this.TestNumber.BorderColor = System.Drawing.Color.Silver;
+            this.TestNumber.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TestNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TestNumber.FocusedColor = System.Drawing.Color.Empty;
+            this.TestNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TestNumber.ForeColor = System.Drawing.Color.Black;
+            this.TestNumber.FormattingEnabled = true;
+            this.TestNumber.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.TestNumber.Location = new System.Drawing.Point(570, 7);
+            this.TestNumber.Name = "TestNumber";
+            this.TestNumber.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.TestNumber.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.TestNumber.Size = new System.Drawing.Size(46, 26);
+            this.TestNumber.TabIndex = 3;
+            this.TestNumber.SelectedIndexChanged += new System.EventHandler(this.TestNumber_SelectedIndexChanged);
+            // 
+            // DisplayOrderExam
+            // 
+            this.DisplayOrderExam.BackColor = System.Drawing.Color.Transparent;
+            this.DisplayOrderExam.BaseColor = System.Drawing.Color.White;
+            this.DisplayOrderExam.BorderColor = System.Drawing.Color.Silver;
+            this.DisplayOrderExam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.DisplayOrderExam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DisplayOrderExam.FocusedColor = System.Drawing.Color.Empty;
+            this.DisplayOrderExam.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.DisplayOrderExam.ForeColor = System.Drawing.Color.Black;
+            this.DisplayOrderExam.FormattingEnabled = true;
+            this.DisplayOrderExam.Items.AddRange(new object[] {
+            "Học kỳ chính",
+            "Học kỳ phụ",
+            "Tiếng Anh tăng cường",
+            "Chuẩn đầu ra ngoại ngữ",
+            "Học phần tốt nghiệp",
+            "Chuẩn đầu ra ngoại ngữ - Đợt 2",
+            "Học kỳ hè"});
+            this.DisplayOrderExam.Location = new System.Drawing.Point(342, 6);
+            this.DisplayOrderExam.Name = "DisplayOrderExam";
+            this.DisplayOrderExam.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.DisplayOrderExam.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.DisplayOrderExam.Size = new System.Drawing.Size(155, 26);
+            this.DisplayOrderExam.TabIndex = 2;
+            this.DisplayOrderExam.SelectedIndexChanged += new System.EventHandler(this.DisplayOrderExam_SelectedIndexChanged);
+            // 
+            // ListSemester
+            // 
+            this.ListSemester.BackColor = System.Drawing.Color.Transparent;
+            this.ListSemester.BaseColor = System.Drawing.Color.White;
+            this.ListSemester.BorderColor = System.Drawing.Color.Silver;
+            this.ListSemester.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ListSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ListSemester.FocusedColor = System.Drawing.Color.Empty;
+            this.ListSemester.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ListSemester.ForeColor = System.Drawing.Color.Black;
+            this.ListSemester.FormattingEnabled = true;
+            this.ListSemester.Location = new System.Drawing.Point(81, 6);
+            this.ListSemester.Name = "ListSemester";
+            this.ListSemester.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ListSemester.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.ListSemester.Size = new System.Drawing.Size(255, 26);
+            this.ListSemester.TabIndex = 1;
+            this.ListSemester.SelectedIndexChanged += new System.EventHandler(this.ListSemester_SelectedIndexChanged);
             // 
             // Tracuuhocphi
             // 
             this.Tracuuhocphi.Location = new System.Drawing.Point(4, 22);
             this.Tracuuhocphi.Name = "Tracuuhocphi";
             this.Tracuuhocphi.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuuhocphi.Size = new System.Drawing.Size(1123, 651);
+            this.Tracuuhocphi.Size = new System.Drawing.Size(1117, 651);
             this.Tracuuhocphi.TabIndex = 9;
             this.Tracuuhocphi.Text = "Tra cứu học phí";
             this.Tracuuhocphi.UseVisualStyleBackColor = true;
-            // 
-            // Khenthuong
-            // 
-            this.Khenthuong.Location = new System.Drawing.Point(4, 22);
-            this.Khenthuong.Name = "Khenthuong";
-            this.Khenthuong.Padding = new System.Windows.Forms.Padding(3);
-            this.Khenthuong.Size = new System.Drawing.Size(1123, 651);
-            this.Khenthuong.TabIndex = 10;
-            this.Khenthuong.Text = "Khen thưởng";
-            this.Khenthuong.UseVisualStyleBackColor = true;
-            // 
-            // Kyluat
-            // 
-            this.Kyluat.Location = new System.Drawing.Point(4, 22);
-            this.Kyluat.Name = "Kyluat";
-            this.Kyluat.Padding = new System.Windows.Forms.Padding(3);
-            this.Kyluat.Size = new System.Drawing.Size(1123, 651);
-            this.Kyluat.TabIndex = 11;
-            this.Kyluat.Text = "Kỷ luật";
-            this.Kyluat.UseVisualStyleBackColor = true;
-            // 
-            // Nghiencuukhoahoc
-            // 
-            this.Nghiencuukhoahoc.Location = new System.Drawing.Point(4, 22);
-            this.Nghiencuukhoahoc.Name = "Nghiencuukhoahoc";
-            this.Nghiencuukhoahoc.Padding = new System.Windows.Forms.Padding(3);
-            this.Nghiencuukhoahoc.Size = new System.Drawing.Size(1123, 651);
-            this.Nghiencuukhoahoc.TabIndex = 12;
-            this.Nghiencuukhoahoc.Text = "Nghiên cứu khoa học";
-            this.Nghiencuukhoahoc.UseVisualStyleBackColor = true;
-            // 
-            // FCCID
-            // 
-            this.FCCID.Controls.Add(this.label5);
-            this.FCCID.Controls.Add(this.label1);
-            this.FCCID.Controls.Add(this.label3);
-            this.FCCID.Controls.Add(this.label4);
-            this.FCCID.Controls.Add(this.label2);
-            this.FCCID.Location = new System.Drawing.Point(4, 22);
-            this.FCCID.Name = "FCCID";
-            this.FCCID.Padding = new System.Windows.Forms.Padding(3);
-            this.FCCID.Size = new System.Drawing.Size(1123, 651);
-            this.FCCID.TabIndex = 13;
-            this.FCCID.Text = "Thông tin bản dựng";
-            this.FCCID.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(171, 418);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 24);
-            this.label5.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(540, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 24);
-            this.label1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(540, 322);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 24);
-            this.label3.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(124, 362);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 24);
-            this.label4.TabIndex = 3;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(540, 270);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 24);
-            this.label2.TabIndex = 1;
             // 
             // Thongtintaikhoan
             // 
@@ -811,7 +747,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Thongtintaikhoan.Location = new System.Drawing.Point(4, 22);
             this.Thongtintaikhoan.Name = "Thongtintaikhoan";
             this.Thongtintaikhoan.Padding = new System.Windows.Forms.Padding(3);
-            this.Thongtintaikhoan.Size = new System.Drawing.Size(1123, 651);
+            this.Thongtintaikhoan.Size = new System.Drawing.Size(1117, 651);
             this.Thongtintaikhoan.TabIndex = 14;
             this.Thongtintaikhoan.Text = "Thông tin tài khoản";
             this.Thongtintaikhoan.UseVisualStyleBackColor = true;
@@ -836,7 +772,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Doimatkhau.Location = new System.Drawing.Point(4, 22);
             this.Doimatkhau.Name = "Doimatkhau";
             this.Doimatkhau.Padding = new System.Windows.Forms.Padding(3);
-            this.Doimatkhau.Size = new System.Drawing.Size(1123, 651);
+            this.Doimatkhau.Size = new System.Drawing.Size(1117, 651);
             this.Doimatkhau.TabIndex = 15;
             this.Doimatkhau.Text = "Đổi mật khẩu";
             this.Doimatkhau.UseVisualStyleBackColor = true;
@@ -971,140 +907,21 @@ namespace Sinhvien.tlu.Mainboard
             this.RE_New_Password.Size = new System.Drawing.Size(283, 39);
             this.RE_New_Password.TabIndex = 4;
             // 
-            // Tracuudiemrenluyen
-            // 
-            this.Tracuudiemrenluyen.Location = new System.Drawing.Point(4, 22);
-            this.Tracuudiemrenluyen.Name = "Tracuudiemrenluyen";
-            this.Tracuudiemrenluyen.Padding = new System.Windows.Forms.Padding(3);
-            this.Tracuudiemrenluyen.Size = new System.Drawing.Size(1123, 651);
-            this.Tracuudiemrenluyen.TabIndex = 16;
-            this.Tracuudiemrenluyen.Text = "Tra cứu điểm rèn luyện";
-            this.Tracuudiemrenluyen.UseVisualStyleBackColor = true;
-            // 
             // Left_Panel
             // 
             this.Left_Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Left_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(65)))), ((int)(((byte)(80)))));
-            this.Left_Panel.Controls.Add(this.Nghiencuukhoahoc_button);
-            this.Left_Panel.Controls.Add(this.Kyluat_button);
-            this.Left_Panel.Controls.Add(this.Khenthuong_button);
-            this.Left_Panel.Controls.Add(this.Tracuuhocphi_button);
             this.Left_Panel.Controls.Add(this.Xemlichthi_button);
-            this.Left_Panel.Controls.Add(this.Chuongtrinhdaotao_button);
-            this.Left_Panel.Controls.Add(this.Tracuudiemrenluyen_button);
-            this.Left_Panel.Controls.Add(this.Diemrenluyen_button);
             this.Left_Panel.Controls.Add(this.Tracuudiemtonghop_button);
-            this.Left_Panel.Controls.Add(this.Dangkynguyenvonghoc_button);
             this.Left_Panel.Controls.Add(this.Ketquadangkyhoc_button);
             this.Left_Panel.Controls.Add(this.Dangkyhocmoi_button);
             this.Left_Panel.Controls.Add(this.gunaPictureBox1);
-            this.Left_Panel.Controls.Add(this.Trangchu_button);
             this.Left_Panel.Location = new System.Drawing.Point(0, 40);
             this.Left_Panel.Name = "Left_Panel";
             this.Left_Panel.Size = new System.Drawing.Size(224, 655);
             this.Left_Panel.TabIndex = 3;
-            // 
-            // Nghiencuukhoahoc_button
-            // 
-            this.Nghiencuukhoahoc_button.AnimationHoverSpeed = 0.07F;
-            this.Nghiencuukhoahoc_button.AnimationSpeed = 0.03F;
-            this.Nghiencuukhoahoc_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Nghiencuukhoahoc_button.BorderColor = System.Drawing.Color.Black;
-            this.Nghiencuukhoahoc_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Nghiencuukhoahoc_button.Enabled = false;
-            this.Nghiencuukhoahoc_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Nghiencuukhoahoc_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Nghiencuukhoahoc_button.ForeColor = System.Drawing.Color.White;
-            this.Nghiencuukhoahoc_button.Image = ((System.Drawing.Image)(resources.GetObject("Nghiencuukhoahoc_button.Image")));
-            this.Nghiencuukhoahoc_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Nghiencuukhoahoc_button.Location = new System.Drawing.Point(12, 580);
-            this.Nghiencuukhoahoc_button.Name = "Nghiencuukhoahoc_button";
-            this.Nghiencuukhoahoc_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Nghiencuukhoahoc_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Nghiencuukhoahoc_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Nghiencuukhoahoc_button.OnHoverImage = null;
-            this.Nghiencuukhoahoc_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Nghiencuukhoahoc_button.Size = new System.Drawing.Size(207, 30);
-            this.Nghiencuukhoahoc_button.TabIndex = 18;
-            this.Nghiencuukhoahoc_button.Text = "Nghiên cứu khoa học";
-            this.Nghiencuukhoahoc_button.Click += new System.EventHandler(this.Nghiencuukhoahoc_button_Click);
-            // 
-            // Kyluat_button
-            // 
-            this.Kyluat_button.AnimationHoverSpeed = 0.07F;
-            this.Kyluat_button.AnimationSpeed = 0.03F;
-            this.Kyluat_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Kyluat_button.BorderColor = System.Drawing.Color.Black;
-            this.Kyluat_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Kyluat_button.Enabled = false;
-            this.Kyluat_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Kyluat_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Kyluat_button.ForeColor = System.Drawing.Color.White;
-            this.Kyluat_button.Image = ((System.Drawing.Image)(resources.GetObject("Kyluat_button.Image")));
-            this.Kyluat_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Kyluat_button.Location = new System.Drawing.Point(12, 544);
-            this.Kyluat_button.Name = "Kyluat_button";
-            this.Kyluat_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Kyluat_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Kyluat_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Kyluat_button.OnHoverImage = null;
-            this.Kyluat_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Kyluat_button.Size = new System.Drawing.Size(207, 30);
-            this.Kyluat_button.TabIndex = 17;
-            this.Kyluat_button.Text = "Kỷ luật";
-            this.Kyluat_button.Click += new System.EventHandler(this.Kyluat_button_Click);
-            // 
-            // Khenthuong_button
-            // 
-            this.Khenthuong_button.AnimationHoverSpeed = 0.07F;
-            this.Khenthuong_button.AnimationSpeed = 0.03F;
-            this.Khenthuong_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Khenthuong_button.BorderColor = System.Drawing.Color.Black;
-            this.Khenthuong_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Khenthuong_button.Enabled = false;
-            this.Khenthuong_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Khenthuong_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Khenthuong_button.ForeColor = System.Drawing.Color.White;
-            this.Khenthuong_button.Image = ((System.Drawing.Image)(resources.GetObject("Khenthuong_button.Image")));
-            this.Khenthuong_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Khenthuong_button.Location = new System.Drawing.Point(12, 508);
-            this.Khenthuong_button.Name = "Khenthuong_button";
-            this.Khenthuong_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Khenthuong_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Khenthuong_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Khenthuong_button.OnHoverImage = null;
-            this.Khenthuong_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Khenthuong_button.Size = new System.Drawing.Size(207, 30);
-            this.Khenthuong_button.TabIndex = 16;
-            this.Khenthuong_button.Text = "Khen thưởng";
-            this.Khenthuong_button.Click += new System.EventHandler(this.Khenthuong_button_Click);
-            // 
-            // Tracuuhocphi_button
-            // 
-            this.Tracuuhocphi_button.AnimationHoverSpeed = 0.07F;
-            this.Tracuuhocphi_button.AnimationSpeed = 0.03F;
-            this.Tracuuhocphi_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Tracuuhocphi_button.BorderColor = System.Drawing.Color.Black;
-            this.Tracuuhocphi_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Tracuuhocphi_button.Enabled = false;
-            this.Tracuuhocphi_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Tracuuhocphi_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Tracuuhocphi_button.ForeColor = System.Drawing.Color.White;
-            this.Tracuuhocphi_button.Image = ((System.Drawing.Image)(resources.GetObject("Tracuuhocphi_button.Image")));
-            this.Tracuuhocphi_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Tracuuhocphi_button.Location = new System.Drawing.Point(12, 472);
-            this.Tracuuhocphi_button.Name = "Tracuuhocphi_button";
-            this.Tracuuhocphi_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Tracuuhocphi_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Tracuuhocphi_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Tracuuhocphi_button.OnHoverImage = null;
-            this.Tracuuhocphi_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Tracuuhocphi_button.Size = new System.Drawing.Size(207, 30);
-            this.Tracuuhocphi_button.TabIndex = 15;
-            this.Tracuuhocphi_button.Text = "Tra cứu học phí";
-            this.Tracuuhocphi_button.Click += new System.EventHandler(this.Tracuuhocphi_button_Click);
             // 
             // Xemlichthi_button
             // 
@@ -1113,13 +930,12 @@ namespace Sinhvien.tlu.Mainboard
             this.Xemlichthi_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.Xemlichthi_button.BorderColor = System.Drawing.Color.Black;
             this.Xemlichthi_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Xemlichthi_button.Enabled = false;
             this.Xemlichthi_button.FocusedColor = System.Drawing.Color.Empty;
             this.Xemlichthi_button.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Xemlichthi_button.ForeColor = System.Drawing.Color.White;
             this.Xemlichthi_button.Image = ((System.Drawing.Image)(resources.GetObject("Xemlichthi_button.Image")));
             this.Xemlichthi_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Xemlichthi_button.Location = new System.Drawing.Point(12, 436);
+            this.Xemlichthi_button.Location = new System.Drawing.Point(12, 265);
             this.Xemlichthi_button.Name = "Xemlichthi_button";
             this.Xemlichthi_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.Xemlichthi_button.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1130,81 +946,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Xemlichthi_button.TabIndex = 14;
             this.Xemlichthi_button.Text = "Xem lịch thi";
             this.Xemlichthi_button.Click += new System.EventHandler(this.Xemlichthi_button_Click);
-            // 
-            // Chuongtrinhdaotao_button
-            // 
-            this.Chuongtrinhdaotao_button.AnimationHoverSpeed = 0.07F;
-            this.Chuongtrinhdaotao_button.AnimationSpeed = 0.03F;
-            this.Chuongtrinhdaotao_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Chuongtrinhdaotao_button.BorderColor = System.Drawing.Color.Black;
-            this.Chuongtrinhdaotao_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Chuongtrinhdaotao_button.Enabled = false;
-            this.Chuongtrinhdaotao_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Chuongtrinhdaotao_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Chuongtrinhdaotao_button.ForeColor = System.Drawing.Color.White;
-            this.Chuongtrinhdaotao_button.Image = ((System.Drawing.Image)(resources.GetObject("Chuongtrinhdaotao_button.Image")));
-            this.Chuongtrinhdaotao_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Chuongtrinhdaotao_button.Location = new System.Drawing.Point(12, 400);
-            this.Chuongtrinhdaotao_button.Name = "Chuongtrinhdaotao_button";
-            this.Chuongtrinhdaotao_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Chuongtrinhdaotao_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Chuongtrinhdaotao_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Chuongtrinhdaotao_button.OnHoverImage = null;
-            this.Chuongtrinhdaotao_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Chuongtrinhdaotao_button.Size = new System.Drawing.Size(207, 30);
-            this.Chuongtrinhdaotao_button.TabIndex = 13;
-            this.Chuongtrinhdaotao_button.Text = "Chương trình đào tạo";
-            this.Chuongtrinhdaotao_button.Click += new System.EventHandler(this.Chuongtrinhdaotao_button_Click);
-            // 
-            // Tracuudiemrenluyen_button
-            // 
-            this.Tracuudiemrenluyen_button.AnimationHoverSpeed = 0.07F;
-            this.Tracuudiemrenluyen_button.AnimationSpeed = 0.03F;
-            this.Tracuudiemrenluyen_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Tracuudiemrenluyen_button.BorderColor = System.Drawing.Color.Black;
-            this.Tracuudiemrenluyen_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Tracuudiemrenluyen_button.Enabled = false;
-            this.Tracuudiemrenluyen_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Tracuudiemrenluyen_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Tracuudiemrenluyen_button.ForeColor = System.Drawing.Color.White;
-            this.Tracuudiemrenluyen_button.Image = ((System.Drawing.Image)(resources.GetObject("Tracuudiemrenluyen_button.Image")));
-            this.Tracuudiemrenluyen_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Tracuudiemrenluyen_button.Location = new System.Drawing.Point(12, 364);
-            this.Tracuudiemrenluyen_button.Name = "Tracuudiemrenluyen_button";
-            this.Tracuudiemrenluyen_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Tracuudiemrenluyen_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Tracuudiemrenluyen_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Tracuudiemrenluyen_button.OnHoverImage = null;
-            this.Tracuudiemrenluyen_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Tracuudiemrenluyen_button.Size = new System.Drawing.Size(207, 30);
-            this.Tracuudiemrenluyen_button.TabIndex = 12;
-            this.Tracuudiemrenluyen_button.Text = "Tra cứu điểm rèn luyện";
-            this.Tracuudiemrenluyen_button.Click += new System.EventHandler(this.Tracuudiemrenluyen_button_Click);
-            // 
-            // Diemrenluyen_button
-            // 
-            this.Diemrenluyen_button.AnimationHoverSpeed = 0.07F;
-            this.Diemrenluyen_button.AnimationSpeed = 0.03F;
-            this.Diemrenluyen_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Diemrenluyen_button.BorderColor = System.Drawing.Color.Black;
-            this.Diemrenluyen_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Diemrenluyen_button.Enabled = false;
-            this.Diemrenluyen_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Diemrenluyen_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Diemrenluyen_button.ForeColor = System.Drawing.Color.White;
-            this.Diemrenluyen_button.Image = ((System.Drawing.Image)(resources.GetObject("Diemrenluyen_button.Image")));
-            this.Diemrenluyen_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Diemrenluyen_button.Location = new System.Drawing.Point(12, 328);
-            this.Diemrenluyen_button.Name = "Diemrenluyen_button";
-            this.Diemrenluyen_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Diemrenluyen_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Diemrenluyen_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Diemrenluyen_button.OnHoverImage = null;
-            this.Diemrenluyen_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Diemrenluyen_button.Size = new System.Drawing.Size(207, 30);
-            this.Diemrenluyen_button.TabIndex = 11;
-            this.Diemrenluyen_button.Text = "Điểm rèn luyện";
-            this.Diemrenluyen_button.Click += new System.EventHandler(this.Diemrenluyen_button_Click);
             // 
             // Tracuudiemtonghop_button
             // 
@@ -1218,7 +959,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop_button.ForeColor = System.Drawing.Color.White;
             this.Tracuudiemtonghop_button.Image = ((System.Drawing.Image)(resources.GetObject("Tracuudiemtonghop_button.Image")));
             this.Tracuudiemtonghop_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Tracuudiemtonghop_button.Location = new System.Drawing.Point(12, 292);
+            this.Tracuudiemtonghop_button.Location = new System.Drawing.Point(12, 229);
             this.Tracuudiemtonghop_button.Name = "Tracuudiemtonghop_button";
             this.Tracuudiemtonghop_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.Tracuudiemtonghop_button.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1229,31 +970,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop_button.TabIndex = 10;
             this.Tracuudiemtonghop_button.Text = "Tra cứu điểm tổng hợp";
             this.Tracuudiemtonghop_button.Click += new System.EventHandler(this.Tracuudiemtonghop_button_Click);
-            // 
-            // Dangkynguyenvonghoc_button
-            // 
-            this.Dangkynguyenvonghoc_button.AnimationHoverSpeed = 0.07F;
-            this.Dangkynguyenvonghoc_button.AnimationSpeed = 0.03F;
-            this.Dangkynguyenvonghoc_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Dangkynguyenvonghoc_button.BorderColor = System.Drawing.Color.Black;
-            this.Dangkynguyenvonghoc_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Dangkynguyenvonghoc_button.Enabled = false;
-            this.Dangkynguyenvonghoc_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Dangkynguyenvonghoc_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Dangkynguyenvonghoc_button.ForeColor = System.Drawing.Color.White;
-            this.Dangkynguyenvonghoc_button.Image = ((System.Drawing.Image)(resources.GetObject("Dangkynguyenvonghoc_button.Image")));
-            this.Dangkynguyenvonghoc_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Dangkynguyenvonghoc_button.Location = new System.Drawing.Point(12, 256);
-            this.Dangkynguyenvonghoc_button.Name = "Dangkynguyenvonghoc_button";
-            this.Dangkynguyenvonghoc_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Dangkynguyenvonghoc_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Dangkynguyenvonghoc_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Dangkynguyenvonghoc_button.OnHoverImage = null;
-            this.Dangkynguyenvonghoc_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Dangkynguyenvonghoc_button.Size = new System.Drawing.Size(207, 30);
-            this.Dangkynguyenvonghoc_button.TabIndex = 9;
-            this.Dangkynguyenvonghoc_button.Text = "Đăng ký nguyện vọng học";
-            this.Dangkynguyenvonghoc_button.Click += new System.EventHandler(this.Dangkynguyenvonghoc_button_Click);
             // 
             // Ketquadangkyhoc_button
             // 
@@ -1267,7 +983,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Ketquadangkyhoc_button.ForeColor = System.Drawing.Color.White;
             this.Ketquadangkyhoc_button.Image = ((System.Drawing.Image)(resources.GetObject("Ketquadangkyhoc_button.Image")));
             this.Ketquadangkyhoc_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Ketquadangkyhoc_button.Location = new System.Drawing.Point(12, 220);
+            this.Ketquadangkyhoc_button.Location = new System.Drawing.Point(12, 193);
             this.Ketquadangkyhoc_button.Name = "Ketquadangkyhoc_button";
             this.Ketquadangkyhoc_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.Ketquadangkyhoc_button.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1291,7 +1007,7 @@ namespace Sinhvien.tlu.Mainboard
             this.Dangkyhocmoi_button.ForeColor = System.Drawing.Color.White;
             this.Dangkyhocmoi_button.Image = ((System.Drawing.Image)(resources.GetObject("Dangkyhocmoi_button.Image")));
             this.Dangkyhocmoi_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Dangkyhocmoi_button.Location = new System.Drawing.Point(12, 184);
+            this.Dangkyhocmoi_button.Location = new System.Drawing.Point(12, 157);
             this.Dangkyhocmoi_button.Name = "Dangkyhocmoi_button";
             this.Dangkyhocmoi_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.Dangkyhocmoi_button.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1314,31 +1030,6 @@ namespace Sinhvien.tlu.Mainboard
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 6;
             this.gunaPictureBox1.TabStop = false;
-            // 
-            // Trangchu_button
-            // 
-            this.Trangchu_button.AnimationHoverSpeed = 0.07F;
-            this.Trangchu_button.AnimationSpeed = 0.03F;
-            this.Trangchu_button.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.Trangchu_button.BorderColor = System.Drawing.Color.Black;
-            this.Trangchu_button.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Trangchu_button.Enabled = false;
-            this.Trangchu_button.FocusedColor = System.Drawing.Color.Empty;
-            this.Trangchu_button.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Trangchu_button.ForeColor = System.Drawing.Color.White;
-            this.Trangchu_button.Image = ((System.Drawing.Image)(resources.GetObject("Trangchu_button.Image")));
-            this.Trangchu_button.ImageSize = new System.Drawing.Size(20, 20);
-            this.Trangchu_button.Location = new System.Drawing.Point(12, 148);
-            this.Trangchu_button.Name = "Trangchu_button";
-            this.Trangchu_button.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.Trangchu_button.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.Trangchu_button.OnHoverForeColor = System.Drawing.Color.White;
-            this.Trangchu_button.OnHoverImage = null;
-            this.Trangchu_button.OnPressedColor = System.Drawing.Color.Black;
-            this.Trangchu_button.Size = new System.Drawing.Size(207, 30);
-            this.Trangchu_button.TabIndex = 5;
-            this.Trangchu_button.Text = "Trang chủ";
-            this.Trangchu_button.Click += new System.EventHandler(this.Trangchu_button_Click);
             // 
             // Copyright
             // 
@@ -1381,6 +1072,57 @@ namespace Sinhvien.tlu.Mainboard
             this.linkLabel1.Text = "Bản quyền bản dựng thuộc về @Thanglele";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Copyright_LinkClicked);
             // 
+            // ListRoomExam
+            // 
+            this.ListRoomExam.AllowUserToAddRows = false;
+            this.ListRoomExam.AllowUserToDeleteRows = false;
+            this.ListRoomExam.AllowUserToResizeColumns = false;
+            this.ListRoomExam.AllowUserToResizeRows = false;
+            this.ListRoomExam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListRoomExam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListRoomExam.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ListRoomExam.BackgroundColor = System.Drawing.Color.White;
+            this.ListRoomExam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListRoomExam.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.ListRoomExam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListRoomExam.ColumnHeadersVisible = false;
+            this.ListRoomExam.EnableHeadersVisualStyles = false;
+            this.ListRoomExam.Location = new System.Drawing.Point(8, 39);
+            this.ListRoomExam.MultiSelect = false;
+            this.ListRoomExam.Name = "ListRoomExam";
+            this.ListRoomExam.ReadOnly = true;
+            this.ListRoomExam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListRoomExam.ShowEditingIcon = false;
+            this.ListRoomExam.Size = new System.Drawing.Size(1100, 581);
+            this.ListRoomExam.TabIndex = 6;
+            // 
+            // BtnCalendarTimeTable
+            // 
+            this.BtnCalendarTimeTable.AnimationHoverSpeed = 0.07F;
+            this.BtnCalendarTimeTable.AnimationSpeed = 0.03F;
+            this.BtnCalendarTimeTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnCalendarTimeTable.BaseColor = System.Drawing.Color.Teal;
+            this.BtnCalendarTimeTable.BorderColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BtnCalendarTimeTable.FocusedColor = System.Drawing.Color.Empty;
+            this.BtnCalendarTimeTable.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnCalendarTimeTable.ForeColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.Image = null;
+            this.BtnCalendarTimeTable.ImageSize = new System.Drawing.Size(20, 20);
+            this.BtnCalendarTimeTable.Location = new System.Drawing.Point(622, 6);
+            this.BtnCalendarTimeTable.Name = "BtnCalendarTimeTable";
+            this.BtnCalendarTimeTable.OnHoverBaseColor = System.Drawing.Color.RosyBrown;
+            this.BtnCalendarTimeTable.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.OnHoverForeColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.OnHoverImage = null;
+            this.BtnCalendarTimeTable.OnPressedColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.Size = new System.Drawing.Size(196, 25);
+            this.BtnCalendarTimeTable.TabIndex = 7;
+            this.BtnCalendarTimeTable.Text = "Đưa lịch thi lên Google Calendar";
+            this.BtnCalendarTimeTable.Click += new System.EventHandler(this.BtnCalendarTimeTable_Click);
+            // 
             // System_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1419,8 +1161,8 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop.ResumeLayout(false);
             this.Tracuudiemtonghop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).EndInit();
-            this.FCCID.ResumeLayout(false);
-            this.FCCID.PerformLayout();
+            this.Xemlichthi.ResumeLayout(false);
+            this.Xemlichthi.PerformLayout();
             this.Thongtintaikhoan.ResumeLayout(false);
             this.Thongtintaikhoan.PerformLayout();
             this.Doimatkhau.ResumeLayout(false);
@@ -1430,6 +1172,7 @@ namespace Sinhvien.tlu.Mainboard
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.Copyright_Panel.ResumeLayout(false);
             this.Copyright_Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1440,21 +1183,12 @@ namespace Sinhvien.tlu.Mainboard
         private Panel Top_Panel;
         private Panel Main_Panel;
         private Panel Left_Panel;
-        private Guna.UI.WinForms.GunaButton Trangchu_button;
         private Guna.UI.WinForms.GunaCirclePictureBox Logo_Header;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaButton Tracuuhocphi_button;
         private Guna.UI.WinForms.GunaButton Xemlichthi_button;
-        private Guna.UI.WinForms.GunaButton Chuongtrinhdaotao_button;
-        private Guna.UI.WinForms.GunaButton Tracuudiemrenluyen_button;
-        private Guna.UI.WinForms.GunaButton Diemrenluyen_button;
         private Guna.UI.WinForms.GunaButton Tracuudiemtonghop_button;
-        private Guna.UI.WinForms.GunaButton Dangkynguyenvonghoc_button;
         private Guna.UI.WinForms.GunaButton Ketquadangkyhoc_button;
         private Guna.UI.WinForms.GunaButton Dangkyhocmoi_button;
-        private Guna.UI.WinForms.GunaButton Nghiencuukhoahoc_button;
-        private Guna.UI.WinForms.GunaButton Kyluat_button;
-        private Guna.UI.WinForms.GunaButton Khenthuong_button;
         private Guna.UI.WinForms.GunaLabel DHTL;
         private Guna.UI.WinForms.GunaLinkLabel Copyright;
         private Guna.UI.WinForms.GunaLinePanel Copyright_Panel;
@@ -1465,7 +1199,6 @@ namespace Sinhvien.tlu.Mainboard
         private ToolStripMenuItem đăngXuấtToolStripMenuItem1;
         private Label Static_loading;
         private TabControl Main_Dashboard;
-        private TabPage TrangChu;
         private TabPage Dangkihocmoi;
         private Button refresh_button;
         private TableLayoutPanel Panel_New_Reg;
@@ -1478,15 +1211,9 @@ namespace Sinhvien.tlu.Mainboard
         private Guna.UI.WinForms.GunaComboBox displayOrder_Picker;
         private Guna.UI.WinForms.GunaComboBox semesterCode_Picker;
         private TabPage Ketquadangkyhoc;
-        private TabPage Dangkynguyenvonghoc;
         private TabPage Tracuudiemtonghop;
-        private TabPage Diemrenluyen;
-        private TabPage Chuongtrinhdaotao;
         private TabPage Xemlichthi;
         private TabPage Tracuuhocphi;
-        private TabPage Khenthuong;
-        private TabPage Kyluat;
-        private TabPage Nghiencuukhoahoc;
         private TabPage Thongtintaikhoan;
         private TextBox textBox1;
         private TabPage Doimatkhau;
@@ -1498,13 +1225,6 @@ namespace Sinhvien.tlu.Mainboard
         private Guna.UI.WinForms.GunaLineTextBox Old_Password;
         private Guna.UI.WinForms.GunaButton Change_Password_Button;
         private Guna.UI.WinForms.GunaLineTextBox RE_New_Password;
-        private TabPage Tracuudiemrenluyen;
-        private TabPage FCCID;
-        private Label label5;
-        private Label label1;
-        private Label label3;
-        private Label label4;
-        private Label label2;
         private LinkLabel linkLabel1;
         private DataGridView listStudentmark_table;
         private Label label8;
@@ -1512,5 +1232,12 @@ namespace Sinhvien.tlu.Mainboard
         private DataGridView DataLearnTimeTable;
         private Label label9;
         private Guna.UI.WinForms.GunaButton Calendar_Btn;
+        private Label label1;
+        private Guna.UI.WinForms.GunaComboBox TestNumber;
+        private Guna.UI.WinForms.GunaComboBox DisplayOrderExam;
+        private Guna.UI.WinForms.GunaComboBox ListSemester;
+        private Label label2;
+        private DataGridView ListRoomExam;
+        private Guna.UI.WinForms.GunaButton BtnCalendarTimeTable;
     }
 }

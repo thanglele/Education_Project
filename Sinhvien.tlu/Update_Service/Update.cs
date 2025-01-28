@@ -11,16 +11,9 @@ namespace Sinhvien.tlu.Login_form
 {
     internal class Update
     {
-        //Hàm kiểm tra kích hoạt phần mềm từ máy chủ
-        //Điều kiện đảo: false là cho phép chạy, true là không cho chạy
-        //public bool activate()
-        //{
-            
-        //}
-
         public bool checkversion()
         {
-            string currentVersion = "v1.0.5/KB1015";
+            string currentVersion = "v1.0.6/KB1016";
             /*Update tính năng xem kết quả đăng kí môn*/
             string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt";
 
