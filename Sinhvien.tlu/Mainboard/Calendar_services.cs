@@ -39,7 +39,7 @@ namespace Sinhvien.tlu.Mainboard
 
         public static async Task<CalendarService> Authenticate()
 		{
-            var clientSecrets = GoogleClientSecrets.FromStream(new MemoryStream(Encoding.UTF8.GetBytes(@"{""installed"":{""client_id"":""916619588737-3tac8hokbsgad163g4sh2e4jfi0as9oa.apps.googleusercontent.com"",""project_id"":""educationapi-432405"",""auth_uri"":""https://accounts.google.com/o/oauth2/auth"",""token_uri"":""https://oauth2.googleapis.com/token"",""auth_provider_x509_cert_url"":""https://www.googleapis.com/oauth2/v1/certs"",""client_secret"":""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"",""redirect_uris"":[""http://localhost""]}}"))).Secrets;
+            var clientSecrets = GoogleClientSecrets.FromStream(new MemoryStream(Encoding.UTF8.GetBytes(@"{""installed"":{""client_id"":"",""project_id"":"",""auth_uri"":"",""token_uri"":"""","""":"""",""client_secret"":"""",""redirect_uris"":[""http://localhost""]}}"))).Secrets;
 
             // Sử dụng LocalServerCodeReceiver để mở trình duyệt và theo dõi trạng thái
             var codeReceiver = new Google.Apis.Auth.OAuth2.LocalServerCodeReceiver();
