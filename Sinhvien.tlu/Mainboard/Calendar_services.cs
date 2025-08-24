@@ -1,17 +1,18 @@
-﻿using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Calendar.v3.Data;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Windows.Forms;
+using Google.Apis.Util.Store;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Sinhvien.tlu.Mainboard
 {
@@ -44,18 +45,20 @@ namespace Sinhvien.tlu.Mainboard
             // Sử dụng LocalServerCodeReceiver để mở trình duyệt và theo dõi trạng thái
             var codeReceiver = new Google.Apis.Auth.OAuth2.LocalServerCodeReceiver();
 
-			var authorizationCodeFlow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
-			{
-				ClientSecrets = clientSecrets,
-				Scopes = new string[] { "https://www.googleapis.com/auth/calendar.calendarlist.readonly", "https://www.googleapis.com/auth/calendar.app.created" },
-				DataStore = null
-			});
+            // Flow authorization
+            var authorizationCodeFlow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+            {
+                ClientSecrets = clientSecrets,
+                Scopes = new string[] { "https://www.googleapis.com/auth/calendar.calendarlist.readonly", "https://www.googleapis.com/auth/calendar.app.created" },
+                DataStore = null
+            });
 
-			var authResult = await new AuthorizationCodeInstalledApp(authorizationCodeFlow, codeReceiver)
-				.AuthorizeAsync("user", CancellationToken.None);
+            // Lấy credential
+            var authResult = await new AuthorizationCodeInstalledApp(authorizationCodeFlow, codeReceiver)
+                .AuthorizeAsync("user", CancellationToken.None);
 
-			// Kiểm tra nếu đăng nhập thành công, authResult sẽ không null
-			if (authResult != null && !authResult.Token.IsExpired(authorizationCodeFlow.Clock))
+            // Kiểm tra nếu đăng nhập thành công, authResult sẽ không null
+            if (authResult != null && !authResult.Token.IsExpired(authorizationCodeFlow.Clock))
 			{
 				return new CalendarService(new BaseClientService.Initializer()
 				{
@@ -105,6 +108,8 @@ namespace Sinhvien.tlu.Mainboard
 				return createdCalendar.Id;
 			}
 		}
+
+        //Tạo lịch thi
         public static string CreateSecondaryCalendarExam(CalendarService service)
         {
             // Lấy danh sách lịch của người dùng
@@ -140,6 +145,7 @@ namespace Sinhvien.tlu.Mainboard
             }
         }
 
+        //Xóa Event trong lịch
         public static void DeleteAllEventsInCalendar(CalendarService service, string calendarId)
 		{
 			var request = service.Events.List(calendarId);
@@ -294,6 +300,8 @@ namespace Sinhvien.tlu.Mainboard
             }
 			MessageBox.Show("Lịch học đã được gửi lên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
+
+        //Gửi lịch thi
         public static void AddEventToSecondaryCalendarExam(CalendarService service, string calendarId)
         {
             ListRoomExam_Preview last_exam = new ListRoomExam_Preview();

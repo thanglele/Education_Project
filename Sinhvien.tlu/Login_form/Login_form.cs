@@ -32,7 +32,7 @@ namespace Sinhvien.tlu.Login_form
                 Progress_Dowloader.Visible = true;
                 blockUI = true;
 
-                string downloadUrl = "https://education.thanglele08.id.vn/Download/Education-Setup.msi"; // URL tải xuống phiên bản mới
+                string downloadUrl = "https://education.thanglele.cloud/Download/Education-Setup.msi"; // URL tải xuống phiên bản mới
                 string tempFilePath = Path.Combine(Path.GetTempPath(), "Education-Setup.msi");
 
                 try

@@ -37,7 +37,7 @@ namespace Sinhvien.tlu.Login_form
             {
                 HttpClient client = new HttpClient();
 
-                HttpResponseMessage respond = client.PostAsync("https://api.thanglele08.id.vn/DigitalActive/updateKey", new StringContent(System.Text.Json.JsonSerializer.Serialize(new updateKey()
+                HttpResponseMessage respond = client.PostAsync("https://api.thanglele.cloud/DigitalActive/updateKey", new StringContent(System.Text.Json.JsonSerializer.Serialize(new updateKey()
                 {
                     username = inp_userKey.Text,
                     isActive = false,

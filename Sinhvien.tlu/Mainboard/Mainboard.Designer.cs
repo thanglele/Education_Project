@@ -32,10 +32,10 @@ namespace Sinhvien.tlu.Mainboard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(System_Main));
             this.UIPanel = new System.Windows.Forms.Panel();
             this.Top_Panel = new System.Windows.Forms.Panel();
@@ -69,6 +69,8 @@ namespace Sinhvien.tlu.Mainboard
             this.label8 = new System.Windows.Forms.Label();
             this.listStudentmark_table = new System.Windows.Forms.DataGridView();
             this.Xemlichthi = new System.Windows.Forms.TabPage();
+            this.BtnCalendarTimeTable = new Guna.UI.WinForms.GunaButton();
+            this.ListRoomExam = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TestNumber = new Guna.UI.WinForms.GunaComboBox();
@@ -95,8 +97,6 @@ namespace Sinhvien.tlu.Mainboard
             this.Copyright = new Guna.UI.WinForms.GunaLinkLabel();
             this.Copyright_Panel = new Guna.UI.WinForms.GunaLinePanel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.ListRoomExam = new System.Windows.Forms.DataGridView();
-            this.BtnCalendarTimeTable = new Guna.UI.WinForms.GunaButton();
             this.Top_Panel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_Header)).BeginInit();
@@ -111,13 +111,13 @@ namespace Sinhvien.tlu.Mainboard
             this.Tracuudiemtonghop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).BeginInit();
             this.Xemlichthi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).BeginInit();
             this.Thongtintaikhoan.SuspendLayout();
             this.Doimatkhau.SuspendLayout();
             this.panel_changepassword.SuspendLayout();
             this.Left_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.Copyright_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).BeginInit();
             this.SuspendLayout();
             // 
             // UIPanel
@@ -345,28 +345,28 @@ namespace Sinhvien.tlu.Mainboard
             this.List_Subject.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.List_Subject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_Subject.ColumnHeadersVisible = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject.DefaultCellStyle = dataGridViewCellStyle1;
             this.List_Subject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.List_Subject.Location = new System.Drawing.Point(3, 37);
             this.List_Subject.MultiSelect = false;
             this.List_Subject.Name = "List_Subject";
             this.List_Subject.ReadOnly = true;
             this.List_Subject.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.List_Subject.RowHeadersVisible = false;
             this.List_Subject.RowTemplate.Height = 30;
             this.List_Subject.RowTemplate.ReadOnly = true;
@@ -389,25 +389,25 @@ namespace Sinhvien.tlu.Mainboard
             this.List_Subject_Choice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.List_Subject_Choice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.List_Subject_Choice.ColumnHeadersVisible = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.List_Subject_Choice.DefaultCellStyle = dataGridViewCellStyle3;
             this.List_Subject_Choice.Location = new System.Drawing.Point(244, 37);
             this.List_Subject_Choice.Name = "List_Subject_Choice";
             this.List_Subject_Choice.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.List_Subject_Choice.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.List_Subject_Choice.RowHeadersVisible = false;
             this.List_Subject_Choice.RowTemplate.Height = 30;
             this.List_Subject_Choice.RowTemplate.ReadOnly = true;
@@ -641,6 +641,57 @@ namespace Sinhvien.tlu.Mainboard
             this.Xemlichthi.TabIndex = 8;
             this.Xemlichthi.Text = "Xem lịch thi";
             this.Xemlichthi.UseVisualStyleBackColor = true;
+            // 
+            // BtnCalendarTimeTable
+            // 
+            this.BtnCalendarTimeTable.AnimationHoverSpeed = 0.07F;
+            this.BtnCalendarTimeTable.AnimationSpeed = 0.03F;
+            this.BtnCalendarTimeTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnCalendarTimeTable.BaseColor = System.Drawing.Color.Teal;
+            this.BtnCalendarTimeTable.BorderColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.BtnCalendarTimeTable.FocusedColor = System.Drawing.Color.Empty;
+            this.BtnCalendarTimeTable.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnCalendarTimeTable.ForeColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.Image = null;
+            this.BtnCalendarTimeTable.ImageSize = new System.Drawing.Size(20, 20);
+            this.BtnCalendarTimeTable.Location = new System.Drawing.Point(622, 6);
+            this.BtnCalendarTimeTable.Name = "BtnCalendarTimeTable";
+            this.BtnCalendarTimeTable.OnHoverBaseColor = System.Drawing.Color.RosyBrown;
+            this.BtnCalendarTimeTable.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.OnHoverForeColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.OnHoverImage = null;
+            this.BtnCalendarTimeTable.OnPressedColor = System.Drawing.Color.Black;
+            this.BtnCalendarTimeTable.Size = new System.Drawing.Size(196, 25);
+            this.BtnCalendarTimeTable.TabIndex = 7;
+            this.BtnCalendarTimeTable.Text = "Đưa lịch thi lên Google Calendar";
+            this.BtnCalendarTimeTable.Click += new System.EventHandler(this.BtnCalendarTimeTable_Click);
+            // 
+            // ListRoomExam
+            // 
+            this.ListRoomExam.AllowUserToAddRows = false;
+            this.ListRoomExam.AllowUserToDeleteRows = false;
+            this.ListRoomExam.AllowUserToResizeColumns = false;
+            this.ListRoomExam.AllowUserToResizeRows = false;
+            this.ListRoomExam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListRoomExam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ListRoomExam.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ListRoomExam.BackgroundColor = System.Drawing.Color.White;
+            this.ListRoomExam.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListRoomExam.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.ListRoomExam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ListRoomExam.ColumnHeadersVisible = false;
+            this.ListRoomExam.EnableHeadersVisualStyles = false;
+            this.ListRoomExam.Location = new System.Drawing.Point(8, 39);
+            this.ListRoomExam.MultiSelect = false;
+            this.ListRoomExam.Name = "ListRoomExam";
+            this.ListRoomExam.ReadOnly = true;
+            this.ListRoomExam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ListRoomExam.ShowEditingIcon = false;
+            this.ListRoomExam.Size = new System.Drawing.Size(1100, 581);
+            this.ListRoomExam.TabIndex = 6;
             // 
             // label2
             // 
@@ -1072,57 +1123,6 @@ namespace Sinhvien.tlu.Mainboard
             this.linkLabel1.Text = "Bản quyền bản dựng thuộc về @Thanglele";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Copyright_LinkClicked);
             // 
-            // ListRoomExam
-            // 
-            this.ListRoomExam.AllowUserToAddRows = false;
-            this.ListRoomExam.AllowUserToDeleteRows = false;
-            this.ListRoomExam.AllowUserToResizeColumns = false;
-            this.ListRoomExam.AllowUserToResizeRows = false;
-            this.ListRoomExam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListRoomExam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ListRoomExam.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ListRoomExam.BackgroundColor = System.Drawing.Color.White;
-            this.ListRoomExam.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListRoomExam.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.ListRoomExam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ListRoomExam.ColumnHeadersVisible = false;
-            this.ListRoomExam.EnableHeadersVisualStyles = false;
-            this.ListRoomExam.Location = new System.Drawing.Point(8, 39);
-            this.ListRoomExam.MultiSelect = false;
-            this.ListRoomExam.Name = "ListRoomExam";
-            this.ListRoomExam.ReadOnly = true;
-            this.ListRoomExam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListRoomExam.ShowEditingIcon = false;
-            this.ListRoomExam.Size = new System.Drawing.Size(1100, 581);
-            this.ListRoomExam.TabIndex = 6;
-            // 
-            // BtnCalendarTimeTable
-            // 
-            this.BtnCalendarTimeTable.AnimationHoverSpeed = 0.07F;
-            this.BtnCalendarTimeTable.AnimationSpeed = 0.03F;
-            this.BtnCalendarTimeTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BtnCalendarTimeTable.BaseColor = System.Drawing.Color.Teal;
-            this.BtnCalendarTimeTable.BorderColor = System.Drawing.Color.Black;
-            this.BtnCalendarTimeTable.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.BtnCalendarTimeTable.FocusedColor = System.Drawing.Color.Empty;
-            this.BtnCalendarTimeTable.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnCalendarTimeTable.ForeColor = System.Drawing.Color.Black;
-            this.BtnCalendarTimeTable.Image = null;
-            this.BtnCalendarTimeTable.ImageSize = new System.Drawing.Size(20, 20);
-            this.BtnCalendarTimeTable.Location = new System.Drawing.Point(622, 6);
-            this.BtnCalendarTimeTable.Name = "BtnCalendarTimeTable";
-            this.BtnCalendarTimeTable.OnHoverBaseColor = System.Drawing.Color.RosyBrown;
-            this.BtnCalendarTimeTable.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.BtnCalendarTimeTable.OnHoverForeColor = System.Drawing.Color.Black;
-            this.BtnCalendarTimeTable.OnHoverImage = null;
-            this.BtnCalendarTimeTable.OnPressedColor = System.Drawing.Color.Black;
-            this.BtnCalendarTimeTable.Size = new System.Drawing.Size(196, 25);
-            this.BtnCalendarTimeTable.TabIndex = 7;
-            this.BtnCalendarTimeTable.Text = "Đưa lịch thi lên Google Calendar";
-            this.BtnCalendarTimeTable.Click += new System.EventHandler(this.BtnCalendarTimeTable_Click);
-            // 
             // System_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1163,6 +1163,7 @@ namespace Sinhvien.tlu.Mainboard
             ((System.ComponentModel.ISupportInitialize)(this.listStudentmark_table)).EndInit();
             this.Xemlichthi.ResumeLayout(false);
             this.Xemlichthi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).EndInit();
             this.Thongtintaikhoan.ResumeLayout(false);
             this.Thongtintaikhoan.PerformLayout();
             this.Doimatkhau.ResumeLayout(false);
@@ -1172,7 +1173,6 @@ namespace Sinhvien.tlu.Mainboard
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.Copyright_Panel.ResumeLayout(false);
             this.Copyright_Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ListRoomExam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

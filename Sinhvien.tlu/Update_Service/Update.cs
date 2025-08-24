@@ -13,9 +13,9 @@ namespace Sinhvien.tlu.Login_form
     {
         public bool checkversion()
         {
-            string currentVersion = "v1.0.6/KB1016";
+            string currentVersion = "v1.0.7/KB1018";
             /*Update tính năng xem kết quả đăng kí môn*/
-            string versionUrl = "https://education.thanglele08.id.vn/Current-Version.txt";
+            string versionUrl = "https://education.thanglele.cloud/Current-Version.txt";
 
             if (System.Diagnostics.Debugger.IsAttached == false)
             {

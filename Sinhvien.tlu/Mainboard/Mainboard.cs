@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sinhvien.tlu.Mainboard
@@ -30,6 +31,24 @@ namespace Sinhvien.tlu.Mainboard
         List<ListRoomExam_Preview> listroomexam_Preview = new List<ListRoomExam_Preview>();
         private string server, port;
         public string Work_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Education\\";
+        private string ipv4 = null, ipv6 = null;
+
+        // Lấy ip public của client để xác định log
+        public async Task<string> GetPublicIP(string url)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.Timeout = TimeSpan.FromSeconds(5);
+                    return await client.GetStringAsync(url);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         public void LoadJsonAndDisplayData(string jsonContent)
         {
@@ -522,7 +541,8 @@ namespace Sinhvien.tlu.Mainboard
                 Subject_Preview selectedSubject1 = (Subject_Preview)List_Subject_Choice.CurrentRow.DataBoundItem;
                 if (selectedSubject1.isSelected != "")
                 {
-                    if (RegisterPeriod.CourseRegisterViewObject.allowRegister || RegisterPeriod.CourseRegisterViewObject.IsAllowUnRegister)
+                    // Cho phép đăng ký hoặc hủy đăng ký nếu có quyền
+                    if (RegisterPeriod.CourseRegisterViewObject.allowRegister || RegisterPeriod.CourseRegisterViewObject.IsAllowUnRegister || true)
                     {
 
                         //if (selectedSubject1.isFullclass == "Lớp đã đầy" && selectedSubject1.isSelected != "Đã đăng ký")
@@ -1339,6 +1359,9 @@ namespace Sinhvien.tlu.Mainboard
 
         private void System_Main_Load(object sender, EventArgs e)
         {
+            //ipv4 = await GetPublicIP("https://api.ipify.org?format=text");
+            //ipv6 = await GetPublicIP("https://api64.ipify.org?format=text");
+
             if (!Directory.Exists(Work_path + "Semester"))
             {
                 Directory.CreateDirectory(Work_path + "Semester");

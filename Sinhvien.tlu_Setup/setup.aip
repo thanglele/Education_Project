@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="21.5.1" version="22.3" Modules="simple" RootPath="." Language="en" Id="{351EE70C-61D9-4367-B8B3-5DBEE31BCCA8}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.5.1" version="22.8" Modules="simple" RootPath="." Language="en" Id="{351EE70C-61D9-4367-B8B3-5DBEE31BCCA8}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_APP_FILE" Value="[#Sinhvien.tlu.exe]"/>
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
@@ -16,10 +16,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://www.facebook.com/Thanglele2884"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="Thanglele"/>
-    <ROW Property="ProductCode" Value="1033:{11D123E7-9E87-4245-94F6-0F3105F6B147} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{77E81886-8023-4E1A-A711-5A8A31F694F3} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Education"/>
-    <ROW Property="ProductVersion" Value="1.0.17" Options="4"/>
+    <ROW Property="ProductVersion" Value="1.0.18" Options="4"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{11F6D6BB-703F-4A27-A75A-75A1325DE3E1}"/>
